@@ -13,6 +13,7 @@
     "noUnusedLocals": true,
     "pretty": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "esModuleInterop": true,
     "downlevelIteration": true,
     "rootDir": "src",

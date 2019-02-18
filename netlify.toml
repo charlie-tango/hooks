@@ -1,0 +1,7 @@
+[build]
+  publish = "example"
+  command = "yarn storybook:build"
+
+[build.environment]
+  NODE_VERSION = "11.6.0"
+  YARN_VERSION = "1.13.0"
