@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2015",
+    "outDir": "lib/esm",
+    "noEmit": false
+  },
+  "exclude": [
+    "dist",
+    "example",
+    "lib",
+    "**/__tests__",
+    "**/stories",
+    "**/*.story.tsx"
+  ]
+}
