@@ -1,6 +1,6 @@
 {
   "name": "@charlietango/hooks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Charlie Tango",
   "description": "Collection of React Hooks",
   "private": false,
@@ -9,7 +9,7 @@
   "module": "lib/esm/index.js",
   "typings": "lib/index.d.ts",
   "files": [
-    "dist/*"
+    "lib/*"
   ],
   "repository": {
     "type": "git",
