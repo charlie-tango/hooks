@@ -1,6 +1,6 @@
 [build]
   publish = "example"
-  command = "yarn storybook:build"
+  command = "yarn build:storybook"
 
 [build.environment]
   NODE_VERSION = "11.6.0"
