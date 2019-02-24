@@ -1,0 +1,7 @@
+import { testHook } from 'react-testing-library'
+import %name% from './%name%'
+
+it('should execute the %name% hook', () => {
+  const { result } = testHook(() => %name%())
+  expect(result).toBe('👋')
+})

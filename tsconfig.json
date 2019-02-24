@@ -13,12 +13,10 @@
     "noUnusedLocals": true,
     "pretty": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
+    "allowJs": false,
     "esModuleInterop": true,
     "downlevelIteration": true,
-    "rootDir": "src",
-    "noEmit": true,
-    "listEmittedFiles": true
+    "noEmit": true
   },
-  "exclude": ["dist", "example", "lib", "__tests__"]
+  "exclude": ["lib", "__tests__"]
 }

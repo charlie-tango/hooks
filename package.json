@@ -1,13 +1,6 @@
 {
-  "name": "@charlietango/hooks",
-  "version": "0.1.1",
-  "author": "Charlie Tango",
   "description": "Collection of React Hooks",
-  "private": false,
-  "sideEffects": false,
-  "main": "lib/index.js",
-  "module": "lib/esm/index.js",
-  "typings": "lib/index.d.ts",
+  "private": true,
   "files": [
     "lib/*"
   ],
@@ -15,35 +8,13 @@
     "type": "git",
     "url": "https://github.com/charlie-tango/hooks.git"
   },
-  "license": "MIT",
-  "keywords": [
-    "react",
-    "hooks"
-  ],
-  "prettier": {
-    "singleQuote": true,
-    "semi": false,
-    "trailingComma": "all",
-    "proseWrap": "always"
-  },
-  "eslintIgnore": [
-    "*.snap",
-    "dist/**",
-    "lib/**",
-    "example/**"
-  ],
   "scripts": {
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "build": "rm -rf lib && run-s build:ts build:ts-modules ",
-    "build:ts": "tsc -p tsconfig.cjs.json",
-    "build:ts-modules": "tsc -p tsconfig.esm.json",
-    "build:storybook": "build-storybook --output-dir example -s .storybook/public",
-    "dev": "concurrently -k -r 'jest --watch' 'yarn run storybook'",
-    "lint": "eslint . --ext js,ts,tsx",
-    "preversion": "yarn build",
+    "clean": "lerna clean",
+    "build": "lerna run build --stream --parallel",
+    "lint": "lerna run lint --stream --parallel",
+    "new-hook": "node tools/new-hook",
     "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
-    "storybook": "start-storybook -p 9000 -s .storybook/public",
-    "test": "jest"
+    "test": "lerna run test --stream --parallel"
   },
   "husky": {
     "hooks": {
@@ -72,25 +43,13 @@
       "react": {
         "version": "detect"
       }
-    },
-    "rules": {
-      "no-unused-vars": 0
     }
   },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": [
-      "react-testing-library/cleanup-after-each",
-      "jest-dom/extend-expect"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "jest-setup.js"
-    ]
-  },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
-    "invariant": "^2.0.0"
+    "invariant": "^2.0.0",
+    "json2mq": "^0.2.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0 || ^17.0.0"
@@ -100,51 +59,42 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
-    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
-    "@storybook/addon-actions": "^4.1.4",
-    "@storybook/addon-options": "^4.1.4",
-    "@storybook/components": "^4.1.11",
-    "@storybook/react": "^4.1.4",
     "@types/jest": "^24.0.4",
     "@types/react": "^16.8.2",
-    "@types/storybook-readme": "^4.0.0",
-    "@types/storybook__addon-actions": "^3.4.1",
-    "@types/storybook__react": "^4.0.0",
-    "@types/styled-components": "^4.1.10",
     "@typescript-eslint/eslint-plugin": "^1.1.1",
     "@typescript-eslint/parser": "^1.1.1",
-    "babel-core": "^7.0.0-bridge.0",
+    "ansi-colors": "^3.2.3",
     "babel-eslint": "10.0.1",
     "babel-jest": "^24.0.0",
     "babel-loader": "^8.0.5",
-    "babel-plugin-macros": "^2.5.0",
-    "concurrently": "4.1.0",
-    "coveralls": "^3.0.2",
-    "error-overlay-webpack-plugin": "^0.1.6",
     "eslint": "5.x",
     "eslint-config-react-app": "^3.0.7",
     "eslint-plugin-flowtype": "^3.2.1",
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-react": "7.x",
-    "github-markdown-css": "^3.0.1",
+    "execa": "^1.0.0",
+    "globby": "^9.0.0",
     "husky": "^1.3.1",
+    "inquirer": "^6.2.2",
     "jest": "^24.0.0",
     "jest-dom": "^3.1.1",
+    "lerna": "^3.13.0",
     "lint-staged": "^8.1.1",
-    "npm-run-all": "^4.1.5",
-    "paths.macro": "^2.0.2",
+    "lodash": "^4.17.11",
+    "mkdirp": "^0.5.1",
+    "ora": "^3.1.0",
     "prettier": "^1.16.2",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "react-markdown": "^4.0.6",
-    "react-syntax-highlighter": "^10.1.3",
-    "react-test-renderer": "^16.8.0",
     "react-testing-library": "^5.7.0",
-    "styled-components": "^4.1.3",
+    "rollup": "^1.2.3",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^4.0.1",
     "typescript": "^3.2.4",
     "typescript-eslint-parser": "^22.0.0"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

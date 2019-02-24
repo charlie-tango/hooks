@@ -1,4 +1,3 @@
-import React from 'react'
 import { testHook } from 'react-testing-library'
 import { usePrevious } from '../usePrevious'
 

@@ -1,0 +1,44 @@
+{
+  "name": "@charlietango/%packageName%",
+  "description": "%description%",
+  "version": "%version%",
+  "private": false,
+  "sideEffects": false,
+  "main": "lib/%name%.js",
+  "module": "lib/esm/%name%.js",
+  "typings": "lib/%name%.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "files": [
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/hooks.git"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js,ts,tsx",
+    "prebuild": "rm -rf lib",
+    "build": "rollup -c ../../tools/rollup.config.js",
+    "postbuild": "tsc --noEmit false",
+    "prepublish": "yarn build",
+    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
+    "test": "jest"
+  },
+  "babel": {
+    "extends": "../../.babelrc"
+  },
+  "jest": {
+    "preset": "../../jest.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}

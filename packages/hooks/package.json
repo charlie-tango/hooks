@@ -1,0 +1,25 @@
+{
+  "name": "@charlietango/hooks",
+  "version": "0.1.1",
+  "author": "Charlie Tango",
+  "description": "Collection of React Hooks",
+  "private": false,
+  "sideEffects": false,
+  "main": "lib/hooks.js",
+  "module": "lib/esm/hooks.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/hooks.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "dependencies": {
+  }
+}
