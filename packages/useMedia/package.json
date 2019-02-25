@@ -1,0 +1,52 @@
+{
+  "name": "@charlietango/use-media",
+  "description": "Detect if the browser matches a media query",
+  "version": "1.0.0",
+  "private": false,
+  "sideEffects": false,
+  "main": "lib/useMedia.js",
+  "module": "lib/esm/useMedia.js",
+  "typings": "lib/useMedia.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "files": [
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/hooks.git"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js,ts,tsx",
+    "prebuild": "rm -rf lib",
+    "build": "rollup -c ../../tools/rollup.config.js",
+    "postbuild": "tsc --noEmit false",
+    "prepublish": "yarn build",
+    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
+    "test": "jest"
+  },
+  "babel": {
+    "extends": "../../.babelrc"
+  },
+  "jest": {
+    "preset": "../../jest.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "json2mq": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/json2mq": "^0.2.0",
+    "react-hooks-testing-library": "^0.3.3",
+    "react-testing-library": "^6.0.0"
+  }
+}

@@ -27,7 +27,5 @@ yarn.lock
 coverage
 src/stories
 tests
-example
-jest-setup.js
 __tests__
-global-types.d.ts
+*.test.*

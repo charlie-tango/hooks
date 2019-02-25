@@ -1,20 +1,14 @@
 language: node_js
 node_js:
-  - '11'
+  - '10'
 cache: yarn
 script:
-  - yarn lint
-  - yarn test --coverage
-  - yarn tsc
-  - yarn build:storybook
-after_success:
-  - yarn coveralls
+  - yarn test
+before_deploy:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
 deploy:
-  provider: pages
-  local_dir: example
+  provider: script
+  script: "yarn release"
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   on:
     branch: master
-notifications:
-  email: false

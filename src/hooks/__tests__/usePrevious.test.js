@@ -1,5 +1,4 @@
-import React from 'react'
-import { testHook } from 'react-testing-library'
+import { testHook } from 'react-hooks-testing-library'
 import { usePrevious } from '../usePrevious'
 
 it('should return previous value', () => {

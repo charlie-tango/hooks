@@ -1,6 +1,6 @@
-import React from 'react'
-import { useScript } from '../useScript'
-import { fireEvent, testHook } from 'react-testing-library'
+import { useScript } from './useScript'
+import { fireEvent } from 'react-testing-library'
+import { renderHook } from 'react-hooks-testing-library'
 
 const url = 'https://external.api/api.js'
 
@@ -11,7 +11,7 @@ afterEach(() => {
 })
 
 it('should load the external script', () => {
-  const { result, rerender } = testHook(() => useScript(url))
+  const { result, rerender } = renderHook(() => useScript(url))
   let script = document.querySelector(`script[src="${url}"]`)
   expect(script).toBeDefined()
 
@@ -23,7 +23,7 @@ it('should load the external script', () => {
 })
 
 it('should handle errors when loading', () => {
-  const { result, rerender } = testHook(() => useScript(url))
+  const { result, rerender } = renderHook(() => useScript(url))
   let script = document.querySelector(`script[src="${url}"]`)
   expect(script).toBeDefined()
 
@@ -36,9 +36,9 @@ it('should handle errors when loading', () => {
 })
 
 it('should not create more then one script entry', () => {
-  testHook(() => useScript(url))
-  testHook(() => useScript(url))
-  testHook(() => useScript(url))
+  renderHook(() => useScript(url))
+  renderHook(() => useScript(url))
+  renderHook(() => useScript(url))
 
   let scripts = document.querySelectorAll(`script[src="${url}"]`)
   expect(scripts).toHaveLength(1)
