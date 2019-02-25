@@ -13,12 +13,14 @@
     "build": "lerna run build --stream --parallel",
     "lint": "lerna run lint --stream --parallel",
     "new-hook": "node tools/new-hook",
+    "release": "cross-env HUSKY_BYPASS=true lerna publish",
     "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
     "test": "lerna run test --stream --parallel"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc && lint-staged"
+      "pre-commit": "tsc && lint-staged",
+      "commit-msg": "[[ -n $HUSKY_BYPASS ]] || commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -61,15 +63,18 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
-    "@types/jest": "^24.0.4",
-    "@types/react": "^16.8.2",
-    "@typescript-eslint/eslint-plugin": "^1.1.1",
-    "@typescript-eslint/parser": "^1.1.1",
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@types/jest": "^24.0.6",
+    "@types/react": "^16.8.4",
+    "@typescript-eslint/eslint-plugin": "^1.4.1",
+    "@typescript-eslint/parser": "^1.4.1",
     "ansi-colors": "^3.2.3",
     "babel-eslint": "10.0.1",
     "babel-jest": "^24.0.0",
     "babel-loader": "^8.0.5",
-    "eslint": "5.x",
+    "cross-env": "^5.2.0",
+    "eslint": "5.14.1",
     "eslint-config-react-app": "^3.0.7",
     "eslint-plugin-flowtype": "^3.2.1",
     "eslint-plugin-import": "2.16.0",
@@ -87,11 +92,12 @@
     "mkdirp": "^0.5.1",
     "ora": "^3.1.0",
     "prettier": "^1.16.2",
-    "react-testing-library": "^5.7.0",
+    "react-hooks-testing-library": "^0.3.3",
+    "react-testing-library": "^6.0.0",
     "rollup": "^1.2.3",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-node-resolve": "^4.0.1",
-    "typescript": "^3.2.4",
+    "typescript": "^3.3.3333",
     "typescript-eslint-parser": "^22.0.0"
   },
   "workspaces": [

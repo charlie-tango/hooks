@@ -1,4 +1,4 @@
-import { testHook } from 'react-testing-library'
+import { testHook } from 'react-hooks-testing-library'
 import %name% from './%name%'
 
 it('should execute the %name% hook', () => {

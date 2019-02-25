@@ -1,12 +1,12 @@
 {
-  "name": "@charlietango/%packageName%",
-  "description": "%description%",
-  "version": "%version%",
+  "name": "@charlietango/use-media",
+  "description": "Detect if the browser matches a media query",
+  "version": "1.0.0",
   "private": false,
   "sideEffects": false,
-  "main": "lib/%name%.js",
-  "module": "lib/esm/%name%.js",
-  "typings": "lib/%name%.d.ts",
+  "main": "lib/useMedia.js",
+  "module": "lib/esm/useMedia.js",
+  "typings": "lib/useMedia.d.ts",
   "license": "MIT",
   "keywords": [
     "react",
@@ -37,12 +37,16 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "react-hooks-testing-library": "^0.3.3",
-    "react-testing-library": "^6.0.0"
-  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "json2mq": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/json2mq": "^0.2.0",
+    "react-hooks-testing-library": "^0.3.3",
+    "react-testing-library": "^6.0.0"
   }
 }
