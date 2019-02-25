@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-script",
   "description": "Load an external third party script",
-  "version": "1.0.0",
+  "version": "0.1.2",
   "private": false,
   "sideEffects": false,
   "main": "lib/useScript.cjs.js",

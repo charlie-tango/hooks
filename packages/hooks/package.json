@@ -1,6 +1,6 @@
 {
   "name": "@charlietango/hooks",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Charlie Tango",
   "description": "Collection of React Hooks",
   "private": false,
@@ -19,7 +19,5 @@
   "keywords": [
     "react",
     "hooks"
-  ],
-  "dependencies": {
-  }
+  ]
 }
