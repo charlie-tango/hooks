@@ -1,4 +1,4 @@
-import { useScript } from './useScript'
+import useScript from './useScript'
 import { fireEvent } from 'react-testing-library'
 import { renderHook } from 'react-hooks-testing-library'
 
