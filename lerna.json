@@ -3,7 +3,9 @@
   "packages": ["packages/*"],
   "useWorkspaces": true,
   "version": "independent",
-  "publish": {
-    "conventionalCommits": true
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    }
   }
 }
