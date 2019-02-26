@@ -37,10 +37,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "react-hooks-testing-library": "^0.3.3",
-    "react-testing-library": "^6.0.0"
-  },
+  "devDependencies": {},
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

@@ -38,8 +38,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "react-hooks-testing-library": "^0.3.3",
-    "react-testing-library": "^6.0.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

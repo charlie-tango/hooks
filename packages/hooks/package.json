@@ -19,5 +19,8 @@
   "keywords": [
     "react",
     "hooks"
-  ]
+  ],
+  "dependencies": {
+    "@charlietango/use-script": "latest"
+  }
 }

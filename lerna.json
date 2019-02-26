@@ -4,7 +4,6 @@
   "useWorkspaces": true,
   "version": "independent",
   "publish": {
-    "conventionalCommits": true,
-    "yes": true
+    "conventionalCommits": true
   }
 }

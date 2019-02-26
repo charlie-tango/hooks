@@ -714,6 +714,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@charlietango/use-script@latest":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@charlietango/use-script/-/use-script-0.1.2.tgz#f4c71e53a63635d2560b84fadfcdbd8eb6566cf8"
+  integrity sha512-HhoR86jvBgxA7IMmed0QkjXWFWIOMueJQFWcQX1F3/oHQ4kS2Xkf1NfLHYy+WTf6CE6z+So9R7cqhKsux7xkcg==
+
 "@commitlint/cli@^7.5.2":
   version "7.5.2"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-7.5.2.tgz#2475cd8f7ed3b2f9c2ab96c06bc24d61d23f8716"
@@ -6588,10 +6593,10 @@ react-dom@^16.8.3:
     prop-types "^15.6.2"
     scheduler "^0.13.3"
 
-react-hooks-testing-library@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/react-hooks-testing-library/-/react-hooks-testing-library-0.3.3.tgz#0b3f536d454bb5f1d15a1bb8e16b6e8e0ea82936"
-  integrity sha512-c05In8nozyMrnZsn0bt0SbFpwaXSFo3iwo2fgQkW5jl56PbPdpmcM5seSIx9ElnsPLp6aEqvqiLVxQsUe8IcfA==
+react-hooks-testing-library@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/react-hooks-testing-library/-/react-hooks-testing-library-0.3.4.tgz#b7408f966c6b3fbdc7e975ff655786069e8b972e"
+  integrity sha512-A4dhnedN7DtWWiRyOG/C3Sg9aN+rScKN6DWsFIUCA2Z5m23lC5xQ4X5NKSTt3wlXcmfvXUMQoEVLwKckI4jd7Q==
   dependencies:
     react-testing-library "^6.0.0"
 
