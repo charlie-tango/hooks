@@ -1,12 +1,12 @@
 {
-  "name": "@charlietango/use-media",
-  "description": "Detect if the browser matches a media query",
-  "version": "0.1.2",
+  "name": "@charlietango/use-element-size",
+  "description": "Measure the size of a DOM element using ResizeObserver",
+  "version": "1.0.0",
   "private": false,
   "sideEffects": false,
-  "main": "lib/useMedia.cjs.js",
-  "module": "lib/useMedia.esm.js",
-  "typings": "lib/useMedia.d.ts",
+  "main": "lib/useElementSize.cjs.js",
+  "module": "lib/useElementSize.esm.js",
+  "typings": "lib/useElementSize.d.ts",
   "license": "MIT",
   "keywords": [
     "react",
@@ -37,14 +37,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "devDependencies": {},
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "json2mq": "^0.2.0"
-  },
-  "devDependencies": {
-    "@types/json2mq": "^0.2.0"
+    "resize-observer-polyfill": "^1.5.1"
   }
 }

@@ -4,8 +4,8 @@
   "version": "%version%",
   "private": false,
   "sideEffects": false,
-  "main": "lib/%name%.js",
-  "module": "lib/esm/%name%.js",
+  "main": "lib/%name%.cjs.js",
+  "module": "lib/%name%.esm.js",
   "typings": "lib/%name%.d.ts",
   "license": "MIT",
   "keywords": [
