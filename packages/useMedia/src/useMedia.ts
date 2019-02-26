@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
 import json2mq, { QueryObject } from 'json2mq'
 
-export function useMedia(query: string | QueryObject, defaultMatches = true) {
+export default function useMedia(
+  query: string | QueryObject,
+  defaultMatches = true,
+) {
   const [matches, setMatches] = useState(defaultMatches)
 
   useEffect(() => {

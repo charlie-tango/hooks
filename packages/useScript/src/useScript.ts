@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
  * @param {string} url The external script to load
  * @return boolean True if the script has been loaded
  * */
-export function useScript(url: string): boolean {
+export default function useScript(url: string): boolean {
   const [ready, setReady] = useState<boolean>(false)
 
   function onReady() {

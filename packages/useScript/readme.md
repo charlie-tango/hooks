@@ -20,7 +20,7 @@ const ready = useScript(url)
 
 ```jsx harmony
 import React from 'react'
-import { useScript } from '@charlietango/use-script'
+import useScript from '@charlietango/use-script'
 
 const Component = () => {
   const scriptReady = useScript('https://api.google.com/api.js')
