@@ -7,3 +7,5 @@ script:
   - yarn test
   - yarn tsc
   - yarn build
+notifications:
+  email: false
