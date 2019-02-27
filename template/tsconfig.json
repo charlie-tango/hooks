@@ -6,5 +6,6 @@
     "emitDeclarationOnly": true,
     "noEmit": false
   },
-  "exclude": ["lib"]
+  "exclude": ["lib"],
+  "include": ["../../types/story-types.d.ts"]
 }

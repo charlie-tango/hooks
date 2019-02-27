@@ -6,5 +6,7 @@
     "emitDeclarationOnly": true,
     "noEmit": false
   },
-  "exclude": ["lib"]
+  "include": ["src/**/*.*"],
+  "exclude": ["lib", "**/*.story.tsx", "**/*.test.*"],
+  "files": ["../../types/story-types.d.ts"]
 }
