@@ -14,11 +14,17 @@ module.exports = (baseConfig, env, defaultConfig) => {
   // })
   defaultConfig.resolve.extensions.push('.ts', '.tsx')
 
-  defaultConfig.module.rules[0].test = /\.(mjs|[tj]sx?)$/
-  defaultConfig.module.rules[0].include = globby
-    .sync('../use*/src', { onlyDirectories: true, onlyFiles: false })
+  const sourceRoots = globby
+    .sync(['../use*/src'], { onlyDirectories: true, onlyFiles: false })
     .map(file => path.resolve(file))
-  defaultConfig.module.rules[0].exclude = [path.resolve('../../node_modules')]
+
+  defaultConfig.module.rules[0].test = /\.(mjs|[tj]sx?)$/
+  defaultConfig.module.rules[0].include = [...sourceRoots, path.resolve('./')]
+
+  defaultConfig.module.rules[0].exclude = [
+    path.resolve('../../node_modules'),
+    path.resolve('node_modules'),
+  ]
 
   // use @babel/preset-react for JSX and env (instead of staged presets)
   defaultConfig.module.rules[0].use[0].options.presets = [

@@ -11,7 +11,7 @@ const ScriptComponent = () => {
   return <code>Script ready: {ready.toString()}</code>
 }
 
-storiesOf('Hooks|useScript', module).add('External script', () => (
+storiesOf('useScript', module).add('Example', () => (
   <>
     <h1>Render the hook</h1>
     <ScriptComponent />

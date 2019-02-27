@@ -16,7 +16,7 @@ const output = %name%()
 
 ## Example
 
-```jsx harmony
+```js
 import React from 'react'
 import %name% from '@charlietango/%packageName%'
 

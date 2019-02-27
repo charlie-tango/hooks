@@ -18,7 +18,7 @@ const ready = useScript(url)
 
 ## Example
 
-```jsx harmony
+```js
 import React from 'react'
 import useScript from '@charlietango/use-script'
 

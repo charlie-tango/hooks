@@ -1,0 +1,19 @@
+import React, { useEffect } from 'react'
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import %name% from './%name%'
+
+const HookComponent = () => {
+  const result = %name%()
+  useEffect(() => {
+    action('hook result')(result)
+  }, [result])
+  return <code>Hook result: {result.toString()}</code>
+}
+
+storiesOf('%name%', module).add('Example', () => (
+  <>
+    <h1>Render the hook</h1>
+    <HookComponent />
+  </>
+))
