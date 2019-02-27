@@ -14,12 +14,7 @@ export default function useMedia(
 
     setMatches(mediaQuery.matches)
 
-    const listener = () => {
-      if (mediaQuery.matches !== matches) {
-        setMatches(mediaQuery.matches)
-      }
-    }
-
+    const listener = () => setMatches(mediaQuery.matches)
     mediaQuery.addListener(listener)
 
     return () => {
