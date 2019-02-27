@@ -1,4 +1,10 @@
 {
   "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declarationDir": "lib",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false
+  },
   "exclude": ["lib"]
 }
