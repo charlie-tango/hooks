@@ -16,7 +16,7 @@
     "allowJs": false,
     "esModuleInterop": true,
     "downlevelIteration": true,
-    "noEmit": false
+    "noEmit": true
   },
   "exclude": ["lib", "__tests__"]
 }

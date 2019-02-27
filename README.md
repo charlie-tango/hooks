@@ -1,11 +1,12 @@
 # Charlie Tango Hooks
 
 [![Version Badge][npm-version-svg]][package-url]
-[![GZipped size][npm-minzip-svg]][bundlephobia-url]
 [![Build Status][travis-svg]][travis-url]
 [![dependency status][deps-svg]][deps-url]
 [![dev dependency status][dev-deps-svg]][dev-deps-url]
 [![License][license-image]][license-url]
+[![Greenkeeper badge][greenkeeper-svg]][greenkeeper-url]
+[![styled with prettier][prettier-svg]][prettier-url]
 
 Collection of React Hooks used by Charlie Tango.
 
@@ -39,11 +40,13 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 
 <!-- HOOKS_END -->
 
+To use the Hook, import it from the package you installed, like:
+
 ```js
-import useMedia from "@charlietango/use-media";
+import useMedia from '@charlietango/use-media'
 ```
 
-### @charlietango/hooks`
+### `@charlietango/hooks`
 
 The [@charlietango/hooks](https://www.npmjs.com/package/@charlietango/hooks)
 module collects all of the individual modules into a single dependency. The module
@@ -51,7 +54,7 @@ is optimized for tree shaking, so you application should only include the depend
 you actually use.
 
 ```js
-import { useMedia } from "@charlietango/hooks";
+import { useMedia } from '@charlietango/hooks'
 ```
 
 ### Third Party Hooks
@@ -92,8 +95,6 @@ history.
 
 [package-url]: https://npmjs.org/package/@charlietango/hooks
 [npm-version-svg]: https://img.shields.io/npm/v/@charlietango/hooks.svg
-[npm-minzip-svg]: https://img.shields.io/bundlephobia/minzip/@charlietango/hooks.svg
-[bundlephobia-url]: https://bundlephobia.com/result?p=@charlietango/hooks
 [travis-svg]: https://travis-ci.org/charlie-tango/hooks.svg
 [travis-url]: https://travis-ci.org/charlie-tango/hooks
 [deps-svg]: https://david-dm.org/charlie-tango/hooks.svg
@@ -104,3 +105,5 @@ history.
 [license-url]: LICENSE
 [greenkeeper-svg]: https://badges.greenkeeper.io/charlie-tango/hooks.svg
 [greenkeeper-url]: https://greenkeeper.io/
+[prettier-svg]: https://img.shields.io/badge/styled_with-prettier-ff69b4.svg
+[prettier-url]: https://github.com/prettier/prettier
