@@ -3,11 +3,16 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import %name% from './%name%'
 
-const HookComponent = () => {
+type Props = {
+}
+
+const HookComponent = (props:Props) => {
   const result = %name%()
+
   useEffect(() => {
     action('hook result')(result)
   }, [result])
+
   return <code>Hook result: {result.toString()}</code>
 }
 
