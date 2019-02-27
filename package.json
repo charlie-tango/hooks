@@ -10,7 +10,7 @@
   },
   "scripts": {
     "clean": "lerna clean",
-    "build": "lerna run build --stream --parallel",
+    "build": "lerna run build --stream",
     "lint": "lerna run lint --stream --parallel",
     "new-hook": "node tools/new-hook",
     "update-readme": "node tools/update-readme",
@@ -53,8 +53,6 @@
     }
   },
   "dependencies": {
-    "invariant": "^2.0.0",
-    "json2mq": "^0.2.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
   },

@@ -16,7 +16,7 @@ const hookName = `use${pkg.name
 const root = process.platform === 'win32' ? path.resolve('/') : '/'
 const external = id => !id.startsWith('.') && !id.startsWith(root)
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
-const sourceFiles = globby.sync(`src/{${hookName},index}.{ts,tsx,js}`)
+const sourceFiles = globby.sync(`src/{${hookName},index,hooks}.{ts,tsx,js}`)
 
 if (!sourceFiles.length) {
   throw new Error('Failed to find a valid source input file for ' + pkg.name)

@@ -16,7 +16,10 @@
     "allowJs": false,
     "esModuleInterop": true,
     "downlevelIteration": true,
-    "noEmit": true
+    "declarationDir": "lib",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "noEmit": false
   },
   "exclude": ["lib", "__tests__"]
 }

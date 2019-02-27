@@ -674,6 +674,13 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
+"@babel/runtime@^7.0.0":
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.4.tgz#73d12ba819e365fcf7fd152aed56d6df97d21c83"
+  integrity sha512-IvfvnMdSaLBateu0jfsYIpZTxAc2cKEXEMiezGGN75QcBcecDUKd3PgLAncT0oOgxKy8dd8hrJKj9MfzgfZd6g==
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@babel/runtime@^7.1.5", "@babel/runtime@^7.3.1":
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.1.tgz#574b03e8e8a9898eaf4a872a92ea20b7846f6f2a"
@@ -713,11 +720,6 @@
     esutils "^2.0.2"
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
-
-"@charlietango/use-script@latest":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@charlietango/use-script/-/use-script-0.1.2.tgz#f4c71e53a63635d2560b84fadfcdbd8eb6566cf8"
-  integrity sha512-HhoR86jvBgxA7IMmed0QkjXWFWIOMueJQFWcQX1F3/oHQ4kS2Xkf1NfLHYy+WTf6CE6z+So9R7cqhKsux7xkcg==
 
 "@commitlint/cli@^7.5.2":
   version "7.5.2"
@@ -6599,6 +6601,14 @@ react-hooks-testing-library@^0.3.4:
   integrity sha512-A4dhnedN7DtWWiRyOG/C3Sg9aN+rScKN6DWsFIUCA2Z5m23lC5xQ4X5NKSTt3wlXcmfvXUMQoEVLwKckI4jd7Q==
   dependencies:
     react-testing-library "^6.0.0"
+
+react-intersection-observer@^8.10.0:
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.10.0.tgz#e0f5b2f28c93aa1f0994ea681f61dbd55fa208a1"
+  integrity sha512-4hEP7DYPM7ZkiFKwBbOI3rv6op7Q9BTSjfEGEfMiTXgQLql+0bNaodvGKYu/am8Y3K52aF+QRjTuP9SgawWwhA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    invariant "^2.0.0"
 
 react-is@^16.8.1:
   version "16.8.2"

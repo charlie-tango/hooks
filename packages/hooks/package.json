@@ -2,7 +2,7 @@
   "name": "@charlietango/hooks",
   "version": "0.1.3",
   "author": "Charlie Tango",
-  "description": "Collection of React Hooks",
+  "description": "Collection of React Hooks grouped into @charlietango/hooks",
   "private": false,
   "sideEffects": false,
   "main": "lib/hooks.cjs.js",
@@ -20,9 +20,28 @@
     "react",
     "hooks"
   ],
+  "scripts": {
+    "lint": "eslint . --ext js,ts,tsx",
+    "prebuild": "rm -rf lib",
+    "build": "rollup -c ../../tools/rollup.config.js",
+    "postbuild": "tsc --noEmit false",
+    "prepublish": "yarn build",
+    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
+    "test": "jest"
+  },
+  "babel": {
+    "extends": "../../.babelrc"
+  },
+  "jest": {
+    "preset": "../../jest.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@charlietango/use-element-size": "latest",
-    "@charlietango/use-media": "latest",
-    "@charlietango/use-script": "latest"
+    "@charlietango/use-element-size": "^0.1.4",
+    "@charlietango/use-media": "^0.1.4",
+    "@charlietango/use-script": "^0.1.4",
+    "react-intersection-observer": "^8.10.0"
   }
 }
