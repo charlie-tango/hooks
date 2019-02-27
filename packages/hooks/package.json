@@ -1,6 +1,6 @@
 {
   "name": "@charlietango/hooks",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Charlie Tango",
   "description": "Collection of React Hooks grouped into @charlietango/hooks",
   "private": false,
@@ -39,9 +39,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@charlietango/use-element-size": "^0.1.6",
-    "@charlietango/use-media": "^0.1.6",
-    "@charlietango/use-script": "^0.1.6",
+    "@charlietango/use-element-size": "^0.1.7",
+    "@charlietango/use-media": "^0.1.7",
+    "@charlietango/use-script": "^0.1.7",
     "react-intersection-observer": "^8.10.0"
   },
   "gitHead": "9fabdd1c8d4d373df00340e9f0524ca18f34817e"

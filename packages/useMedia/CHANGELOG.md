@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/charlie-tango/hooks/compare/@charlietango/use-media@0.1.6...@charlietango/use-media@0.1.7) (2019-02-27)
+
+### Bug Fixes
+
+- **useMedia:** fix useMedia hook not updating state correctly ([c17293c](https://github.com/charlie-tango/hooks/commit/c17293c))
+
 ## [0.1.6](https://github.com/charlie-tango/hooks/compare/@charlietango/use-media@0.1.5...@charlietango/use-media@0.1.6) (2019-02-27)
 
 **Note:** Version bump only for package @charlietango/use-media
