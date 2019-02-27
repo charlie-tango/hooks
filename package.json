@@ -10,7 +10,7 @@
   },
   "scripts": {
     "clean": "lerna clean",
-    "build": "lerna run build --stream",
+    "build": "lerna run build --stream --no-private",
     "build:storybook": "lerna run build:storybook --scope @charlietango/storybook",
     "dev": "lerna run dev --scope @charlietango/storybook",
     "lint": "lerna run lint --stream --parallel",
