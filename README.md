@@ -40,7 +40,7 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 <!-- HOOKS_END -->
 
 ```js
-import useMedia from '@charlietango/use-media'
+import useMedia from "@charlietango/use-media";
 ```
 
 ### @charlietango/hooks`
@@ -51,7 +51,7 @@ is optimized for tree shaking, so you application should only include the depend
 you actually use.
 
 ```js
-import { useMedia } from '@charlietango/hooks'
+import { useMedia } from "@charlietango/hooks";
 ```
 
 ### Third Party Hooks
