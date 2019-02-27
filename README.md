@@ -40,7 +40,7 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 <!-- HOOKS_END -->
 
 ```js
-import useMedia from "@charlietango/use-media";
+import useMedia from '@charlietango/use-media'
 ```
 
 ### @charlietango/hooks`
@@ -51,7 +51,7 @@ is optimized for tree shaking, so you application should only include the depend
 you actually use.
 
 ```js
-import { useMedia } from "@charlietango/hooks";
+import { useMedia } from '@charlietango/hooks'
 ```
 
 ### Third Party Hooks
@@ -92,7 +92,7 @@ history.
 
 [package-url]: https://npmjs.org/package/@charlietango/hooks
 [npm-version-svg]: https://img.shields.io/npm/v/@charlietango/hooks.svg
-[npm-minzip-svg]: https://img.shields.io/bundlephobia/minzip/react.svg
+[npm-minzip-svg]: https://img.shields.io/bundlephobia/minzip/@charlietango/hooks.svg
 [bundlephobia-url]: https://bundlephobia.com/result?p=@charlietango/hooks
 [travis-svg]: https://travis-ci.org/charlie-tango/hooks.svg
 [travis-url]: https://travis-ci.org/charlie-tango/hooks
