@@ -16,7 +16,7 @@
     "lint": "lerna run lint --stream --parallel",
     "new-hook": "node tools/new-hook",
     "update-readme": "node tools/update-readme",
-    "release": "cross-env HUSKY_BYPASS=true lerna publish",
+    "release": "cross-env HUSKY_BYPASS=true lerna publish --no-private",
     "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
     "test": "lerna run test --stream --parallel"
   },
