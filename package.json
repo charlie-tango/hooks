@@ -13,6 +13,7 @@
     "build": "lerna run build --stream --parallel",
     "lint": "lerna run lint --stream --parallel",
     "new-hook": "node tools/new-hook",
+    "update-readme": "node tools/update-readme",
     "release": "cross-env HUSKY_BYPASS=true lerna publish",
     "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
     "test": "lerna run test --stream --parallel"
@@ -24,6 +25,10 @@
     }
   },
   "lint-staged": {
+    "packages/*/package.json": [
+      "yarn update-readme",
+      "git add README.md"
+    ],
     "*.{js,json,css,md,ts,tsx}": [
       "prettier --write",
       "git add"

@@ -17,7 +17,7 @@ const root = process.platform === 'win32' ? path.resolve('/') : '/'
 const external = id => !id.startsWith('.') && !id.startsWith(root)
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 const sourceFiles = globby.sync(`src/{${hookName},index}.{ts,tsx,js}`)
-console.log(hookName, sourceFiles)
+
 if (!sourceFiles.length) {
   throw new Error('Failed to find a valid source input file for ' + pkg.name)
 }

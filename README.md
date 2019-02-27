@@ -20,9 +20,15 @@ or NPM:
 npm install @charlietango/hooks --save
 ```
 
-## Hooks
+## The Hooks
 
 <!-- HOOKS_START -->
+
+- **[hooks](https://www.npmjs.com/package/@charlietango/hooks)** - Collection of React Hooks
+- **[useElementSize](https://www.npmjs.com/package/@charlietango/use-element-size)** - Measure the size of a DOM element using ResizeObserver
+- **[useMedia](https://www.npmjs.com/package/@charlietango/use-media)** - Detect if the browser matches a media query
+- **[useScript](https://www.npmjs.com/package/@charlietango/use-script)** - Load an external third party script
+
 <!-- HOOKS_END -->
 
 ## Contributing

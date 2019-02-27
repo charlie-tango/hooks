@@ -5,8 +5,8 @@
   "description": "Collection of React Hooks",
   "private": false,
   "sideEffects": false,
-  "main": "lib/hooks.js",
-  "module": "lib/esm/hooks.js",
+  "main": "lib/hooks.cjs.js",
+  "module": "lib/hooks.esm.js",
   "typings": "lib/index.d.ts",
   "files": [
     "lib/*"
@@ -21,6 +21,8 @@
     "hooks"
   ],
   "dependencies": {
+    "@charlietango/use-element-size": "latest",
+    "@charlietango/use-media": "latest",
     "@charlietango/use-script": "latest"
   }
 }
