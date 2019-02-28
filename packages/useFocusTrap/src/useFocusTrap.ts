@@ -15,7 +15,10 @@ export type FocusTrapOptions = {
 /**
  *  Traps focus to DOM node. Use this with a modal to ensure the user focus doesn't leave.
  * */
-function useFocusTrap(active: boolean = true, options: FocusTrapOptions = {}) {
+function useFocusTrap(
+  active: boolean = true,
+  options: FocusTrapOptions = {},
+): (instance: HTMLElement | null) => void {
   const [ref, setRef] = useState<HTMLElement | null>(null)
 
   function handleKeyDown(event: KeyboardEvent) {
