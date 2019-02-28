@@ -44,5 +44,9 @@
     "@charlietango/use-script": "^0.1.7",
     "react-intersection-observer": "^8.10.0"
   },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "gitHead": "9fabdd1c8d4d373df00340e9f0524ca18f34817e"
 }
