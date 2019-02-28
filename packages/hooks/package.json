@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@charlietango/use-element-size": "^0.1.7",
+    "@charlietango/use-focus-trap": "^1.0.0",
     "@charlietango/use-media": "^0.1.7",
     "@charlietango/use-script": "^0.1.7",
     "react-intersection-observer": "^8.10.0"
