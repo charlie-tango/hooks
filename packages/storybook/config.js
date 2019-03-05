@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { addDecorator, configure } from '@storybook/react'
-import { withOptions } from '@storybook/addon-options'
-import { withViewport } from '@storybook/addon-viewport'
+import { addDecorator, addParameters, configure } from '@storybook/react'
+import { create } from '@storybook/theming'
 import pck from '../../package.json'
 import 'github-markdown-css'
 import { createGlobalStyle } from 'styled-components'
@@ -29,16 +28,17 @@ const GithubCss = createGlobalStyle`
 	}
 `
 
-addDecorator(
-  withOptions({
-    name: 'Hooks',
-    url: pck.repository ? pck.repository.url : null,
-    hierarchySeparator: /\//,
-    hierarchyRootSeparator: /\|/,
-  }),
-)
-
-addDecorator(withViewport())
+addParameters({
+  options: {
+    theme: create({
+      base: 'light',
+      brandTitle: 'Hooks',
+      brandUrl: pck.repository ? pck.repository.url : null,
+    }),
+    isFullscreen: false,
+    panelPosition: 'bottom',
+  },
+})
 
 addDecorator(storyFn => (
   <>
