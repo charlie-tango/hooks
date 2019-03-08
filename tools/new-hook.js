@@ -7,7 +7,7 @@ const ansi = require('ansi-colors')
 const globby = require('globby')
 const { promisify } = require('util')
 const kebabCase = require('lodash/fp/kebabCase')
-
+const hooksPck = require('../packages/hooks/package')
 const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
 const mkdirp = promisify(require('mkdirp'))
@@ -47,7 +47,7 @@ async function execute({ name, description }) {
         .replace(/%name%/g, name)
         .replace(/%packageName%/g, packageName)
         .replace(/%description%/g, description)
-        .replace(/%version%/g, '1.0.0')
+        .replace(/%version%/g, hooksPck.version)
 
       await mkdirp(path.dirname(outputName))
       await writeFileAsync(outputName, replacedSrc, 'utf-8')
