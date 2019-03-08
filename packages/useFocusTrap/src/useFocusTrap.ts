@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import {
   markForFocusLater,
   returnFocus,
@@ -21,11 +21,14 @@ function useFocusTrap(
 ): (instance: HTMLElement | null) => void {
   const [ref, setRef] = useState<HTMLElement | null>(null)
 
-  function handleKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Tab' && ref) {
-      scopeTab(ref, event)
-    }
-  }
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'Tab' && ref) {
+        scopeTab(ref, event)
+      }
+    },
+    [ref],
+  )
 
   useEffect(() => {
     if (active && ref) {
@@ -55,7 +58,7 @@ function useFocusTrap(
       }
     }
     return () => {}
-  }, [active, ref])
+  }, [active, ref, handleKeyDown, options.focusSelector])
 
   return setRef
 }

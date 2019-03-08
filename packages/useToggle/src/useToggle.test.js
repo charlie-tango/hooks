@@ -14,7 +14,7 @@ it('should execute the useToggle hook', () => {
 it('should toggle', () => {
   const initialValue = false
   const { result } = renderHook(() => useToggle(initialValue))
-  const [_, toggle] = result.current
+  const [, toggle] = result.current
   act(toggle)
   const [isToggled] = result.current
 

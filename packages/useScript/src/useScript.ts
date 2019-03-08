@@ -9,12 +9,12 @@ import { useEffect, useState } from 'react'
 export default function useScript(url: string): boolean {
   const [ready, setReady] = useState<boolean>(false)
 
-  function onReady() {
-    // The ready event is fired whenever the resource is loaded, but it doesn't know if it was successful
-    setReady(true)
-  }
-
   useEffect(() => {
+    function onReady() {
+      // The ready event is fired whenever the resource is loaded, but it doesn't know if it was successful
+      setReady(true)
+    }
+
     let script: HTMLScriptElement | null = document.querySelector(
       `script[src="${url}"]`,
     )
