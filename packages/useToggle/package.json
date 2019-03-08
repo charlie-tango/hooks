@@ -1,0 +1,46 @@
+{
+  "name": "@charlietango/use-toggle",
+  "description": "Simple boolean state toggler",
+  "version": "1.0.0",
+  "private": false,
+  "sideEffects": false,
+  "main": "lib/useToggle.cjs.js",
+  "module": "lib/useToggle.esm.js",
+  "typings": "lib/useToggle.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "files": [
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/hooks.git"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js,ts,tsx",
+    "prebuild": "rm -rf lib",
+    "build": "rollup -c ../../tools/rollup.config.js",
+    "postbuild": "tsc --noEmit false",
+    "prepublish": "yarn build",
+    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
+    "test": "jest"
+  },
+  "babel": {
+    "extends": "../../.babelrc"
+  },
+  "jest": {
+    "preset": "../../jest.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
