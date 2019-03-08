@@ -2,6 +2,8 @@
 
 Simple boolean state toggler
 
+> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/usetoggle--readme) demo.
+
 ## Installation
 
 ```sh

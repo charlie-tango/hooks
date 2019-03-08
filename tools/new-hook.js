@@ -45,6 +45,7 @@ async function execute({ name, description }) {
 
       const replacedSrc = src
         .replace(/%name%/g, name)
+        .replace(/%lowercaseName%/g, name.toLowerCase())
         .replace(/%packageName%/g, packageName)
         .replace(/%description%/g, description)
         .replace(/%version%/g, hooksPck.version)

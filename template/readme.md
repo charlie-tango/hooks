@@ -2,6 +2,8 @@
 
 %description%
 
+> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/%lowercaseName%--readme) demo.
+
 ## Installation
 
 ```sh

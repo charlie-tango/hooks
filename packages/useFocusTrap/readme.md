@@ -3,6 +3,8 @@
 Trap keyboard focus inside a DOM element, to prevent the user navigating outside a modal.
 When using this, make sure to combine it with a fixed position `<Backdrop>` that prevents the mouse from clicking input elements.
 
+> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/usefocustrap--readme) demo.
+
 ## Installation
 
 ```sh

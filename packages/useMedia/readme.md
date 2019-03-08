@@ -1,6 +1,8 @@
 # useMedia
 
-Detect if the browser matches a media query
+Detect if the browser matches a media query.
+
+> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/usemedia--readme) demo.
 
 ## Installation
 
