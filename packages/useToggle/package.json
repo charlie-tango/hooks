@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-toggle",
   "description": "Simple boolean state toggler",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": false,
   "sideEffects": false,
   "main": "lib/useToggle.cjs.js",
@@ -36,8 +36,6 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
   },
   "peerDependencies": {
     "react": ">=16.8.0",

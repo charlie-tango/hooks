@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-media",
   "description": "Detect if the browser matches a media query",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": false,
   "sideEffects": false,
   "main": "lib/useMedia.cjs.js",
