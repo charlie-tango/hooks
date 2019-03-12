@@ -1,13 +1,17 @@
 {
-  "name": "@charlietango/hooks",
+  "name": "@charlietango/use-window-size",
+  "description": "Get the width and height of the viewport",
   "version": "1.2.0",
-  "author": "Charlie Tango",
-  "description": "Collection of React Hooks grouped into @charlietango/hooks",
   "private": false,
   "sideEffects": false,
-  "main": "lib/hooks.cjs.js",
-  "module": "lib/hooks.esm.js",
-  "typings": "lib/index.d.ts",
+  "main": "lib/useWindowSize.cjs.js",
+  "module": "lib/useWindowSize.esm.js",
+  "typings": "lib/useWindowSize.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
   "files": [
     "lib/*"
   ],
@@ -15,11 +19,6 @@
     "type": "git",
     "url": "https://github.com/charlie-tango/hooks.git"
   },
-  "license": "MIT",
-  "keywords": [
-    "react",
-    "hooks"
-  ],
   "scripts": {
     "lint": "eslint . --ext js,ts,tsx",
     "prebuild": "rm -rf lib",
@@ -38,18 +37,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@charlietango/use-element-size": "^1.2.0",
-    "@charlietango/use-focus-trap": "^1.2.0",
-    "@charlietango/use-media": "^1.2.0",
-    "@charlietango/use-script": "^1.2.0",
-    "@charlietango/use-toggle": "^1.2.0",
-    "react-intersection-observer": "^8.20.2",
-    "@charlietango/use-window-size": "1.2.0"
+  "devDependencies": {
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "gitHead": "9fabdd1c8d4d373df00340e9f0524ca18f34817e"
+  }
 }
