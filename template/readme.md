@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-yarn add @charlietango/%packageName%
+yarn add %packageName%
 ```
 
 ## API
@@ -20,7 +20,7 @@ const output = %name%()
 
 ```js
 import React from 'react'
-import %name% from '@charlietango/%packageName%'
+import %name% from '%packageName%'
 
 const Component = () => {
   const output = %name%()

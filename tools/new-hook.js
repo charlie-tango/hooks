@@ -32,7 +32,7 @@ async function startCreation() {
 
 async function execute({ name, description }) {
   const files = await globby('./template/**/*.*', { dot: true })
-  const packageName = kebabCase(name)
+  const packageName = `@charlietango/${kebabCase(name)}`
   const dirName = path.resolve('packages', name)
 
   await Promise.all(
@@ -56,11 +56,25 @@ async function execute({ name, description }) {
     }),
   )
 
-  await installPackages(dirName)
+  hooksPck.dependencies[packageName] = hooksPck.version
+
+  await writeFileAsync(
+    './packages/hooks/package.json',
+    JSON.stringify(hooksPck, null, 2),
+    'utf-8',
+  )
+
+  const hooksSrc = await readFileAsync('./packages/hooks/src/hooks.ts', 'utf-8')
+  await writeFileAsync(
+    './packages/hooks/src/hooks.ts',
+    hooksSrc + `export { default as ${name} } from '${packageName}'\n`,
+    'utf-8',
+  )
+
+  await installPackages()
 }
 
-async function installPackages(dirName) {
-  process.chdir(dirName)
+async function installPackages() {
   const spinner = ora('Installing packages').start()
   try {
     await execa.shell('yarn')

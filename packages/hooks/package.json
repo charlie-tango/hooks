@@ -39,10 +39,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@charlietango/use-element-size": "^0.1.7",
+    "@charlietango/use-element-size": "^1.2.0",
     "@charlietango/use-focus-trap": "^1.2.0",
-    "@charlietango/use-media": "^0.1.7",
+    "@charlietango/use-media": "^1.2.0",
     "@charlietango/use-script": "^1.2.0",
+    "@charlietango/use-toggle": "^1.2.0",
     "react-intersection-observer": "^8.20.2"
   },
   "peerDependencies": {
