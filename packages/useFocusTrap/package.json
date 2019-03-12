@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-focus-trap",
   "description": "Trap keyboard focus inside a DOM element, to prevent the user navigating outside a modal",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "sideEffects": false,
   "main": "lib/useFocusTrap.cjs.js",

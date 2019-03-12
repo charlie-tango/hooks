@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-script@1.2.0...@charlietango/use-script@1.2.1) (2019-03-12)
+
+**Note:** Version bump only for package @charlietango/use-script
+
 # [1.2.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-script@0.1.7...@charlietango/use-script@1.2.0) (2019-03-08)
 
 **Note:** Version bump only for package @charlietango/use-script
