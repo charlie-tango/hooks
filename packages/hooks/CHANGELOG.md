@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.3.0...@charlietango/hooks@1.4.0) (2019-03-19)
+
+### Features
+
+- add the useId hook ([#11](https://github.com/charlie-tango/hooks/issues/11)) ([5430cd7](https://github.com/charlie-tango/hooks/commit/5430cd7))
+
 # [1.3.0](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.2.0...@charlietango/hooks@1.3.0) (2019-03-12)
 
 ### Features
