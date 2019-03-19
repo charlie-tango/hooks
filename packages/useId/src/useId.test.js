@@ -1,0 +1,36 @@
+import React from 'react'
+import { render } from 'react-testing-library'
+import useId, { IdProvider } from './useId'
+
+const Id = ({ prefix }) => {
+  const id = useId(prefix)
+  return <span data-testid={id}>{id}</span>
+}
+
+it('should execute the useId hook', () => {
+  const { getByTestId } = render(
+    <IdProvider>
+      <Id />
+      <Id />
+      <Id />
+    </IdProvider>,
+  )
+
+  getByTestId('1')
+  getByTestId('2')
+  getByTestId('3')
+})
+
+it('should execute the useId hook with prefix', () => {
+  const { getByTestId } = render(
+    <IdProvider>
+      <Id prefix="prefix" />
+      <Id prefix="prefix" />
+      <Id prefix="prefix" />
+    </IdProvider>,
+  )
+
+  getByTestId('prefix_1')
+  getByTestId('prefix_2')
+  getByTestId('prefix_3')
+})
