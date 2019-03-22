@@ -22,19 +22,38 @@ const id = useId(prefix?: string)
 The `useId` hook requires the application to be wrapped in the `IdProvider`.
 This is ensures that the generated id's are deterministic, since it's created once for each instance of the application.
 
+When using this as the `id` for an HTML element, make sure you prefix it with fixed string value - otherwise you'll create a global `id` that's just a number.
+
 ```js
 import React from 'react'
 import useId, { IdProvider } from '@charlietango/use-id'
 
-const InputField = () => {
+const LoginForm = () => {
   const id = useId()
-  return <input id={id}>{output}</input>
+  const inputId = `input-${id}`
+  const passwordId = `pass-${id}`
+
+  return (
+    <form>
+      <label htmlFor={inputId}>Username:</label>
+      <input id={inputId} />
+      <label htmlFor={passwordId}>Password:</label>
+      <input
+        type="password"
+        id={passwordId}
+        aria-describedby={passwordId + '-desc'}
+      />
+      <p role="alert" id={passwordId + '-desc'}>
+        Please enter a password.
+      </p>
+    </form>
+  )
 }
 
 const App = () => {
   return (
     <IdProvider>
-      <InputField />
+      <LoginForm />
     </IdProvider>
   )
 }
