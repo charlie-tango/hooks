@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 
 interface SizeRectReadonly {
@@ -19,7 +19,8 @@ export default function useElementSize(): [
     width: 0,
     height: 0,
   })
-  useLayoutEffect(() => {
+
+  useEffect(() => {
     if (nodeRef) {
       const ro = new ResizeObserver(([entry]: Array<ResizeObserverEntry>) => {
         const { x, y, width, height } = entry.contentRect
