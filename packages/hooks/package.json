@@ -1,6 +1,6 @@
 {
   "name": "@charlietango/hooks",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "Charlie Tango",
   "description": "Collection of React Hooks grouped into @charlietango/hooks",
   "private": false,
@@ -39,7 +39,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@charlietango/use-element-size": "^1.2.1",
+    "@charlietango/use-element-size": "^1.2.2",
     "@charlietango/use-focus-trap": "^1.2.1",
     "@charlietango/use-id": "^1.4.0",
     "@charlietango/use-media": "^1.2.1",
