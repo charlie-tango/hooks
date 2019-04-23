@@ -1,6 +1,6 @@
 import useScript from './useScript'
 import { fireEvent } from 'react-testing-library'
-import { renderHook } from 'react-hooks-testing-library'
+import { act, renderHook } from 'react-hooks-testing-library'
 
 const url = 'https://external.api/api.js'
 
@@ -16,7 +16,9 @@ it('should load the external script', () => {
   expect(script).toBeDefined()
 
   // Fire the load event
-  fireEvent(script, new Event('load'))
+  act(() => {
+    fireEvent(script, new Event('load'))
+  })
   rerender()
   expect(script).toHaveAttribute('data-loaded', 'true')
   expect(result.current).toBe(true)
