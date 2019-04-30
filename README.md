@@ -39,6 +39,7 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 - **[@charlietango/use-id](https://www.npmjs.com/package/@charlietango/use-id)** _([useId](packages/useId/src))_ - Generate a deterministic id using a Context Provider
 - **[@charlietango/use-media](https://www.npmjs.com/package/@charlietango/use-media)** _([useMedia](packages/useMedia/src))_ - Detect if the browser matches a media query
 - **[@charlietango/use-script](https://www.npmjs.com/package/@charlietango/use-script)** _([useScript](packages/useScript/src))_ - Load an external third party script
+- **[@charlietango/use-scroll-percentage](https://www.npmjs.com/package/@charlietango/use-scroll-percentage)** _([useScrollPercentage](packages/useScrollPercentage/src))_ - Monitor the the amount an element is scrolled inside the viewport
 - **[@charlietango/use-toggle](https://www.npmjs.com/package/@charlietango/use-toggle)** _([useToggle](packages/useToggle/src))_ - Simple boolean state toggler
 - **[@charlietango/use-window-size](https://www.npmjs.com/package/@charlietango/use-window-size)** _([useWindowSize](packages/useWindowSize/src))_ - Get the width and height of the viewport
 
@@ -47,7 +48,7 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 To use the Hook, import it from the package you installed, like:
 
 ```js
-import useMedia from "@charlietango/use-media";
+import useMedia from '@charlietango/use-media'
 ```
 
 ### `@charlietango/hooks`
@@ -58,7 +59,7 @@ is optimized for tree shaking, so you application should only include the depend
 you actually use.
 
 ```js
-import { useMedia } from "@charlietango/hooks";
+import { useMedia } from '@charlietango/hooks'
 ```
 
 ### Third Party Hooks
