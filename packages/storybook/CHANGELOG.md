@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/charlie-tango/hooks/compare/@charlietango/storybook@1.2.1...@charlietango/storybook@1.3.0) (2019-04-30)
+
+### Features
+
+- add use-scroll-percentage ([#19](https://github.com/charlie-tango/hooks/issues/19)) ([3e85dfb](https://github.com/charlie-tango/hooks/commit/3e85dfb))
+
 ## [1.2.1](https://github.com/charlie-tango/hooks/compare/@charlietango/storybook@1.2.0...@charlietango/storybook@1.2.1) (2019-03-12)
 
 **Note:** Version bump only for package @charlietango/storybook

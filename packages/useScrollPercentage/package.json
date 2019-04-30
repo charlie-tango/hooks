@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-scroll-percentage",
   "description": "Monitor the the amount an element is scrolled inside the viewport",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "private": false,
   "sideEffects": false,
   "main": "lib/useScrollPercentage.cjs.js",
