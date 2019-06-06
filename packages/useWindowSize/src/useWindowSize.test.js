@@ -1,5 +1,5 @@
 import { act, renderHook } from 'react-hooks-testing-library'
-import { fireEvent } from 'react-testing-library'
+import { fireEvent } from '@testing-library/react'
 import useWindowSize from './useWindowSize'
 
 it('should execute the useWindowSize hook', () => {
