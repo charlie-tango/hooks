@@ -58,6 +58,7 @@ async function updateReadme() {
   if (readme !== newReadme) {
     await writeFileAsync('README.md', newReadme, 'utf-8')
   }
+  await writeFileAsync('packages/hooks/readme.md', newReadme, 'utf-8')
 }
 
 updateReadme()
