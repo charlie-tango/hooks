@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-window-size",
   "description": "Get the width and height of the viewport",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "private": false,
   "sideEffects": false,
   "main": "lib/useWindowSize.cjs.js",
