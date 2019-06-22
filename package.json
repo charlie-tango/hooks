@@ -93,7 +93,7 @@
     "babel-jest": "^24.3.1",
     "babel-loader": "^8.0.5",
     "cross-env": "^5.2.0",
-    "eslint": "^5.15.3",
+    "eslint": "^6.0.0",
     "eslint-config-react-app": "^4.0.0",
     "eslint-plugin-flowtype": "^3.2.1",
     "eslint-plugin-import": "2.17.3",
