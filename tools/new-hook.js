@@ -78,7 +78,7 @@ async function execute({ name, description }) {
 async function installPackages() {
   const spinner = ora('Installing packages').start()
   try {
-    await execa.shell('yarn')
+    await execa('yarn')
     spinner.succeed('Installation successful')
   } catch (err) {
     spinner.fail(err.message)
@@ -87,7 +87,7 @@ async function installPackages() {
 async function buildPackages() {
   const spinner = ora('Building packages').start()
   try {
-    await execa.shell('yarn build')
+    await execa('yarn', ['build'])
     spinner.succeed('Build successful')
   } catch (err) {
     spinner.fail(err.message)

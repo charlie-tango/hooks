@@ -10,6 +10,6 @@ docs.keys().forEach(name => {
   const docName = name.replace(/\.\/(.+?)\/readme.md$/, '$1')
   if (docName.startsWith('use')) {
     const data = docs(name)
-    storiesOf(docName, module).add('Readme', doc(data))
+    storiesOf(docName, module).add('Readme', doc(data.default))
   }
 })

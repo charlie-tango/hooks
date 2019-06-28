@@ -7,23 +7,23 @@
     "build:storybook": "build-storybook -c . -s public -o ../../dist"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-links": "^5.0.11",
-    "@storybook/addon-options": "^5.0.11",
-    "@storybook/addon-viewport": "^5.0.11",
-    "@storybook/addons": "^5.0.11",
-    "@storybook/react": "^5.0.11",
-    "@storybook/theming": "^5.0.11",
-    "@types/jest": "^24.0.12",
-    "@types/react": "^16.8.7",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addon-options": "^5.1.9",
+    "@storybook/addon-viewport": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "^5.1.9",
+    "@storybook/theming": "^5.1.9",
+    "@types/jest": "^24.0.15",
+    "@types/react": "^16.8.22",
     "@types/storybook-readme": "^5.0.2",
     "@types/storybook__addon-actions": "^3.4.2",
     "@types/storybook__addon-links": "^3.3.4",
     "@types/storybook__addon-viewport": "^4.1.0",
     "@types/storybook__react": "^4.0.1",
     "github-markdown-css": "^3.0.1",
-    "storybook-readme": "^5.0.1",
-    "styled-components": "^4.1.3",
-    "webpack": "^4.29.5"
+    "storybook-readme": "^5.0.5",
+    "styled-components": "^4.3.2",
+    "webpack": "^4.35.0"
   }
 }

@@ -1,6 +1,6 @@
 import useScript from './useScript'
 import { fireEvent } from '@testing-library/react'
-import { act, renderHook } from 'react-hooks-testing-library'
+import { act, renderHook } from '@testing-library/react-hooks'
 
 const url = 'https://external.api/api.js'
 

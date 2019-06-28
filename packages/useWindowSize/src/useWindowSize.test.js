@@ -1,4 +1,4 @@
-import { act, renderHook } from 'react-hooks-testing-library'
+import { act, renderHook } from '@testing-library/react-hooks'
 import { fireEvent } from '@testing-library/react'
 import useWindowSize from './useWindowSize'
 
