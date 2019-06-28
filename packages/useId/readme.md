@@ -17,12 +17,14 @@ yarn add @charlietango/use-id
 const id = useId(prefix?: string)
 ```
 
+The `useId` hook should ideally wrapped with the `IdProvider`.
+This ensures that the generated id's are deterministic, since the provider is created once for each instance of the application.
+
+The hook will revert to generating the `id` as a side effect if the `IdProvider` is not included. This means you will get back `undefined` during the initial render.
+
+> ⚠️ When using the hook to generate an `id` for an HTML element, make sure you prefix it with fixed string value - otherwise you'll create a global `id` that's just a number.
+
 ## Example
-
-The `useId` hook requires the application to be wrapped in the `IdProvider`.
-This is ensures that the generated id's are deterministic, since it's created once for each instance of the application.
-
-When using this as the `id` for an HTML element, make sure you prefix it with fixed string value - otherwise you'll create a global `id` that's just a number.
 
 ```js
 import React from 'react'

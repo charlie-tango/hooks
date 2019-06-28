@@ -36,8 +36,22 @@ const LoginForm = () => {
 }
 
 storiesOf('useId', module)
-  .addDecorator(storyFn => <IdProvider>{storyFn()}</IdProvider>)
-  .add('Example', () => (
+  .add('Example with provider', () => (
+    <IdProvider>
+      <h1>Render the ids</h1>
+      <Id />
+      <Id />
+      <Id />
+      <Id />
+      <h2>With prefix</h2>
+      <Id prefix="prefix" />
+      <Id prefix="prefix" />
+      <Id prefix="prefix" />
+      <h2>Login</h2>
+      <LoginForm />
+    </IdProvider>
+  ))
+  .add('Example without provider', () => (
     <>
       <h1>Render the ids</h1>
       <Id />
