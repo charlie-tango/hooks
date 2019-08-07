@@ -38,6 +38,7 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 - **[@charlietango/use-focus-trap](https://www.npmjs.com/package/@charlietango/use-focus-trap)** _([useFocusTrap](packages/useFocusTrap/src))_ - Trap keyboard focus inside a DOM element, to prevent the user navigating outside a modal
 - **[@charlietango/use-id](https://www.npmjs.com/package/@charlietango/use-id)** _([useId](packages/useId/src))_ - Generate a deterministic id using a Context Provider
 - **[@charlietango/use-media](https://www.npmjs.com/package/@charlietango/use-media)** _([useMedia](packages/useMedia/src))_ - Detect if the browser matches a media query
+- **[@charlietango/use-native-lazy-loading](https://www.npmjs.com/package/@charlietango/use-native-lazy-loading)** _([useNativeLazyLoading](packages/useNativeLazyLoading/src))_ - Detect if the browser supports the new 'loading' attribute on Image elements.
 - **[@charlietango/use-script](https://www.npmjs.com/package/@charlietango/use-script)** _([useScript](packages/useScript/src))_ - Load an external third party script
 - **[@charlietango/use-toggle](https://www.npmjs.com/package/@charlietango/use-toggle)** _([useToggle](packages/useToggle/src))_ - Simple boolean state toggler
 - **[@charlietango/use-window-size](https://www.npmjs.com/package/@charlietango/use-window-size)** _([useWindowSize](packages/useWindowSize/src))_ - Get the width and height of the viewport

@@ -1,0 +1,46 @@
+{
+  "name": "@charlietango/use-native-lazy-loading",
+  "description": "Detect if the browser supports the new 'loading' attribute on Image elements.",
+  "version": "1.5.3",
+  "private": false,
+  "sideEffects": false,
+  "main": "lib/useNativeLazyLoading.cjs.js",
+  "module": "lib/useNativeLazyLoading.esm.js",
+  "typings": "lib/useNativeLazyLoading.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "files": [
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/hooks.git"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js,ts,tsx",
+    "prebuild": "rm -rf lib",
+    "build": "rollup -c ../../tools/rollup.config.js",
+    "postbuild": "tsc --noEmit false",
+    "prepublish": "yarn build",
+    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
+    "test": "jest"
+  },
+  "babel": {
+    "extends": "../../.babelrc"
+  },
+  "jest": {
+    "preset": "../../jest.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
