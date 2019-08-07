@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-native-lazy-loading",
   "description": "Detect if the browser supports the new 'loading' attribute on Image elements.",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "private": false,
   "sideEffects": false,
   "main": "lib/useNativeLazyLoading.cjs.js",
@@ -36,8 +36,6 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
   },
   "peerDependencies": {
     "react": ">=16.8.0",
