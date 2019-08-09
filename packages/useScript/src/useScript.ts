@@ -1,23 +1,26 @@
 import { useEffect, useReducer } from 'react'
 
+enum ScriptStatus {
+  LOADED = 'loaded',
+  ERROR = 'error',
+}
+
+type Action = {
+  type: ScriptStatus
+}
+
 type State = {
   ready: boolean
   error?: boolean
 }
 
-type Action = {
-  type: string
-}
-
-const SCRIPT_LOADED: string = 'SCRIPT_LOADED'
-const SCRIPT_LOAD_ERROR: string = 'SCRIPT_LOAD_ERROR'
 const INITIAL_STATE: State = { ready: false, error: undefined }
 
 function scriptLoadReducer(state: State, action: Action): State {
   switch (action.type) {
-    case SCRIPT_LOADED:
+    case ScriptStatus.LOADED:
       return { ...INITIAL_STATE, ready: true }
-    case SCRIPT_LOAD_ERROR:
+    case ScriptStatus.ERROR:
       return { ...INITIAL_STATE, error: true }
     default: {
       throw new Error('Invalid action dispatched.')
@@ -42,12 +45,12 @@ export default function useScript(url: string): [boolean, boolean?] {
   useEffect(() => {
     function onReady() {
       // The ready event is fired whenever the resource is loaded, but it doesn't know if it was successful
-      dispatch({ type: SCRIPT_LOADED })
+      dispatch({ type: ScriptStatus.LOADED })
     }
 
     function onError() {
       // The ready event is fired whenever the resource is loaded, but it doesn't know if it was successful
-      dispatch({ type: SCRIPT_LOAD_ERROR })
+      dispatch({ type: ScriptStatus.ERROR })
     }
 
     let script: HTMLScriptElement | null = document.querySelector(
