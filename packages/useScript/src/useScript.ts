@@ -49,7 +49,7 @@ export default function useScript(url: string): [boolean, boolean?] {
     }
 
     function onError() {
-      // The ready event is fired whenever the resource is loaded, but it doesn't know if it was successful
+      // The ready event is fired whenever the resource errors-out
       dispatch({ type: ScriptStatus.ERROR })
     }
 
