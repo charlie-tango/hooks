@@ -21,7 +21,8 @@ it('should load the external script', () => {
   })
   rerender()
   expect(script).toHaveAttribute('data-loaded', 'true')
-  expect(result.current).toBe(true)
+  expect(result.current[0]).toBe(true)
+  expect(result.current[1]).toBe(undefined)
 })
 
 it('should handle errors when loading', () => {
@@ -29,12 +30,15 @@ it('should handle errors when loading', () => {
   let script = document.querySelector(`script[src="${url}"]`)
   expect(script).toBeDefined()
 
-  // Fire the error event
-  fireEvent(script, new Event('error'))
+  act(() => {
+    // Fire the error event
+    fireEvent(script, new Event('error'))
+  })
 
   rerender()
   expect(script).toHaveAttribute('data-failed', 'true')
-  expect(result.current).toBe(false)
+  expect(result.current[0]).toBe(false)
+  expect(result.current[1]).toBe(true)
 })
 
 it('should not create more then one script entry', () => {
