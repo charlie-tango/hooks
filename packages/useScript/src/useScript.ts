@@ -28,8 +28,6 @@ function scriptLoadReducer(state: State, action: Action): State {
   }
 }
 
-function noop() {}
-
 /**
  * Hook to load an external script. Returns true once the script has finished loading.
  *
@@ -71,15 +69,13 @@ export default function useScript(url: string): [boolean, boolean?] {
       }
     } else {
       if (script.getAttribute('data-loaded') === 'true') {
-        onReady()
         // Already loaded, so we can return early
-        return noop
+        return onReady()
       }
 
       if (script.getAttribute('data-failed') === 'true') {
-        onError()
         // Already tried loading, so we can return early
-        return noop
+        return onError()
       }
     }
 
