@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 import useScript from './useScript'
 
 const ScriptComponent = () => {
-  const ready = useScript('/js/external.js')
+  const [ready] = useScript('/js/external.js')
   useEffect(() => {
     action('script ready')(ready)
   }, [ready])

@@ -15,7 +15,7 @@ yarn add @charlietango/use-script
 ## API
 
 ```js
-const ready = useScript(url)
+const [ready, error] = useScript(url)
 ```
 
 ## Example
@@ -25,7 +25,12 @@ import React from 'react'
 import useScript from '@charlietango/use-script'
 
 const Component = () => {
-  const scriptReady = useScript('https://api.google.com/api.js')
+  const [scriptReady, scriptError] = useScript('https://api.google.com/api.js')
+
+  if (scriptError) {
+    return <div>Failed to load Google API Ready.</div>
+  }
+
   return <div>Google API Ready: {scriptReady}</div>
 }
 
