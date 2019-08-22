@@ -16,16 +16,16 @@ it('should load the external script', () => {
   expect(script).toBeDefined()
 
   expect(result.current[0]).toBe(false)
-  expect(result.current[1]).toBe(ScriptStatus.INIT)
+  expect(result.current[1]).toBe(ScriptStatus.LOADING)
 
   // Fire the load event
   act(() => {
     fireEvent(script, new Event('load'))
   })
   rerender()
-  expect(script).toHaveAttribute('data-status', ScriptStatus.LOADED)
+  expect(script).toHaveAttribute('data-status', ScriptStatus.READY)
   expect(result.current[0]).toBe(true)
-  expect(result.current[1]).toBe(ScriptStatus.LOADED)
+  expect(result.current[1]).toBe(ScriptStatus.READY)
 })
 
 it('should handle errors when loading', () => {
