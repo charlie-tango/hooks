@@ -1,4 +1,4 @@
-import useScript from './useScript'
+import useScript, { ScriptStatus } from './useScript'
 import { fireEvent } from '@testing-library/react'
 import { act, renderHook } from '@testing-library/react-hooks'
 
@@ -15,14 +15,17 @@ it('should load the external script', () => {
   let script = document.querySelector(`script[src="${url}"]`)
   expect(script).toBeDefined()
 
+  expect(result.current[0]).toBe(false)
+  expect(result.current[1]).toBe(ScriptStatus.INIT)
+
   // Fire the load event
   act(() => {
     fireEvent(script, new Event('load'))
   })
   rerender()
-  expect(script).toHaveAttribute('data-loaded', 'true')
+  expect(script).toHaveAttribute('data-status', ScriptStatus.LOADED)
   expect(result.current[0]).toBe(true)
-  expect(result.current[1]).toBe(undefined)
+  expect(result.current[1]).toBe(ScriptStatus.LOADED)
 })
 
 it('should handle errors when loading', () => {
@@ -36,9 +39,9 @@ it('should handle errors when loading', () => {
   })
 
   rerender()
-  expect(script).toHaveAttribute('data-failed', 'true')
+  expect(script).toHaveAttribute('data-status', ScriptStatus.ERROR)
   expect(result.current[0]).toBe(false)
-  expect(result.current[1]).toBe(true)
+  expect(result.current[1]).toBe(ScriptStatus.ERROR)
 })
 
 it('should not create more then one script entry', () => {

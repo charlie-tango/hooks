@@ -4,11 +4,11 @@ import { action } from '@storybook/addon-actions'
 import useScript from './useScript'
 
 const ScriptComponent = () => {
-  const [ready] = useScript('/js/external.js')
+  const [ready, status] = useScript('/js/external.js')
   useEffect(() => {
     action('script ready')(ready)
   }, [ready])
-  return <code>Script ready: {ready.toString()}</code>
+  return <code>Script status: {status}</code>
 }
 
 storiesOf('useScript', module).add('Example', () => (

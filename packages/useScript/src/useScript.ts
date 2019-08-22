@@ -1,56 +1,20 @@
-import { useEffect, useReducer } from 'react'
+import { useEffect, useState } from 'react'
 
-enum ScriptStatus {
-  LOADED = 'loaded',
+export enum ScriptStatus {
+  LOADING = 'loading',
+  READY = 'loaded',
   ERROR = 'error',
-}
-
-type Action = {
-  type: ScriptStatus
-}
-
-type State = {
-  ready: boolean
-  error?: boolean
-}
-
-const INITIAL_STATE: State = { ready: false, error: undefined }
-
-function scriptLoadReducer(state: State, action: Action): State {
-  switch (action.type) {
-    case ScriptStatus.LOADED:
-      return { ...INITIAL_STATE, ready: true }
-    case ScriptStatus.ERROR:
-      return { ...INITIAL_STATE, error: true }
-    default: {
-      throw new Error('Invalid action dispatched.')
-    }
-  }
 }
 
 /**
  * Hook to load an external script. Returns true once the script has finished loading.
  *
- * @param {string} url The external script to load
- * @return boolean True if the script has been loaded
+ * @param url {string} url The external script to load
  * */
-export default function useScript(url: string): [boolean, boolean?] {
-  const [{ ready, error }, dispatch] = useReducer(
-    scriptLoadReducer,
-    INITIAL_STATE,
-  )
+export default function useScript(url: string): [boolean, ScriptStatus] {
+  const [status, setStatus] = useState<ScriptStatus>(ScriptStatus.LOADING)
 
   useEffect(() => {
-    function onReady() {
-      // The ready event is fired whenever the resource is loaded, but it doesn't know if it was successful
-      dispatch({ type: ScriptStatus.LOADED })
-    }
-
-    function onError() {
-      // The ready event is fired whenever the resource errors-out
-      dispatch({ type: ScriptStatus.ERROR })
-    }
-
     let script: HTMLScriptElement | null = document.querySelector(
       `script[src="${url}"]`,
     )
@@ -62,34 +26,30 @@ export default function useScript(url: string): [boolean, boolean?] {
       document.head.appendChild(script)
 
       script.onerror = () => {
-        if (script) script.setAttribute('data-failed', 'true')
+        if (script) script.setAttribute('data-status', ScriptStatus.ERROR)
       }
       script.onload = () => {
-        if (script) script.setAttribute('data-loaded', 'true')
+        if (script) script.setAttribute('data-status', ScriptStatus.READY)
       }
-    } else {
-      if (script.getAttribute('data-loaded') === 'true') {
-        // Already loaded, so we can return early
-        return onReady()
-      }
+    } else if (script.hasAttribute('data-status')) {
+      setStatus(script.getAttribute('data-status') as ScriptStatus)
+    }
 
-      if (script.getAttribute('data-failed') === 'true') {
-        // Already tried loading, so we can return early
-        return onError()
-      }
+    const eventHandler = (e: Event) => {
+      setStatus(e.type === 'load' ? ScriptStatus.READY : ScriptStatus.ERROR)
     }
 
     // Add load event listener
-    script.addEventListener('load', onReady)
-    script.addEventListener('error', onError)
+    script.addEventListener('load', eventHandler)
+    script.addEventListener('error', eventHandler)
 
     return () => {
       if (script) {
-        script.removeEventListener('load', onReady)
-        script.removeEventListener('error', onError)
+        script.removeEventListener('load', eventHandler)
+        script.removeEventListener('error', eventHandler)
       }
     }
   }, [url])
 
-  return [ready, error]
+  return [status === ScriptStatus.READY, status]
 }
