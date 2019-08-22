@@ -38,10 +38,11 @@ const useId = (prefix?: string) => {
   const [id, setId] = useState(generateId ? generateId() : undefined)
 
   useEffect(() => {
-    // If the Provider is not included, we fallback to generating an id as a clientside sideffect.
+    // If the Provider is not included, we fallback to generating an id as a client effect.
     if (!id) {
       setId((++fallbackId).toString())
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // If the id isn't set yet, return undefined.

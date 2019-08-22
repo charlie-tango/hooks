@@ -33,6 +33,7 @@ const LazyImage = ({ width, height, src, ...rest }: Props) => {
           height={height}
           loading="lazy"
           style={{ position: 'absolute', width: '100%', height: '100%' }}
+          alt="Lazy loaded"
         />
       ) : null}
     </div>
