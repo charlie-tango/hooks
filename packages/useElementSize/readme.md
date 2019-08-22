@@ -16,7 +16,7 @@ yarn add @charlietango/use-element-size
 const [ref, size] = useElementSize()
 ```
 
-The hook returns a an Array with a `ref` function, and the measured `size`.
+The hook returns an Array with a `ref` function, and the measured `size`.
 Assign the `ref` to the element you want to measure.
 
 ## Example
