@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-script@1.2.4...@charlietango/use-script@2.0.0) (2019-08-22)
+
+### Features
+
+- **useScript:** add a loading status to the useScript hook ([df418ce](https://github.com/charlie-tango/hooks/commit/df418ce))
+
+### BREAKING CHANGES
+
+- **useScript:** YES
+
 ## [1.2.4](https://github.com/charlie-tango/hooks/compare/@charlietango/use-script@1.2.3...@charlietango/use-script@1.2.4) (2019-06-28)
 
 **Note:** Version bump only for package @charlietango/use-script
