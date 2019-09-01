@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 
 interface SizeRectReadonly {
@@ -10,9 +10,9 @@ interface SizeRectReadonly {
 
 export default function useElementSize(): [
   (node: HTMLElement | null) => void,
-  SizeRectReadonly
+  SizeRectReadonly,
 ] {
-  const [nodeRef, setRef] = useState<HTMLElement | null>(null)
+  const ref = useRef<ResizeObserver>()
   const [elementSize, setElementSize] = useState<SizeRectReadonly>({
     x: 0,
     y: 0,
@@ -20,20 +20,22 @@ export default function useElementSize(): [
     height: 0,
   })
 
-  useEffect(() => {
-    if (nodeRef) {
+  const setRef = useCallback((node: HTMLElement | null) => {
+    if (ref.current) {
+      ref.current.disconnect()
+    }
+    if (node) {
       const ro = new ResizeObserver(([entry]: Array<ResizeObserverEntry>) => {
         const { x, y, width, height } = entry.contentRect
         setElementSize({ x, y, width, height })
       })
-      ro.observe(nodeRef)
-
-      return () => {
-        ro.disconnect()
-      }
+      ro.observe(node)
+      // Store a reference to the node
+      ref.current = ro
+    } else {
+      ref.current = undefined
     }
-    return
-  }, [nodeRef])
+  }, [])
 
   return [setRef, elementSize]
 }
