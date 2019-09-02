@@ -12,7 +12,7 @@ export default function useElementSize(): [
   (node: HTMLElement | null) => void,
   SizeRectReadonly,
 ] {
-  const ref = useRef<ResizeObserver>()
+  const ro = useRef<ResizeObserver>()
   const [elementSize, setElementSize] = useState<SizeRectReadonly>({
     x: 0,
     y: 0,
@@ -21,19 +21,21 @@ export default function useElementSize(): [
   })
 
   const setRef = useCallback((node: HTMLElement | null) => {
-    if (ref.current) {
-      ref.current.disconnect()
+    if (ro.current) {
+      ro.current.disconnect()
     }
     if (node) {
-      const ro = new ResizeObserver(([entry]: Array<ResizeObserverEntry>) => {
-        const { x, y, width, height } = entry.contentRect
-        setElementSize({ x, y, width, height })
-      })
-      ro.observe(node)
-      // Store a reference to the node
-      ref.current = ro
+      if (!ro.current) {
+        ro.current = new ResizeObserver(
+          ([entry]: Array<ResizeObserverEntry>) => {
+            const { x, y, width, height } = entry.contentRect
+            setElementSize({ x, y, width, height })
+          },
+        )
+      }
+      ro.current.observe(node)
     } else {
-      ref.current = undefined
+      ro.current = undefined
     }
   }, [])
 
