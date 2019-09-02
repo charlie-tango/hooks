@@ -24,6 +24,6 @@
     "github-markdown-css": "^3.0.1",
     "storybook-readme": "^5.0.5",
     "styled-components": "^4.3.2",
-    "webpack": "^4.35.0"
+    "webpack": "^4.39.3"
   }
 }
