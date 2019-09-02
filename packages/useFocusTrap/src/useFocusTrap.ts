@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import {
   markForFocusLater,
   returnFocus,
@@ -19,46 +19,53 @@ function useFocusTrap(
   active: boolean = true,
   options: FocusTrapOptions = {},
 ): (instance: HTMLElement | null) => void {
-  const [ref, setRef] = useState<HTMLElement | null>(null)
+  const ref = useRef<HTMLElement | null>()
 
-  const handleKeyDown = useCallback(
-    (event: KeyboardEvent) => {
-      if (event.key === 'Tab' && ref) {
-        scopeTab(ref, event)
-      }
-    },
-    [ref],
-  )
-
-  useEffect(() => {
-    if (active && ref) {
-      document.addEventListener('keydown', handleKeyDown)
-      setupScopedFocus(ref)
-      markForFocusLater()
-      let focusElement: HTMLElement | null = null
-      if (options.focusSelector) {
-        focusElement = ref.querySelector(options.focusSelector)
-      }
-
-      if (!focusElement) {
-        const tabbableChildren = findTabbableDescendants(ref)
-        if (tabbableChildren && tabbableChildren.length) {
-          focusElement = tabbableChildren[0]
-        }
-      }
-
-      if (focusElement) {
-        focusElement.focus()
-      }
-
-      return () => {
-        document.removeEventListener('keydown', handleKeyDown)
+  const setRef = useCallback(
+    node => {
+      if (ref.current) {
         returnFocus()
         teardownScopedFocus()
       }
+      if (active && node) {
+        setupScopedFocus(node)
+        markForFocusLater()
+        let focusElement: HTMLElement | null = null
+        if (options.focusSelector) {
+          focusElement = node.querySelector(options.focusSelector)
+        }
+
+        if (!focusElement) {
+          const tabbableChildren = findTabbableDescendants(node)
+          if (tabbableChildren && tabbableChildren.length) {
+            focusElement = tabbableChildren[0]
+          }
+        }
+
+        if (focusElement) {
+          focusElement.focus()
+        }
+        ref.current = node
+      } else {
+        ref.current = null
+      }
+    },
+    [active, options.focusSelector],
+  )
+
+  useEffect(() => {
+    if (!active) return undefined
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Tab' && ref.current) {
+        scopeTab(ref.current, event)
+      }
     }
-    return () => {}
-  }, [active, ref, handleKeyDown, options.focusSelector])
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [active])
 
   return setRef
 }
