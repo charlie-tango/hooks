@@ -50,9 +50,4 @@ addDecorator(storyFn => (
 require('./readme.story')
 
 // automatically import all files ending in *.story.js
-const req = require.context('../../packages', true, /.story.tsx$/)
-function loadStories() {
-  req.keys().forEach(filename => req(filename))
-}
-
-configure(loadStories, module)
+configure([require.context('../../packages', true, /.story.tsx$/)], module)
