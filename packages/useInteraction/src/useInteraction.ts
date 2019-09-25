@@ -1,30 +1,39 @@
 import { useCallback, useReducer, useRef } from 'react'
 
 type InteractionState = {
+  /** The user is currently pressing the element, either with the mouse or touch */
   active: boolean
+  /** The element has focus */
   focus: boolean
+  /** The focus outline shouldn't be shown - Enabled if using 'focus-visible' polyfill */
   focusVisible: boolean
+  /** An element inside this element currently has focus */
+  focusWithin: boolean
+  /** The user is hovering over the element with the mouse */
   hover: boolean
 }
 
 const events = [
   'focus',
   'blur',
+  'focusin',
+  'focusout',
   'mouseenter',
   'mouseleave',
   'mousedown',
+  'touchstart',
   'mouseup',
+  'touchend',
 ]
 
-function reducer(state: InteractionState, event: Event) {
+function eventReducer(state: InteractionState, event: Event) {
+  const target = event.target as HTMLElement
   switch (event.type) {
     case 'mouseenter':
       return { ...state, hover: true }
     case 'mouseleave':
       return { ...state, hover: false }
     case 'focus':
-      const target = event.target as HTMLElement
-
       return {
         ...state,
         focus: true,
@@ -33,9 +42,23 @@ function reducer(state: InteractionState, event: Event) {
     case 'blur':
       return { ...state, focus: false, focusVisible: false }
     case 'mousedown':
+    case 'touchstart':
       return { ...state, active: true }
     case 'mouseup':
+    case 'touchend':
       return { ...state, active: false }
+    case 'focusin':
+      return {
+        ...state,
+        focusWithin: true,
+        focusVisible: target.classList.contains('focus-visible'),
+      }
+    case 'focusout':
+      return {
+        ...state,
+        focusWithin: false,
+        focusVisible: false,
+      }
   }
 
   return state
@@ -45,6 +68,7 @@ const initial: InteractionState = {
   active: false,
   focus: false,
   focusVisible: false,
+  focusWithin: false,
   hover: false,
 }
 
@@ -53,7 +77,7 @@ function useInteraction(): [
   InteractionState,
 ] {
   const ref = useRef<HTMLElement | null>()
-  const [state, dispatch] = useReducer(reducer, initial)
+  const [state, dispatch] = useReducer(eventReducer, initial)
 
   const setRef = useCallback(node => {
     if (ref.current) {
