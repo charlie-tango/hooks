@@ -10,3 +10,4 @@ export { default as useId } from '@charlietango/use-id'
 export {
   default as useNativeLazyLoading,
 } from '@charlietango/use-native-lazy-loading'
+export { default as useInteraction } from '@charlietango/use-interaction'
