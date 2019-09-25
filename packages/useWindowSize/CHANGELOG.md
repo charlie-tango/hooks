@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/charlie-tango/hooks/compare/@charlietango/use-window-size@1.3.3...@charlietango/use-window-size@1.3.4) (2019-09-25)
+
+**Note:** Version bump only for package @charlietango/use-window-size
+
 ## [1.3.3](https://github.com/charlie-tango/hooks/compare/@charlietango/use-window-size@1.3.2...@charlietango/use-window-size@1.3.3) (2019-06-28)
 
 **Note:** Version bump only for package @charlietango/use-window-size

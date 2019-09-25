@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-element-size",
   "description": "Measure the size of a DOM element using ResizeObserver",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "private": false,
   "sideEffects": false,
   "main": "lib/useElementSize.cjs.js",
