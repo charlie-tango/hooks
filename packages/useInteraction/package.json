@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-interaction",
   "description": "Monitor the user interactions on an element",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "private": false,
   "sideEffects": false,
   "main": "lib/useInteraction.cjs.js",
@@ -36,8 +36,6 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
   },
   "peerDependencies": {
     "react": ">=16.8.0",

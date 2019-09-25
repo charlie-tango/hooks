@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.6.2...@charlietango/hooks@1.7.0) (2019-09-25)
+
+### Features
+
+- add useInteraction hook ([#56](https://github.com/charlie-tango/hooks/issues/56)) ([ddfff4d](https://github.com/charlie-tango/hooks/commit/ddfff4d))
+
 ## [1.6.2](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.6.1...@charlietango/hooks@1.6.2) (2019-09-02)
 
 **Note:** Version bump only for package @charlietango/hooks
