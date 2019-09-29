@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@1.2.5...@charlietango/use-element-size@2.0.0) (2019-09-29)
+
+### Features
+
+- **useElementSize:** switch to @juggle/resize-observer ([30ee21a](https://github.com/charlie-tango/hooks/commit/30ee21a))
+
+### BREAKING CHANGES
+
+- **useElementSize:** YES
+
 ## [1.2.5](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@1.2.4...@charlietango/use-element-size@1.2.5) (2019-09-25)
 
 **Note:** Version bump only for package @charlietango/use-element-size
