@@ -1,9 +1,10 @@
 import { useState, useRef, useCallback } from 'react'
-import ResizeObserver from 'resize-observer-polyfill'
+import ResizeObserver from '@juggle/resize-observer'
+import { ResizeObserverEntry } from '@juggle/resize-observer/lib/ResizeObserverEntry'
+import { DOMRectReadOnly } from '@juggle/resize-observer/lib/DOMRectReadOnly'
 
 interface SizeRectReadonly {
-  readonly x: number
-  readonly y: number
+  readonly contentRect?: DOMRectReadOnly
   readonly width: number
   readonly height: number
 }
@@ -14,8 +15,7 @@ export default function useElementSize(): [
 ] {
   const ro = useRef<ResizeObserver>()
   const [elementSize, setElementSize] = useState<SizeRectReadonly>({
-    x: 0,
-    y: 0,
+    contentRect: undefined,
     width: 0,
     height: 0,
   })
@@ -28,8 +28,11 @@ export default function useElementSize(): [
       if (!ro.current) {
         ro.current = new ResizeObserver(
           ([entry]: Array<ResizeObserverEntry>) => {
-            const { x, y, width, height } = entry.contentRect
-            setElementSize({ x, y, width, height })
+            setElementSize({
+              width: entry.borderBoxSize.inlineSize,
+              height: entry.borderBoxSize.blockSize,
+              contentRect: entry.contentRect,
+            })
           },
         )
       }

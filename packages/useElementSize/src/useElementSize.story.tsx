@@ -31,6 +31,7 @@ storiesOf('useElementSize', module).add('Example', () => (
     <h1>Element sizes</h1>
     <HookComponent style={{ height: 200, width: 200 }} />
     <HookComponent style={{ maxWidth: 500 }} />
+    <HookComponent style={{ width: 200, paddingBottom: 300 }} />
     <HookComponent />
   </>
 ))
