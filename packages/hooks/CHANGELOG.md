@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.3](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.7.2...@charlietango/hooks@1.7.3) (2019-09-30)
+
+**Note:** Version bump only for package @charlietango/hooks
+
 ## [1.7.2](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.7.1...@charlietango/hooks@1.7.2) (2019-09-29)
 
 **Note:** Version bump only for package @charlietango/hooks
