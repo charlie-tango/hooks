@@ -10,10 +10,6 @@ Measure the size of a DOM element using ResizeObserver
 yarn add @charlietango/use-element-size
 ```
 
-This is using the [@juggle/resize-observer](https://github.com/juggle/resize-observer) polyfill -
-This is exporting ES6 modules, so if you are trying to run Jest tests you'll need to add
-`@juggle` to the `transformIgnorePatterns` in your `jest.config.js`:
-
 ```json
 {
   "transformIgnorePatterns": ["<rootDir>/node_modules/(?!@juggle/)"]

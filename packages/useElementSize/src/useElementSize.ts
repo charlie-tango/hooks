@@ -1,11 +1,9 @@
 import { useState, useRef, useCallback } from 'react'
-import { ResizeObserver } from '@juggle/resize-observer'
-import { ResizeObserverEntry } from '@juggle/resize-observer/lib/ResizeObserverEntry'
-import { DOMRectReadOnly } from '@juggle/resize-observer/lib/DOMRectReadOnly'
-import { ResizeObserverBoxOptions } from '@juggle/resize-observer/lib/ResizeObserverBoxOptions'
+import ResizeObserver from 'resize-observer-polyfill'
 
 interface SizeRectReadonly {
-  readonly contentRect?: DOMRectReadOnly
+  readonly x: number
+  readonly y: number
   readonly width: number
   readonly height: number
 }
@@ -16,7 +14,8 @@ export default function useElementSize(): [
 ] {
   const ro = useRef<ResizeObserver>()
   const [elementSize, setElementSize] = useState<SizeRectReadonly>({
-    contentRect: undefined,
+    x: 0,
+    y: 0,
     width: 0,
     height: 0,
   })
@@ -27,17 +26,15 @@ export default function useElementSize(): [
     }
     if (node) {
       if (!ro.current) {
-        ro.current = new ResizeObserver(
+        // @ts-ignore
+        ro.current = new (window.ResizeObserver || ResizeObserver)(
           ([entry]: Array<ResizeObserverEntry>) => {
-            setElementSize({
-              width: entry.borderBoxSize.inlineSize,
-              height: entry.borderBoxSize.blockSize,
-              contentRect: entry.contentRect,
-            })
+            const { x, y, width, height } = entry.contentRect
+            setElementSize({ x, y, width, height })
           },
         )
       }
-      ro.current.observe(node, { box: ResizeObserverBoxOptions.BORDER_BOX })
+      if (ro.current) ro.current.observe(node)
     } else {
       ro.current = undefined
     }

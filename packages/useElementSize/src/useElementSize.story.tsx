@@ -10,7 +10,7 @@ type Props = {
 const Content = styled.div`
   border: 2px dashed black;
   background: azure;
-  padding: 1em;
+  padding: 0;
   margin-bottom: 2rem;
 `
 
@@ -19,7 +19,7 @@ const HookComponent = ({ style }: Props) => {
 
   return (
     <Content ref={ref} style={style}>
-      <pre>
+      <pre style={{ padding: '1rem', margin: 0 }}>
         <code>{JSON.stringify(size, null, 2)}</code>
       </pre>
     </Content>
