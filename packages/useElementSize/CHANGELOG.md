@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.1...@charlietango/use-element-size@2.0.2) (2019-09-30)
+
+### Bug Fixes
+
+- **useElementSize:** revert from [@juggle](https://github.com/juggle) script ([db4203d](https://github.com/charlie-tango/hooks/commit/db4203d))
+
 ## [2.0.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.0...@charlietango/use-element-size@2.0.1) (2019-09-30)
 
 ### Bug Fixes
