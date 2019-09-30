@@ -1,7 +1,8 @@
 import { useState, useRef, useCallback } from 'react'
-import ResizeObserver from '@juggle/resize-observer'
+import { ResizeObserver } from '@juggle/resize-observer'
 import { ResizeObserverEntry } from '@juggle/resize-observer/lib/ResizeObserverEntry'
 import { DOMRectReadOnly } from '@juggle/resize-observer/lib/DOMRectReadOnly'
+import { ResizeObserverBoxOptions } from '@juggle/resize-observer/lib/ResizeObserverBoxOptions'
 
 interface SizeRectReadonly {
   readonly contentRect?: DOMRectReadOnly
@@ -36,7 +37,7 @@ export default function useElementSize(): [
           },
         )
       }
-      ro.current.observe(node)
+      ro.current.observe(node, { box: ResizeObserverBoxOptions.BORDER_BOX })
     } else {
       ro.current = undefined
     }
