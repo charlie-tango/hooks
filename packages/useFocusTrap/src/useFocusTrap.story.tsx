@@ -23,14 +23,68 @@ const HookComponent = (props: Props) => {
   )
 }
 
-storiesOf('useFocusTrap', module).add('Example', () => (
-  <>
-    <input name="outside" placeholder="Outer input" />
-    <HookComponent>
-      <label style={{ display: 'block' }}>
-        <input name="outside" placeholder="Inner input" />
-      </label>
-    </HookComponent>
-    <input name="outside3" placeholder="Outer input" />
-  </>
-))
+const Modal = ({ onClose }) => {
+  const focusTrapRef = useFocusTrap()
+  return (
+    <div
+      ref={focusTrapRef}
+      tabIndex={-1}
+      aria-modal="true"
+      role="dialog"
+      aria-label="Information about root element focus"
+      style={{
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        width: '400px',
+        background: 'white',
+        padding: '20px 40px',
+        border: '1px solid #ddd',
+        transform: 'translate(-50%, -50%)',
+        boxShaodw: '0 3px 4px 2px rgba(0, 0, 0, 0.2)',
+      }}
+    >
+      <p>
+        In this example, the root element—the modal—has the focus not the first focusable child. Its
+        first when you tab that you start focusing.
+      </p>
+      <button onClick={() => onClose()}>Got it!</button>
+      <button
+        style={{
+          position: 'absolute',
+          right: '20px',
+          top: '20px',
+        }}
+        onClick={() => onClose()}
+      >
+        ｘ
+      </button>
+    </div>
+  )
+}
+
+const RootFocusExample = () => {
+  const [showModal, setShowModal] = React.useState(false)
+  return (
+    <>
+      <button onClick={() => setShowModal(true)} style={{ margin: '50px ' }}>
+        Show modal
+      </button>
+      {showModal && <Modal onClose={() => setShowModal(false)} />}
+    </>
+  )
+}
+
+storiesOf('useFocusTrap', module)
+  .add('Example', () => (
+    <>
+      <input name="outside" placeholder="Outer input" />
+      <HookComponent>
+        <label style={{ display: 'block' }}>
+          <input name="outside" placeholder="Inner input" />
+        </label>
+      </HookComponent>
+      <input name="outside3" placeholder="Outer input" />
+    </>
+  ))
+  .add('With root element focusable', () => <RootFocusExample />)
