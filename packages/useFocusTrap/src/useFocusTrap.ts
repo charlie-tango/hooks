@@ -34,6 +34,15 @@ function useFocusTrap(
         if (options.focusSelector) {
           focusElement = node.querySelector(options.focusSelector)
         }
+        
+        if (!focusElement) {
+          const tabIndex = node.getAttribute('tabindex')
+          if (tabIndex === null) tabIndex = undefined
+          const isTabIndexNaN = isNaN(parseInt(tabIndex))
+          if (focusable(node, !isTabIndexNaN)) {
+            focusElement = node
+          }
+        }
 
         if (!focusElement) {
           const tabbableChildren = findTabbableDescendants(node)
