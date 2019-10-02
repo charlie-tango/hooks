@@ -30,8 +30,15 @@ function visible(element: HTMLElement) {
   return true
 }
 
-function focusable(element: HTMLElement, isTabIndexNotNaN: boolean) {
+function getElementTabIndex(element: HTMLElement) {
+  let tabIndex: string | null | undefined = element.getAttribute('tabindex')
+  if (tabIndex === null) tabIndex = undefined
+  return parseInt(tabIndex as string, 10)
+}
+
+export function focusable(element: HTMLElement) {
   const nodeName = element.nodeName.toLowerCase()
+  const isTabIndexNotNaN = !isNaN(getElementTabIndex(element))
   const res =
     // @ts-ignore
     (tabbableNode.test(nodeName) && !element.disabled) ||
@@ -43,13 +50,9 @@ function focusable(element: HTMLElement, isTabIndexNotNaN: boolean) {
 }
 
 function tabbable(element: HTMLElement) {
-  let tabIndex: string | null | undefined = element.getAttribute('tabindex')
-  if (tabIndex === null) tabIndex = undefined
-  const isTabIndexNaN = isNaN(parseInt(tabIndex as string))
-  return (
-    (isTabIndexNaN || parseInt(tabIndex as string, 10) >= 0) &&
-    focusable(element, !isTabIndexNaN)
-  )
+  const tabIndex = getElementTabIndex(element)
+  const isTabIndexNaN = isNaN(tabIndex)
+  return ((isTabIndexNaN || tabIndex >= 0) && focusable(element))
 }
 
 export default function findTabbableDescendants(
