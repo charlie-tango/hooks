@@ -5,7 +5,7 @@ import {
   setupScopedFocus,
   teardownScopedFocus,
 } from './helpers/focusManager'
-import findTabbableDescendants from './helpers/tabbable'
+import findTabbableDescendants, { focusable } from './helpers/tabbable'
 import scopeTab from './helpers/scopeTab'
 
 export type FocusTrapOptions = {
@@ -35,13 +35,8 @@ function useFocusTrap(
           focusElement = node.querySelector(options.focusSelector)
         }
         
-        if (!focusElement) {
-          const tabIndex = node.getAttribute('tabindex')
-          if (tabIndex === null) tabIndex = undefined
-          const isTabIndexNaN = isNaN(parseInt(tabIndex))
-          if (focusable(node, !isTabIndexNaN)) {
-            focusElement = node
-          }
+        if (!focusElement && focusable(node)) {
+          focusElement = node
         }
 
         if (!focusElement) {
