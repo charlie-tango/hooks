@@ -5,7 +5,7 @@ import {
   setupScopedFocus,
   teardownScopedFocus,
 } from './helpers/focusManager'
-import findTabbableDescendants from './helpers/tabbable'
+import findTabbableDescendants, { focusable } from './helpers/tabbable'
 import scopeTab from './helpers/scopeTab'
 
 export type FocusTrapOptions = {
@@ -33,6 +33,10 @@ function useFocusTrap(
         let focusElement: HTMLElement | null = null
         if (options.focusSelector) {
           focusElement = node.querySelector(options.focusSelector)
+        }
+        
+        if (!focusElement && focusable(node)) {
+          focusElement = node
         }
 
         if (!focusElement) {
