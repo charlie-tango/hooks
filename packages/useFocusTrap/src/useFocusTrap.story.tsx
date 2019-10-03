@@ -6,6 +6,10 @@ type Props = {
   children?: React.ReactNode
 }
 
+type ModalProps = {
+  onClose: () => void
+}
+
 const HookComponent = (props: Props) => {
   const [active, setActive] = useState(false)
   const ref = useFocusTrap(active)
@@ -23,7 +27,7 @@ const HookComponent = (props: Props) => {
   )
 }
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose }: ModalProps) => {
   const focusTrapRef = useFocusTrap()
   return (
     <div
@@ -41,12 +45,12 @@ const Modal = ({ onClose }) => {
         padding: '20px 40px',
         border: '1px solid #ddd',
         transform: 'translate(-50%, -50%)',
-        boxShaodw: '0 3px 4px 2px rgba(0, 0, 0, 0.2)',
+        boxShadow: '0 3px 4px 2px rgba(0, 0, 0, 0.2)',
       }}
     >
       <p>
-        In this example, the root element—the modal—has the focus not the first focusable child. Its
-        first when you tab that you start focusing.
+        In this example, the root element—the modal—has the focus not the first
+        focusable child. Its first when you tab that you start focusing.
       </p>
       <button onClick={() => onClose()}>Got it!</button>
       <button
