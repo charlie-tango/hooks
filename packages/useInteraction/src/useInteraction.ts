@@ -21,10 +21,10 @@ const events = [
   'mouseenter',
   'mouseleave',
   'mousedown',
-  'touchstart',
   'mouseup',
-  'touchend',
 ]
+
+const passiveEvents = ['touchstart', 'touchend']
 
 function eventReducer(state: InteractionState, event: Event) {
   const target = event.target as HTMLElement
@@ -85,11 +85,17 @@ function useInteraction(): [
       events.forEach(event => {
         previous.removeEventListener(event, dispatch)
       })
+      passiveEvents.forEach(event => {
+        previous.removeEventListener(event, dispatch)
+      })
     }
     if (node) {
       ref.current = node
       events.forEach(event => {
         node.addEventListener(event, dispatch)
+      })
+      passiveEvents.forEach(event => {
+        node.addEventListener(event, dispatch, { passive: true })
       })
     } else {
       ref.current = null
