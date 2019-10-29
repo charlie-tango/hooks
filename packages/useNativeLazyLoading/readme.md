@@ -25,7 +25,7 @@ Example of how to combine this with `react-intersction-observer`, to create a la
 ```js
 import React from 'react'
 import useNativeLazyLoading from '@charlietango/use-native-lazy-loading'
-import useInView from 'react-intersection-observer'
+import { useInView } from 'react-intersection-observer'
 
 const LazyImage = ({ width, height, src, ...rest }) => {
   const supportsLazyLoading = useNativeLazyLoading()
