@@ -28,9 +28,7 @@
     "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
     "test": "jest"
   },
-  "babel": {
-    "extends": "../../.babelrc"
-  },
+
   "jest": {
     "preset": "../../jest.config.js"
   },

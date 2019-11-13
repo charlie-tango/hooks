@@ -52,7 +52,7 @@ export function focusable(element: HTMLElement) {
 function tabbable(element: HTMLElement) {
   const tabIndex = getElementTabIndex(element)
   const isTabIndexNaN = isNaN(tabIndex)
-  return ((isTabIndexNaN || tabIndex >= 0) && focusable(element))
+  return (isTabIndexNaN || tabIndex >= 0) && focusable(element)
 }
 
 export default function findTabbableDescendants(

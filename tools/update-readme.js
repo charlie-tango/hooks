@@ -40,9 +40,7 @@ async function updateReadme() {
   let output = packages
     .map(item => {
       console.log('- ' + item.name)
-      return `- **[${item.packageName}](https://www.npmjs.com/package/${
-        item.packageName
-      })** _([${item.name}](${item.src}))_ - ${item.description}`
+      return `- **[${item.packageName}](https://www.npmjs.com/package/${item.packageName})** _([${item.name}](${item.src}))_ - ${item.description}`
     })
     .join('\n')
 

@@ -34,7 +34,7 @@ function useFocusTrap(
         if (options.focusSelector) {
           focusElement = node.querySelector(options.focusSelector)
         }
-        
+
         if (!focusElement && focusable(node)) {
           focusElement = node
         }

@@ -44,6 +44,7 @@ const output = entries.map(({ file, format }) => ({
       runtimeHelpers: true,
       extensions,
       include: ['src/**/*'],
+      rootMode: 'upward',
       plugins: [
         [
           '@babel/transform-runtime',
