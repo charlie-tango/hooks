@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-toggle",
   "description": "Simple boolean state toggler",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "private": false,
   "sideEffects": false,
   "main": "lib/useToggle.cjs.js",
@@ -28,7 +28,6 @@
     "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
     "test": "jest"
   },
-
   "jest": {
     "preset": "../../jest.config.js"
   },

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.2...@charlietango/use-element-size@2.0.3) (2019-11-13)
+
+**Note:** Version bump only for package @charlietango/use-element-size
+
 ## [2.0.2](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.1...@charlietango/use-element-size@2.0.2) (2019-09-30)
 
 ### Bug Fixes

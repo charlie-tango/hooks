@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-window-size",
   "description": "Get the width and height of the viewport",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "private": false,
   "sideEffects": false,
   "main": "lib/useWindowSize.cjs.js",
@@ -28,7 +28,6 @@
     "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
     "test": "jest"
   },
-
   "jest": {
     "preset": "../../jest.config.js"
   },
