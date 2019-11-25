@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 
 export enum ScriptStatus {
+  IDLE = 'idle',
   LOADING = 'loading',
-  READY = 'loaded',
+  READY = 'ready',
   ERROR = 'error',
 }
 
@@ -11,10 +12,17 @@ export enum ScriptStatus {
  *
  * @param url {string} url The external script to load
  * */
-export default function useScript(url: string): [boolean, ScriptStatus] {
-  const [status, setStatus] = useState<ScriptStatus>(ScriptStatus.LOADING)
+export default function useScript(url?: string): [boolean, ScriptStatus] {
+  const [status, setStatus] = useState<ScriptStatus>(
+    url ? ScriptStatus.LOADING : ScriptStatus.IDLE,
+  )
 
   useEffect(() => {
+    if (!url) {
+      setStatus(ScriptStatus.IDLE)
+      return
+    }
+    setStatus(ScriptStatus.LOADING)
     let script: HTMLScriptElement | null = document.querySelector(
       `script[src="${url}"]`,
     )
