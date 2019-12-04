@@ -1,7 +1,6 @@
 # Charlie Tango Hooks
 
 [![Version Badge][npm-version-svg]][package-url]
-[![Build Status][travis-svg]][travis-url]
 [![dependency status][deps-svg]][deps-url]
 [![dev dependency status][dev-deps-svg]][dev-deps-url]
 [![License][license-image]][license-url]
@@ -76,8 +75,6 @@ The [@charlietango/hooks](https://www.npmjs.com/package/@charlietango/hooks) col
 
 [package-url]: https://npmjs.org/package/@charlietango/hooks
 [npm-version-svg]: https://img.shields.io/npm/v/@charlietango/hooks.svg
-[travis-svg]: https://travis-ci.org/charlie-tango/hooks.svg
-[travis-url]: https://travis-ci.org/charlie-tango/hooks
 [deps-svg]: https://david-dm.org/charlie-tango/hooks.svg
 [deps-url]: https://david-dm.org/charlie-tango/hooks
 [dev-deps-svg]: https://david-dm.org/charlie-tango/hooks/dev-status.svg
