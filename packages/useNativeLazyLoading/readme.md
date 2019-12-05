@@ -15,7 +15,7 @@ yarn add @charlietango/use-native-lazy-loading
 ## API
 
 ```js
-const supported = useNativeLazyLoading(initialSupported:boolean)
+const supported = useNativeLazyLoading((initialSupported: boolean))
 ```
 
 ## Example

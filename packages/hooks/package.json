@@ -43,7 +43,6 @@
     "@charlietango/use-media": "^1.2.3",
     "@charlietango/use-native-lazy-loading": "^1.6.4",
     "@charlietango/use-script": "^2.1.0",
-    "@charlietango/use-scroll-percentage": "^1.5.1",
     "@charlietango/use-toggle": "^1.2.4",
     "@charlietango/use-window-size": "^1.3.5",
     "react-intersection-observer": "^8.24.2",

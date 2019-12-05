@@ -31,6 +31,7 @@ const LazyImage = ({ width, height, src, ...rest }: Props) => {
           src={src}
           width={width}
           height={height}
+          // @ts-ignore
           loading="lazy"
           style={{ position: 'absolute', width: '100%', height: '100%' }}
           alt="Lazy loaded"
