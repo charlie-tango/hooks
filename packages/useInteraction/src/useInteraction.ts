@@ -37,7 +37,7 @@ function eventReducer(state: InteractionState, event: Event) {
       return {
         ...state,
         focus: true,
-        focusVisible: target.classList.contains('focus-visible'),
+        focusVisible: target.hasAttribute('data-focus-visible-added'),
       }
     case 'blur':
       return { ...state, focus: false, focusVisible: false }
@@ -51,7 +51,7 @@ function eventReducer(state: InteractionState, event: Event) {
       return {
         ...state,
         focusWithin: true,
-        focusVisible: target.classList.contains('focus-visible'),
+        focusVisible: target.hasAttribute('data-focus-visible-added'),
       }
     case 'focusout':
       return {
