@@ -44,7 +44,7 @@ const useId = (prefix?: string) => {
   const generateId = useContext(Context)
   // Prefer generating the id from the IdProvider context, but fallback to the localGenerateId method
   const [id, setId] = useState(generateId ? generateId() : localGenerateId())
-  console.log(id)
+
   useEffect(() => {
     // Once the first effect is triggered, mark this in a boolean.
     // This allows us to skip the extra rendering step when using the hook in components mounted later.
