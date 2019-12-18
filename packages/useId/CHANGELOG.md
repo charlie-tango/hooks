@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.5.3...@charlietango/use-id@1.6.0) (2019-12-18)
+
+### Features
+
+- add client hydration improvement ([99a0309](https://github.com/charlie-tango/hooks/commit/99a0309ba72295b5d32897b70aa97acf640857c9))
+
 ## [1.5.3](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.5.2...@charlietango/use-id@1.5.3) (2019-11-13)
 
 **Note:** Version bump only for package @charlietango/use-id

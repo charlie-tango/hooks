@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-media@1.2.3...@charlietango/use-media@1.3.0) (2019-12-18)
+
+### Features
+
+- add client hydration improvement ([99a0309](https://github.com/charlie-tango/hooks/commit/99a0309ba72295b5d32897b70aa97acf640857c9))
+
 ## [1.2.3](https://github.com/charlie-tango/hooks/compare/@charlietango/use-media@1.2.2...@charlietango/use-media@1.2.3) (2019-11-13)
 
 **Note:** Version bump only for package @charlietango/use-media

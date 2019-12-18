@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-native-lazy-loading@1.6.5...@charlietango/use-native-lazy-loading@1.7.0) (2019-12-18)
+
+### Features
+
+- add client hydration improvement ([99a0309](https://github.com/charlie-tango/hooks/commit/99a0309ba72295b5d32897b70aa97acf640857c9))
+
 ## [1.6.5](https://github.com/charlie-tango/hooks/compare/@charlietango/use-native-lazy-loading@1.6.4...@charlietango/use-native-lazy-loading@1.6.5) (2019-12-10)
 
 **Note:** Version bump only for package @charlietango/use-native-lazy-loading
