@@ -59,7 +59,8 @@
       "@typescript-eslint/no-angle-bracket-type-assertion": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "no-console": "error"
     },
     "settings": {
       "react": {

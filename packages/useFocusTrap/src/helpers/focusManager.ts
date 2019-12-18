@@ -33,6 +33,7 @@ export function returnFocus() {
     toFocus = focusLaterElements.pop()
     if (toFocus) toFocus.focus()
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.warn(
       [
         'You tried to return focus to',
