@@ -11,6 +11,7 @@ import {
 type IdCallback = () => string
 
 const Context = createContext<IdCallback | undefined>(undefined)
+let clientHydrated = false
 
 type IdProviderProps = {
   children: React.ReactNode
@@ -18,6 +19,11 @@ type IdProviderProps = {
 
 // Client side fallback "id" for cases where the application is not surrounded with an <IdProvider />
 let fallbackId = 0
+
+const localGenerateId = () => {
+  if (!clientHydrated) return undefined
+  return ++fallbackId
+}
 
 export const IdProvider = (props: IdProviderProps) => {
   const ref = useRef(0)
@@ -34,10 +40,13 @@ export const IdProvider = (props: IdProviderProps) => {
  */
 const useId = (prefix?: string) => {
   const generateId = useContext(Context)
-  // Prefer generating the id from the IdProvider context.
-  const [id, setId] = useState(generateId ? generateId() : undefined)
-
+  // Prefer generating the id from the IdProvider context, but fallback to the localGenerateId method
+  const [id, setId] = useState(generateId ? generateId() : localGenerateId())
+  console.log(id)
   useEffect(() => {
+    // Once the first effect is triggered, mark this in a boolean.
+    // This allows us to skip the extra rendering step when using the hook in components mounted later.
+    if (!clientHydrated) clientHydrated = true
     // If the Provider is not included, we fallback to generating an id as a client effect.
     if (!id) {
       setId((++fallbackId).toString())

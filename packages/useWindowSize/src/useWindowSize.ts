@@ -5,12 +5,12 @@ type ViewportSize = {
   width: number
 }
 
-const isClient = typeof window === 'object'
+let clientHydrated = false
 
-function useWindowSize(clientOnly: boolean = false) {
+function useWindowSize() {
   const [windowSize, setWindowSize] = useState<ViewportSize>({
-    width: isClient && clientOnly ? window.innerWidth : 0,
-    height: isClient && clientOnly ? window.innerHeight : 0,
+    width: clientHydrated ? window.innerWidth : 0,
+    height: clientHydrated ? window.innerHeight : 0,
   })
 
   useEffect(() => {
@@ -21,12 +21,13 @@ function useWindowSize(clientOnly: boolean = false) {
       })
     }
 
-    if (!clientOnly) handleSize()
+    handleSize()
+    if (!clientHydrated) clientHydrated = true
     window.addEventListener('resize', handleSize)
     return () => {
       window.removeEventListener('resize', handleSize)
     }
-  }, [clientOnly])
+  }, [])
 
   return windowSize
 }

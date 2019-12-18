@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
 
-function useNativeLazyLoading(initialSupported?: boolean) {
-  const [supported, setSupported] = useState<boolean | undefined>(
-    initialSupported,
-  )
+let isSupported: boolean | undefined = undefined
+
+function useNativeLazyLoading() {
+  const [supported, setSupported] = useState<boolean | undefined>(isSupported)
 
   useEffect(() => {
-    setSupported('loading' in HTMLImageElement.prototype)
+    if (isSupported === undefined) {
+      isSupported = 'loading' in HTMLImageElement.prototype
+      setSupported(isSupported)
+    }
   }, [])
 
   return supported

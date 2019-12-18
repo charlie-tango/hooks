@@ -6,7 +6,7 @@ import useWindowSize from './useWindowSize'
 type Props = {}
 
 const HookComponent = (props: Props) => {
-  const { width, height } = useWindowSize(true)
+  const { width, height } = useWindowSize()
 
   useEffect(() => {
     action('hook result')(`${width}x${height}`)

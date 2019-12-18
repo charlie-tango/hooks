@@ -10,14 +10,6 @@ it('should execute the useWindowSize hook', () => {
   expect(height).toBe(window.innerHeight)
 })
 
-it('should execute the useWindowSize hook clientOnly', () => {
-  const { result } = renderHook(() => useWindowSize(true))
-
-  const { width, height } = result.current
-  expect(width).toBe(window.innerWidth)
-  expect(height).toBe(window.innerHeight)
-})
-
 it('should update on resize', () => {
   const { result } = renderHook(() => useWindowSize())
   window.innerWidth = 1200
