@@ -1,11 +1,15 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import useId, { IdProvider } from './useId'
+import useId, { IdProvider, resetLocalId } from './useId'
 
 const Id = ({ prefix }) => {
   const id = useId(prefix)
   return <span data-testid={id}>{id}</span>
 }
+
+afterEach(() => {
+  resetLocalId()
+})
 
 it('should execute the useId hook', () => {
   const { getByTestId } = render(

@@ -25,6 +25,8 @@ const localGenerateId = () => {
   return ++fallbackId
 }
 
+export const resetLocalId = () => (fallbackId = 0)
+
 export const IdProvider = (props: IdProviderProps) => {
   const ref = useRef(0)
   const generateId = useCallback(() => (++ref.current).toString(), [])
