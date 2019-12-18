@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.6.0...@charlietango/use-id@1.6.1) (2019-12-18)
+
+### Bug Fixes
+
+- remove console.log ([c1d574d](https://github.com/charlie-tango/hooks/commit/c1d574d2724452af82c63262ad86463a2e772549))
+
 # [1.6.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.5.3...@charlietango/use-id@1.6.0) (2019-12-18)
 
 ### Features
