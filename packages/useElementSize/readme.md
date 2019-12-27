@@ -10,14 +10,6 @@ Measure the size of a DOM element using ResizeObserver
 yarn add @charlietango/use-element-size
 ```
 
-```json
-{
-  "transformIgnorePatterns": ["<rootDir>/node_modules/(?!@juggle/)"]
-}
-```
-
-Alternatively, you could setup it as library that should be mocked.
-
 ## API
 
 ```js
