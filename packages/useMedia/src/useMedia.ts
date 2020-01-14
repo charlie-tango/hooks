@@ -1,27 +1,22 @@
 import { useState, useEffect } from 'react'
+import useClientHydrated from '@charlietango/use-client-hydrated'
 import json2mq, { QueryObject } from 'json2mq'
 
-let clientHydrated = false
-
 function getMediaQuery(query: string | QueryObject) {
-  if (clientHydrated) {
-    return window.matchMedia(typeof query === 'string' ? query : json2mq(query))
-  }
-
-  return undefined
+  return window.matchMedia(typeof query === 'string' ? query : json2mq(query))
 }
 
 export default function useMedia(
   query: string | QueryObject,
   defaultMatches = true,
 ) {
+  const clientHydrated = useClientHydrated()
   const [matches, setMatches] = useState(() => {
-    const initialQuery = getMediaQuery(query)
+    const initialQuery = clientHydrated ? getMediaQuery(query) : undefined
     return initialQuery ? initialQuery.matches : defaultMatches
   })
 
   useEffect(() => {
-    if (!clientHydrated) clientHydrated = true
     const mediaQuery = getMediaQuery(query)
     if (!mediaQuery) return undefined
 

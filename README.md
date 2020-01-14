@@ -33,6 +33,7 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 
 <!-- HOOKS_START -->
 
+- **[@charlietango/use-client-hydrated](https://www.npmjs.com/package/@charlietango/use-client-hydrated)** _([useClientHydrated](packages/useClientHydrated/src))_ - Check if the client has been hydrated
 - **[@charlietango/use-element-size](https://www.npmjs.com/package/@charlietango/use-element-size)** _([useElementSize](packages/useElementSize/src))_ - Measure the size of a DOM element using ResizeObserver
 - **[@charlietango/use-focus-trap](https://www.npmjs.com/package/@charlietango/use-focus-trap)** _([useFocusTrap](packages/useFocusTrap/src))_ - Trap keyboard focus inside a DOM element, to prevent the user navigating outside a modal
 - **[@charlietango/use-id](https://www.npmjs.com/package/@charlietango/use-id)** _([useId](packages/useId/src))_ - Generate a deterministic id using a Context Provider

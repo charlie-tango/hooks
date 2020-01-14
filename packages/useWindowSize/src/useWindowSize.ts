@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react'
+import useClientHydrated from '@charlietango/use-client-hydrated'
 
 type ViewportSize = {
   height: number
   width: number
 }
 
-let clientHydrated = false
-
 function useWindowSize() {
-  const [windowSize, setWindowSize] = useState<ViewportSize>({
-    width: clientHydrated ? window.innerWidth : 0,
-    height: clientHydrated ? window.innerHeight : 0,
-  })
+  const clientHydrated = useClientHydrated()
+  const [windowSize, setWindowSize] = useState<ViewportSize>(
+    clientHydrated
+      ? {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        }
+      : { width: 0, height: 0 },
+  )
 
   useEffect(() => {
     function handleSize() {
@@ -22,7 +26,6 @@ function useWindowSize() {
     }
 
     handleSize()
-    if (!clientHydrated) clientHydrated = true
     window.addEventListener('resize', handleSize)
     return () => {
       window.removeEventListener('resize', handleSize)

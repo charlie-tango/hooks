@@ -1,0 +1,43 @@
+{
+  "name": "@charlietango/use-client-hydrated",
+  "description": "Check if the client has been hydrated",
+  "version": "1.7.11",
+  "private": false,
+  "sideEffects": false,
+  "main": "lib/useClientHydrated.cjs.js",
+  "module": "lib/useClientHydrated.esm.js",
+  "typings": "lib/useClientHydrated.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "files": [
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/hooks.git"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js,ts,tsx",
+    "prebuild": "rm -rf lib",
+    "build": "rollup -c ../../tools/rollup.config.js",
+    "postbuild": "tsc --noEmit false",
+    "prepublish": "yarn build",
+    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "../../jest.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
