@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.7.0...@charlietango/use-id@1.7.1) (2020-01-14)
+
+### Bug Fixes
+
+- **useClientHydrated:** add as dependencies and fix test ([eb4aa58](https://github.com/charlie-tango/hooks/commit/eb4aa589f57ac61fa9778241649e7879d0d4ca1c))
+
 # [1.7.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.6.1...@charlietango/use-id@1.7.0) (2020-01-14)
 
 ### Features
