@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.7](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.6...@charlietango/use-focus-trap@1.2.7) (2020-01-14)
+
+**Note:** Version bump only for package @charlietango/use-focus-trap
+
 ## [1.2.6](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.5...@charlietango/use-focus-trap@1.2.6) (2019-11-13)
 
 **Note:** Version bump only for package @charlietango/use-focus-trap
