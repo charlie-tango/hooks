@@ -21,7 +21,7 @@ type IdProviderProps = {
 let fallbackId = 0
 
 const localGenerateId = () => {
-  return ++fallbackId
+  return (++fallbackId).toString()
 }
 
 export const resetLocalId = () => (fallbackId = 0)
@@ -50,7 +50,7 @@ const useId = (prefix?: string) => {
   useEffect(() => {
     // If the Provider is not included, we fallback to generating an id as a client effect.
     if (!id) {
-      setId((++fallbackId).toString())
+      setId(localGenerateId())
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
