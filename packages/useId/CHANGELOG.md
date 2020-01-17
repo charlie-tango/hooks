@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.7.1...@charlietango/use-id@1.7.2) (2020-01-17)
+
+### Bug Fixes
+
+- **useId:** ensure the id is a string (or undefined) ([cd66c23](https://github.com/charlie-tango/hooks/commit/cd66c23724213127ea45af702456ad91981f90aa))
+
 ## [1.7.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.7.0...@charlietango/use-id@1.7.1) (2020-01-14)
 
 ### Bug Fixes
