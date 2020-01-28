@@ -1,4 +1,4 @@
-import findTabbable from './tabbable'
+import { findTabbableDescendants } from './tabbable'
 
 const focusLaterElements: Array<HTMLElement> = []
 let focusElement: HTMLElement | null = null
@@ -18,7 +18,7 @@ function handleFocus() {
     if (focusElement.contains(document.activeElement)) {
       return
     }
-    const el = findTabbable(focusElement)[0] || focusElement
+    const el = findTabbableDescendants(focusElement)[0] || focusElement
     el.focus()
   }
 }

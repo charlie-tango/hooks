@@ -49,20 +49,9 @@ const Modal = ({ onClose }: ModalProps) => {
       }}
     >
       <p>
-        In this example, the root element—the modal—has the focus not the first
-        focusable child. Its first when you tab that you start focusing.
+        In this example, the root element — the modal — has the focus, since the
+        modal doesn't contain any valid focusable items.
       </p>
-      <button onClick={() => onClose()}>Got it!</button>
-      <button
-        style={{
-          position: 'absolute',
-          right: '20px',
-          top: '20px',
-        }}
-        onClick={() => onClose()}
-      >
-        ｘ
-      </button>
     </div>
   )
 }

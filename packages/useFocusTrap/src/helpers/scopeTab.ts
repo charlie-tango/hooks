@@ -1,4 +1,4 @@
-import findTabbable from './tabbable'
+import { findTabbableDescendants } from './tabbable'
 
 /**
  * Controls tabbing, so it stays inside the node element
@@ -6,7 +6,7 @@ import findTabbable from './tabbable'
  * @param event
  */
 export default function scopeTab(node: HTMLElement, event: KeyboardEvent) {
-  const tabbable = findTabbable(node)
+  const tabbable = findTabbableDescendants(node)
   if (!tabbable.length) {
     event.preventDefault()
     return

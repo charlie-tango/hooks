@@ -49,16 +49,30 @@ export function focusable(element: HTMLElement) {
   return res && visible(element)
 }
 
-function tabbable(element: HTMLElement) {
+export function tabbable(element: HTMLElement) {
   const tabIndex = getElementTabIndex(element)
   const isTabIndexNaN = isNaN(tabIndex)
   return (isTabIndexNaN || tabIndex >= 0) && focusable(element)
 }
 
-export default function findTabbableDescendants(
+/**
+ * Tabbable elements are elements the user can tab between. This excludes elements with tabIndex=-1
+ * */
+export function findTabbableDescendants(
   element: HTMLElement,
 ): Array<HTMLElement> {
   return Array.from(element.querySelectorAll<HTMLElement>(selector)).filter(
     tabbable,
+  )
+}
+
+/**
+ * Focusable elements are elements that can receive focus in one way or the other
+ * */
+export function findFocusableDescendants(
+  element: HTMLElement,
+): Array<HTMLElement> {
+  return Array.from(element.querySelectorAll<HTMLElement>(selector)).filter(
+    focusable,
   )
 }

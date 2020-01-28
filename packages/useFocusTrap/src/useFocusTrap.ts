@@ -5,7 +5,11 @@ import {
   setupScopedFocus,
   teardownScopedFocus,
 } from './helpers/focusManager'
-import findTabbableDescendants, { focusable } from './helpers/tabbable'
+import {
+  findTabbableDescendants,
+  findFocusableDescendants,
+  focusable,
+} from './helpers/tabbable'
 import scopeTab from './helpers/scopeTab'
 import { createAriaHider } from './helpers/ariaHider'
 
@@ -40,15 +44,17 @@ function useFocusTrap(
               : options.focusSelector
         }
 
-        if (!focusElement && focusable(node)) {
-          focusElement = node
+        if (!focusElement) {
+          let children = findTabbableDescendants(node)
+          // If no tabbable children are found, see if we can find an element that can receive focus instead
+          if (!children.length) children = findFocusableDescendants(node)
+          if (children.length) {
+            focusElement = children[0]
+          }
         }
 
-        if (!focusElement) {
-          const tabbableChildren = findTabbableDescendants(node)
-          if (tabbableChildren && tabbableChildren.length) {
-            focusElement = tabbableChildren[0]
-          }
+        if (!focusElement && focusable(node)) {
+          focusElement = node
         }
 
         if (focusElement) {
