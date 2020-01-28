@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.9](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.8...@charlietango/use-focus-trap@1.2.9) (2020-01-28)
+
+### Bug Fixes
+
+- **useFocusTrap:** fallback to setting focus on items with tabIndex=-1 ([cfb05d9](https://github.com/charlie-tango/hooks/commit/cfb05d9d6e6d5795180b732686d054e49ecd90fa))
+
 ## [1.2.8](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.7...@charlietango/use-focus-trap@1.2.8) (2020-01-28)
 
 ### Bug Fixes
