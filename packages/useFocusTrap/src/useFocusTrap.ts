@@ -7,9 +7,11 @@ import {
 } from './helpers/focusManager'
 import findTabbableDescendants, { focusable } from './helpers/tabbable'
 import scopeTab from './helpers/scopeTab'
+import { createAriaHider } from './helpers/ariaHider'
 
 export type FocusTrapOptions = {
-  focusSelector?: string
+  focusSelector?: string | HTMLElement
+  disableAriaHider?: boolean
 }
 
 /**
@@ -22,7 +24,7 @@ function useFocusTrap(
   const ref = useRef<HTMLElement | null>()
 
   const setRef = useCallback(
-    node => {
+    (node: HTMLElement | null) => {
       if (ref.current) {
         returnFocus()
         teardownScopedFocus()
@@ -32,7 +34,10 @@ function useFocusTrap(
         markForFocusLater()
         let focusElement: HTMLElement | null = null
         if (options.focusSelector) {
-          focusElement = node.querySelector(options.focusSelector)
+          focusElement =
+            typeof options.focusSelector === 'string'
+              ? node.querySelector(options.focusSelector)
+              : options.focusSelector
         }
 
         if (!focusElement && focusable(node)) {
@@ -65,11 +70,17 @@ function useFocusTrap(
       }
     }
 
+    const restoreAria =
+      ref.current && !options.disableAriaHider
+        ? createAriaHider(ref.current)
+        : undefined
+
     document.addEventListener('keydown', handleKeyDown)
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
+      if (restoreAria) restoreAria()
     }
-  }, [active])
+  }, [active, options.disableAriaHider])
 
   return setRef
 }

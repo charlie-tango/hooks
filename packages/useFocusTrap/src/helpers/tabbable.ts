@@ -58,6 +58,7 @@ function tabbable(element: HTMLElement) {
 export default function findTabbableDescendants(
   element: HTMLElement,
 ): Array<HTMLElement> {
-  // @ts-ignore
-  return Array.from(element.querySelectorAll(selector)).filter(tabbable)
+  return Array.from(element.querySelectorAll<HTMLElement>(selector)).filter(
+    tabbable,
+  )
 }

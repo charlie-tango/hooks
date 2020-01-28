@@ -10,7 +10,7 @@ const kebabCase = require('lodash/fp/kebabCase')
 const hooksPck = require('../packages/hooks/package')
 const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
-const mkdirp = promisify(require('mkdirp'))
+const mkdirp = require('mkdirp')
 
 async function startCreation() {
   const answers = await inquirer.prompt([
@@ -52,6 +52,7 @@ async function execute({ name, description }) {
 
       await mkdirp(path.dirname(outputName))
       await writeFileAsync(outputName, replacedSrc, 'utf-8')
+      // eslint-disable-next-line no-console
       console.log(ansi.cyan(`> ${path.relative(process.cwd(), outputName)}`))
     }),
   )
