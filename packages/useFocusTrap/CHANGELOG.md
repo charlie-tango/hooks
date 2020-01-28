@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.8](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.7...@charlietango/use-focus-trap@1.2.8) (2020-01-28)
+
+### Bug Fixes
+
+- **useFocusTrap:** improve the focus trap with aria hide ([ef034a6](https://github.com/charlie-tango/hooks/commit/ef034a6c1c576a6d40cd04b3f84a78bf95f1582c))
+
 ## [1.2.7](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.6...@charlietango/use-focus-trap@1.2.7) (2020-01-14)
 
 **Note:** Version bump only for package @charlietango/use-focus-trap
