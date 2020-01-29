@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.10](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.9...@charlietango/use-focus-trap@1.2.10) (2020-01-29)
+
+### Bug Fixes
+
+- **useFocusTrap:** delay setting focus a single frame ([6e2f583](https://github.com/charlie-tango/hooks/commit/6e2f58307b30e235591baa70dcb98d1898476c46))
+
 ## [1.2.9](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.8...@charlietango/use-focus-trap@1.2.9) (2020-01-28)
 
 ### Bug Fixes
