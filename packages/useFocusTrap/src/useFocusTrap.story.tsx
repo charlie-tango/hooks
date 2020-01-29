@@ -60,8 +60,11 @@ const RootFocusExample = () => {
   const [showModal, setShowModal] = React.useState(false)
   return (
     <>
-      <button onClick={() => setShowModal(true)} style={{ margin: '50px ' }}>
-        Show modal
+      <button
+        onClick={() => setShowModal(!showModal)}
+        style={{ margin: '50px ' }}
+      >
+        Toggle modal
       </button>
       {showModal && <Modal onClose={() => setShowModal(false)} />}
     </>

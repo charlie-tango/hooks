@@ -10,7 +10,8 @@
  * http://api.jqueryui.com/category/ui-core/
  */
 const tabbableNode = /input|select|textarea|button|object/
-const selector = 'a, input, select, textarea, button, object, [tabindex]'
+export const focusSelector =
+  'a, input, select, textarea, button, object, [tabindex]'
 
 function hidden(el: HTMLElement) {
   if (process.env.NODE_ENV === 'test') return false
@@ -61,18 +62,7 @@ export function tabbable(element: HTMLElement) {
 export function findTabbableDescendants(
   element: HTMLElement,
 ): Array<HTMLElement> {
-  return Array.from(element.querySelectorAll<HTMLElement>(selector)).filter(
-    tabbable,
-  )
-}
-
-/**
- * Focusable elements are elements that can receive focus in one way or the other
- * */
-export function findFocusableDescendants(
-  element: HTMLElement,
-): Array<HTMLElement> {
-  return Array.from(element.querySelectorAll<HTMLElement>(selector)).filter(
-    focusable,
-  )
+  return Array.from(
+    element.querySelectorAll<HTMLElement>(focusSelector),
+  ).filter(tabbable)
 }
