@@ -7,7 +7,7 @@
   "sideEffects": false,
   "main": "lib/hooks.cjs.js",
   "module": "lib/hooks.esm.js",
-  "typings": "lib/index.d.ts",
+  "typings": "lib/hooks.d.ts",
   "files": [
     "lib/*"
   ],
