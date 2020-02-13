@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.6](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.8.5...@charlietango/hooks@1.8.6) (2020-02-13)
+
+### Bug Fixes
+
+- correct typings locations for hooks ([9fc47d6](https://github.com/charlie-tango/hooks/commit/9fc47d62f58dd2af855247212658a853e19ee1de))
+
 ## [1.8.5](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.8.4...@charlietango/hooks@1.8.5) (2020-01-29)
 
 **Note:** Version bump only for package @charlietango/hooks
