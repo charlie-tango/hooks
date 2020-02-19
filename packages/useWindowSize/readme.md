@@ -13,12 +13,11 @@ yarn add @charlietango/use-window-size
 ## API
 
 ```js
-const { width, height } = useWindowSize(clientOnly)
+const { width, height } = useWindowSize()
 ```
 
-By default the value is lazy to support SSR, so the `width` and `height` will always be `0` on the initial render
-If you know it will only be rendered on the client, then you can set `clientOnly` to `true`.
-This sets the `width` and `height` on the initial render,
+By default the value is lazy to support SSR, so the `width` and `height` will always be `0` on the initial render.
+Subsequent users of the hook will return the size during the first render.
 
 ## Example
 
