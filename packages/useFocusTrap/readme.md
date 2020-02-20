@@ -51,7 +51,7 @@ export default Component
 
 ### Creating a Modal
 
-When using this inside to create a Modal, there are a few things you need to handle:
+When using this hook to create a Modal, there are still a few things you need to handle, that's outside the scope of this hook:
 
 - Trap focus
 - Close on escape
