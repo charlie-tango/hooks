@@ -72,7 +72,17 @@ The [@charlietango/hooks](https://www.npmjs.com/package/@charlietango/hooks) col
   Monitor when an element enters or leaves the viewport.
 - **[react-scroll-percentage](https://github.com/charlie-tango/hooks/)**
   _([useScrollPercentage](https://github.com/charlie-tango/hooks/))_ -
-  onitor the the amount an element is scrolled inside the viewport.
+  Monitor the the amount an element is scrolled inside the viewport.
+  
+## Contributing
+
+This hooks library is built at as a monorepo using Lerna and Yarn Workspaces.
+
+To start working on a new hook, you should run the `new-hook` script to generate the new package.
+
+```
+yarn new-hook
+```
 
 [package-url]: https://npmjs.org/package/@charlietango/hooks
 [npm-version-svg]: https://img.shields.io/npm/v/@charlietango/hooks.svg
