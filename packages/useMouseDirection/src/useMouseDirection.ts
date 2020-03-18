@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import debounce from 'lodash.debounce'
 
@@ -7,8 +7,11 @@ export type Direction = {
     y: -1 | 0 | 1
 }
 
-function useMouseDirection() {
-    const elementRef = useRef<HTMLElement>()
+function useMouseDirection(): [
+  (element: HTMLElement | null) => void,
+  Direction
+] {
+    const elementRef = useRef<HTMLElement | null>()
     const mouseMovingRef = useRef<number>()
     const [hovered, setHovered] = useState<Boolean>(false)
     const [direction, setDirection] = useState<Direction>({ x: 0, y: 0 })
@@ -48,7 +51,13 @@ function useMouseDirection() {
       return
     }, [elementRef, hovered, debouncedHandleMouseMove])
 
-    return [elementRef, hovered ? direction : { x: 0, y: 0 }]
+    const setRef = useCallback((node: HTMLElement | null) => {
+      if (node) {
+        elementRef.current = node
+      }
+    }, [elementRef])
+
+    return [setRef, hovered ? direction : { x: 0, y: 0 }]
 }
 
 export default useMouseDirection

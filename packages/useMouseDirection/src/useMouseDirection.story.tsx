@@ -1,15 +1,15 @@
-import React, { useEffect, useRef } from 'react'
-import useMouseDirection, { Direction } from './useMouseDirection'
+import React, { useEffect } from 'react'
 
 import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
+import useMouseDirection from './useMouseDirection'
 
 type Props = {
 }
 
 const HookComponent = (props:Props) => {
   const [ref, direction] = useMouseDirection()
-  const { x, y } = direction as Direction
+  const { x, y } = direction
 
   const noMovement = x === 0 && y === 0
   const yMovement = y === 0 ? '' : (y > 0 ? 'up' : 'down')

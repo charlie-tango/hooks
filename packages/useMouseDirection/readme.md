@@ -13,8 +13,15 @@ yarn add @charlietango/use-mouse-direction
 ## API
 
 ```js
-const output = useMouseDirection()
+const [ref, direction] = useMouseDirection()
 ```
+
+### `direction`
+
+|       | -1   | 0      | 1     |
+| ----- |:-----:|:-----:| -----:|
+| X     | right | -     | left
+| Y     | up    | -     | down
 
 ## Example
 
@@ -23,8 +30,11 @@ import React from 'react'
 import useMouseDirection from '@charlietango/use-mouse-direction'
 
 const Component = () => {
-  const output = useMouseDirection()
-  return <div>{output}</div>
+  const [ref, direction] = useMouseDirection()
+  const { x, y } = direction
+  const yMovement = y === 0 ? '' : (y > 0 ? 'up' : 'down')
+  const xMovement = x === 0 ? '' : (x > 0 ? 'left' : 'right')
+  return <div ref={ref}>{xMovement} {yMovement}</div>
 }
 
 export default Component
