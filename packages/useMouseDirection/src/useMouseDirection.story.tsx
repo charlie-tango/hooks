@@ -19,27 +19,29 @@ const HookComponent = (props:Props) => {
     action('direction', { limit: 10 })(x, y)
   }, [x, y])
 
+  const style: React.CSSProperties = {
+    position: 'relative',
+    height: 200,
+    width: 200,
+    marginBottom: 15,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: '5px',
+    borderStyle: 'solid',
+    borderRadius: '5px',
+    borderColor: `
+      ${yMovement === 'up' ? 'green' : '#ccc'}
+      ${xMovement === 'right' ? 'green' : '#ccc'}
+      ${yMovement === 'down' ? 'green' : '#ccc'}
+      ${xMovement === 'left' ? 'green' : '#ccc'}`
+  }
+
   return (
     <>
    <div
     ref={ref}
-    style={{
-      position: 'relative',
-      height: 200,
-      width: 200,
-      marginBottom: 15,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderWidth: '5px',
-      borderStyle: 'solid',
-      borderRadius: '5px',
-      borderColor: `
-        ${yMovement === 'up' ? 'green' : '#ccc'}
-        ${xMovement === 'right' ? 'green' : '#ccc'}
-        ${yMovement === 'down' ? 'green' : '#ccc'}
-        ${xMovement === 'left' ? 'green' : '#ccc'}`
-    }}>
+    style={style}>
       {noMovement ? 'No Movement' : yMovement + ' ' + xMovement}
     </div>
     <code>

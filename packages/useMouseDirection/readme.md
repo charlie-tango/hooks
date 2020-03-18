@@ -18,10 +18,11 @@ const [ref, direction] = useMouseDirection()
 
 ### `direction`
 
-|       | -1   | 0      | 1     |
-| ----- |:-----:|:-----:| -----:|
-| X     | right | -     | left
-| Y     | up    | -     | down
+|       | X   | Y       |
+| ----- |:-----:|:-----:|
+| 1     | left  | up    |
+| 0     | -     | -     |
+| -1    | right | down  |
 
 ## Example
 
