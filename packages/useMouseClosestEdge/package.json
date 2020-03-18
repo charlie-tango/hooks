@@ -1,0 +1,47 @@
+{
+  "name": "@charlietango/use-mouse-closest-edge",
+  "description": "Get the closest corners in a given element relative to the current mouse position.",
+  "version": "1.8.6",
+  "private": false,
+  "sideEffects": false,
+  "main": "lib/useMouseClosestEdge.cjs.js",
+  "module": "lib/useMouseClosestEdge.esm.js",
+  "typings": "lib/useMouseClosestEdge.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "files": [
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/hooks.git"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js,ts,tsx",
+    "prebuild": "rm -rf lib",
+    "build": "rollup -c ../../tools/rollup.config.js",
+    "postbuild": "tsc --noEmit false",
+    "prepublish": "yarn build",
+    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "../../jest.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/lodash.debounce": "^4.0.6"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8"
+  }
+}
