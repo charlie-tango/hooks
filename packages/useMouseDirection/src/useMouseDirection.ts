@@ -9,6 +9,7 @@ export type Direction = {
 
 function useMouseDirection() {
     const elementRef = useRef()
+    const mouseMovingRef = useRef()
     const [hovered, setHovered] = useState<Boolean>(false)
     const [direction, setDirection] = useState<Direction>({ x: 0, y: 0 })
     const handleMouseEnter = () => setHovered(true)
@@ -16,12 +17,15 @@ function useMouseDirection() {
 
     const handleMouseMove = (e: MouseEvent) => {
       // TODO: implement fallback for IE?
+      const mouseMoving = mouseMovingRef.current
+      if (mouseMoving) window.clearTimeout(mouseMoving)
       const y = e.movementY >= 1 ? -1 : (e.movementY < 0 ? 1 : 0)
       const x = e.movementX >= 1 ? -1 : (e.movementX < 0 ? 1 : 0)
       setDirection({ x, y })
+      mouseMovingRef.current = window.setTimeout(() => setDirection({ x: 0, y: 0 }), 300)
     }
 
-    const debouncedHandleMouseMove = useRef(debounce(handleMouseMove, 50, { maxWait: 100 }))
+    const debouncedHandleMouseMove = useRef(debounce(handleMouseMove, 20, { maxWait: 100 }))
 
     useEffect(() => {
         const element: HTMLElement = elementRef.current
