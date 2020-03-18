@@ -12,28 +12,41 @@ const HookComponent = (props:Props) => {
   const { x, y } = direction as Direction
 
   const noMovement = x === 0 && y === 0
-  const yMovementLabel = y === 0 ? '' : (y > 0 ? 'up' : 'down')
-  const xMovementLabel = x === 0 ? '' : (x > 0 ? 'left' : 'right')
+  const yMovement = y === 0 ? '' : (y > 0 ? 'up' : 'down')
+  const xMovement = x === 0 ? '' : (x > 0 ? 'left' : 'right')
 
   useEffect(() => {
     action('direction', { limit: 10 })(x, y)
   }, [x, y])
 
   return (
+    <>
    <div
     ref={ref}
     style={{
-      position: 'absolute',
+      position: 'relative',
       height: 200,
       width: 200,
+      marginBottom: 15,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      border: '2px solid #333',
-      transition: 'transform 200ms linear'
+      borderWidth: '5px',
+      borderStyle: 'solid',
+      borderRadius: '5px',
+      borderColor: `
+        ${yMovement === 'up' ? 'green' : '#ccc'}
+        ${xMovement === 'right' ? 'green' : '#ccc'}
+        ${yMovement === 'down' ? 'green' : '#ccc'}
+        ${xMovement === 'left' ? 'green' : '#ccc'}`
     }}>
-      {noMovement ? 'No Movement' : yMovementLabel + ' ' + xMovementLabel}
+      {noMovement ? 'No Movement' : yMovement + ' ' + xMovement}
     </div>
+    <code>
+      direction:
+      <pre>{JSON.stringify(direction, null, 2)}</pre>
+    </code>
+    </>
   )
 }
 
