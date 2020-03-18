@@ -8,15 +8,14 @@ export type Direction = {
 }
 
 function useMouseDirection() {
-    const elementRef = useRef()
-    const mouseMovingRef = useRef()
+    const elementRef = useRef<HTMLElement>()
+    const mouseMovingRef = useRef<number>()
     const [hovered, setHovered] = useState<Boolean>(false)
     const [direction, setDirection] = useState<Direction>({ x: 0, y: 0 })
     const handleMouseEnter = () => setHovered(true)
     const handleMouseLeave = () => setHovered(false)
 
     const handleMouseMove = (e: MouseEvent) => {
-      // TODO: implement fallback for IE?
       const mouseMoving = mouseMovingRef.current
       if (mouseMoving) window.clearTimeout(mouseMoving)
       const y = e.movementY >= 1 ? -1 : (e.movementY < 0 ? 1 : 0)
@@ -28,23 +27,25 @@ function useMouseDirection() {
     const debouncedHandleMouseMove = useRef(debounce(handleMouseMove, 70, { maxWait: 100 }))
 
     useEffect(() => {
-        const element: HTMLElement = elementRef.current
+        const element = elementRef.current
         if (element) {
           element.addEventListener('mouseenter', handleMouseEnter)
           element.addEventListener('mouseleave', handleMouseLeave)
+          return () => {
+            element.removeEventListener('mouseenter', handleMouseEnter)
+            element.removeEventListener('mouseleave', handleMouseLeave)
+          }
         }
-        return () => {
-          element.removeEventListener('mouseenter', handleMouseEnter)
-          element.removeEventListener('mouseleave', handleMouseLeave)
-        }
+        return
     }, [elementRef, setHovered])
 
     useEffect(() => {
-      const element: HTMLElement = elementRef.current
+      const element = elementRef.current
       if (element && hovered) {
         element.addEventListener('mousemove', debouncedHandleMouseMove.current)
+        return () => element.removeEventListener('mousemove', debouncedHandleMouseMove.current)
       }
-      return () => element.removeEventListener('mousemove', debouncedHandleMouseMove.current)
+      return
     }, [elementRef, hovered, debouncedHandleMouseMove])
 
     return [elementRef, hovered ? direction : { x: 0, y: 0 }]
