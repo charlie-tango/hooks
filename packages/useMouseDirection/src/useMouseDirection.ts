@@ -21,7 +21,7 @@ function useMouseDirection(): [(element: HTMLElement | null) => void, Direction]
       const y = e.movementY >= 1 ? -1 : (e.movementY < 0 ? 1 : 0)
       const x = e.movementX >= 1 ? -1 : (e.movementX < 0 ? 1 : 0)
       setDirection({ x, y })
-      mouseMovingRef.current = window.setTimeout(() => setDirection({ x: 0, y: 0 }), 300)
+      mouseMovingRef.current = window.setTimeout(() => setDirection({ x: 0, y: 0 }), 200)
     }
 
     const debouncedHandleMouseMove = useRef(debounce(handleMouseMove, 30, { leading: true, maxWait: 200 }))
