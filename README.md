@@ -39,7 +39,7 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 - **[@charlietango/use-id](https://www.npmjs.com/package/@charlietango/use-id)** _([useId](packages\useId\src))_ - Generate a deterministic id using a Context Provider
 - **[@charlietango/use-interaction](https://www.npmjs.com/package/@charlietango/use-interaction)** _([useInteraction](packages\useInteraction\src))_ - Monitor the user interactions on an element
 - **[@charlietango/use-media](https://www.npmjs.com/package/@charlietango/use-media)** _([useMedia](packages\useMedia\src))_ - Detect if the browser matches a media query
-- **[@charlietango/use-mouse-direction](https://www.npmjs.com/package/@charlietango/use-mouse-direction)** _([useMouseDirection](packages\useMouseDirection\src))_ - Get the mouse movement direction within a given element.
+- **[@charlietango/use-mouse-direction](https://www.npmjs.com/package/@charlietango/use-mouse-direction)** _([useMouseDirection](packages\useMouseDirection\src))_ - Get the direction of mouse movement within an element..
 - **[@charlietango/use-native-lazy-loading](https://www.npmjs.com/package/@charlietango/use-native-lazy-loading)** _([useNativeLazyLoading](packages\useNativeLazyLoading\src))_ - Detect if the browser supports the new 'loading' attribute on Image elements.
 - **[@charlietango/use-script](https://www.npmjs.com/package/@charlietango/use-script)** _([useScript](packages\useScript\src))_ - Load an external third party script
 - **[@charlietango/use-toggle](https://www.npmjs.com/package/@charlietango/use-toggle)** _([useToggle](packages\useToggle\src))_ - Simple boolean state toggler

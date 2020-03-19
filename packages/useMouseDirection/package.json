@@ -1,6 +1,6 @@
 {
   "name": "@charlietango/use-mouse-direction",
-  "description": "Get the mouse movement direction within a given element.",
+  "description": "Get the direction of mouse movement within an element..",
   "version": "1.8.6",
   "private": false,
   "sideEffects": false,
