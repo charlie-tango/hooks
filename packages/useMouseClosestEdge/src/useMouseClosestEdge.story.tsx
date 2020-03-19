@@ -4,8 +4,7 @@ import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/react'
 import useMouseClosestEdge from './useMouseClosestEdge'
 
-type Props = {
-}
+type Props = {}
 
 const style: React.CSSProperties = {
   position: 'relative',
@@ -15,24 +14,22 @@ const style: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  border: '3px solid #ccc'
+  border: '3px solid #ccc',
 }
 
-const HookComponent = (props:Props) => {
+const HookComponent = (props: Props) => {
   const [ref, position] = useMouseClosestEdge()
   const { x, y } = position
 
-  const yPosition = y === 0 ? '' : (y === 1 ? 'top' : 'bottom')
-  const xPosition = x === 0 ? '' : (x === 1 ? 'right' : 'left')
+  const yPosition = y === 0 ? '' : y === 1 ? 'top' : 'bottom'
+  const xPosition = x === 0 ? '' : x === 1 ? 'left' : 'right'
 
   useEffect(() => action('position', { limit: 10 })(x, y), [x, y])
 
   return (
     <>
-    Hover for position:
-    <div
-      ref={ref}
-      style={style}>
+      Hover for position:
+      <div ref={ref} style={style}>
         {yPosition + ' ' + xPosition}
       </div>
       <code>

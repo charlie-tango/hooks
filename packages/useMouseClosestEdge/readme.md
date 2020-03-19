@@ -18,11 +18,11 @@ const [ref, position] = useMouseClosestEdge()
 
 ### `position`
 
-|       | X     | Y      |
-| ----- |:-----:|:------:|
-| 1     | left  | top    |
-| 0     | -     | -      |
-| -1    | right | bottom |
+|     |   X   |   Y    |
+| --- | :---: | :----: |
+| 1   | left  |  top   |
+| 0   |   -   |   -    |
+| -1  | right | bottom |
 
 ## Example
 
@@ -33,9 +33,13 @@ import useMouseClosestEdge from '@charlietango/use-mouse-closest-edge'
 const Component = () => {
   const [ref, position] = useMouseClosestEdge()
   const { x, y } = position
-  const yPosition = y === 0 ? '' : (y === 1 ? 'top' : 'bottom')
-  const xPosition = x === 0 ? '' : (x === 1 ? 'right' : 'left')
-  return <div ref={ref}>{xPosition} {yPosition}</div>
+  const yPosition = y === 0 ? '' : y === 1 ? 'top' : 'bottom'
+  const xPosition = x === 0 ? '' : x === 1 ? 'left' : 'right'
+  return (
+    <div ref={ref}>
+      {xPosition} {yPosition}
+    </div>
+  )
 }
 
 export default Component
