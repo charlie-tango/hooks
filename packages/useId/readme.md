@@ -3,7 +3,7 @@
 Generate a deterministic id using a `ContextProvider`.
 Use this as a way of generating unique id's for input fields, or linking aria fields.
 
-> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/useid--readme) demo.
+> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/useid--readme) demo.
 
 ## Installation
 

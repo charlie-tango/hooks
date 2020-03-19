@@ -4,7 +4,7 @@ Detect if the browser supports the new `loading` attribute on Image elements.
 Combine this with [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 to lazy load images with a fallback method.
 
-> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/usenativelazyloading--readme) demo.
+> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/usenativelazyloading--readme) demo.
 
 ## Installation
 

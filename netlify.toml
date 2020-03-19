@@ -1,7 +1,0 @@
-[build]
-  publish = "dist"
-  command = "yarn build:storybook"
-
-[build.environment]
-  NODE_VERSION = "11.10.1"
-  YARN_VERSION = "1.13.0"

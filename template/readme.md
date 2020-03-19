@@ -2,7 +2,7 @@
 
 %description%
 
-> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/%lowercaseName%--readme) demo.
+> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/%lowercaseName%--readme) demo.
 
 ## Installation
 

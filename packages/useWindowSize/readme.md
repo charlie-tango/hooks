@@ -2,7 +2,7 @@
 
 Get the width and height of the viewport.
 
-> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/usewindowsize--readme) demo.
+> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/usewindowsize--readme) demo.
 
 ## Installation
 

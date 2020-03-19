@@ -4,7 +4,7 @@ With `useScript` you can lazy-load external third party scripts, that your
 components might depend on. It checks if the requested `url` already exists it
 reuses it, instead of creating a new load request.
 
-> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/usescript--readme) demo.
+> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/usescript--readme) demo.
 
 ## Installation
 
