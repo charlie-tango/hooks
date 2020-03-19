@@ -7,10 +7,11 @@ export type Position = {
     y: -1 | 0 | 1
 }
 
-function useMouseClosestEdge(): [
-  (element: HTMLElement | null) => void,
-  Position
-  ] {
+function inRange(x: number, min: number, max: number) {
+  return x >= min && x <= max;
+}
+
+function useMouseClosestEdge(): [(element: HTMLElement | null) => void, Position] {
     const elementRef = useRef<HTMLElement | null>()
     const [hovered, setHovered] = useState<Boolean>(false)
     const [direction, setDirection] = useState<Position>({ x: 0, y: 0 })
@@ -23,7 +24,12 @@ function useMouseClosestEdge(): [
         const rect = element.getBoundingClientRect()
         const top = e.pageY <= (rect.top + (rect.height / 2))
         const left = e.pageX <= (rect.left + (rect.width / 2))
-        setDirection({ x: left ? 1 : -1, y: top ? -1 : 1 })
+
+        // Check if the cursor is within coordinate ranges that are in the middle of the element
+        const middleX = inRange(e.pageX, rect.left + (rect.width / 3), rect.right - (rect.width / 3))
+        const middleY = inRange(e.pageY, rect.top + (rect.height / 3), rect.bottom - (rect.height / 3))
+
+        setDirection({ x: middleX ? 0 : (left ? 1 : -1), y: middleY ? 0 : (top ? 1 : -1) })
       }
     }
 
