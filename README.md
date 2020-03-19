@@ -4,12 +4,11 @@
 [![dependency status][deps-svg]][deps-url]
 [![dev dependency status][dev-deps-svg]][dev-deps-url]
 [![License][license-image]][license-url]
-[![Greenkeeper badge][greenkeeper-svg]][greenkeeper-url]
 [![styled with prettier][prettier-svg]][prettier-url]
 
 Collection of React Hooks used by Charlie Tango.
 
-**Storybook Demo:** https://ct-hooks.netlify.com
+**Storybook Demo:** https://ct-hooks.now.sh
 
 ## Installation
 
@@ -73,7 +72,7 @@ The [@charlietango/hooks](https://www.npmjs.com/package/@charlietango/hooks) col
 - **[react-scroll-percentage](https://github.com/charlie-tango/hooks/)**
   _([useScrollPercentage](https://github.com/charlie-tango/hooks/))_ -
   Monitor the the amount an element is scrolled inside the viewport.
-  
+
 ## Contributing
 
 This hooks library is built at as a monorepo using Lerna and Yarn Workspaces.
@@ -92,7 +91,5 @@ yarn new-hook
 [dev-deps-url]: https://david-dm.org/charlie-tango/hooks#info=devDependencies
 [license-image]: http://img.shields.io/npm/l/@charlietango/hooks.svg
 [license-url]: LICENSE
-[greenkeeper-svg]: https://badges.greenkeeper.io/charlie-tango/hooks.svg
-[greenkeeper-url]: https://greenkeeper.io/
 [prettier-svg]: https://img.shields.io/badge/styled_with-prettier-ff69b4.svg
 [prettier-url]: https://github.com/prettier/prettier

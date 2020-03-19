@@ -2,7 +2,7 @@
 
 Monitor the user interactions on an element
 
-> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/useinteraction--readme) demo.
+> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/useinteraction--readme) demo.
 
 ## Installation
 

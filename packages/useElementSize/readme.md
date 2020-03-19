@@ -2,7 +2,7 @@
 
 Measure the size of a DOM element using ResizeObserver
 
-> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/useelementsize--readme) demo.
+> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/useelementsize--readme) demo.
 
 ## Installation
 

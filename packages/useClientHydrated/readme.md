@@ -2,7 +2,7 @@
 
 Check if the client has been hydrated
 
-> Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/useclienthydrated--readme) demo.
+> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/useclienthydrated--readme) demo.
 
 ## Installation
 
