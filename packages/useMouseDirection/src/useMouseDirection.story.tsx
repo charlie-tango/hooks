@@ -11,13 +11,11 @@ const HookComponent = (props:Props) => {
   const [ref, direction] = useMouseDirection()
   const { x, y } = direction
 
+  useEffect(() => action('direction', { limit: 10 })(x, y), [x, y])
+
   const noMovement = x === 0 && y === 0
   const yMovement = y === 0 ? '' : (y > 0 ? 'up' : 'down')
   const xMovement = x === 0 ? '' : (x > 0 ? 'left' : 'right')
-
-  useEffect(() => {
-    action('direction', { limit: 10 })(x, y)
-  }, [x, y])
 
   const style: React.CSSProperties = {
     position: 'relative',

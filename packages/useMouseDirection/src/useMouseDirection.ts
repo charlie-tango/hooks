@@ -7,10 +7,7 @@ export type Direction = {
     y: -1 | 0 | 1
 }
 
-function useMouseDirection(): [
-  (element: HTMLElement | null) => void,
-  Direction
-] {
+function useMouseDirection(): [(element: HTMLElement | null) => void, Direction] {
     const elementRef = useRef<HTMLElement | null>()
     const mouseMovingRef = useRef<number>()
     const [hovered, setHovered] = useState<Boolean>(false)
@@ -27,7 +24,7 @@ function useMouseDirection(): [
       mouseMovingRef.current = window.setTimeout(() => setDirection({ x: 0, y: 0 }), 300)
     }
 
-    const debouncedHandleMouseMove = useRef(debounce(handleMouseMove, 70, { maxWait: 100 }))
+    const debouncedHandleMouseMove = useRef(debounce(handleMouseMove, 30, { leading: true, maxWait: 200 }))
 
     useEffect(() => {
         const element = elementRef.current

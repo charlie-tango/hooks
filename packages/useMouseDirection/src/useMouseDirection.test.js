@@ -3,5 +3,8 @@ import useMouseDirection from './useMouseDirection'
 
 it('should execute the useMouseDirection hook', () => {
   const { result } = renderHook(() => useMouseDirection())
-  expect(result).toBe('👋')
+  const [ refSetter, direction ] = result.current
+  expect(refSetter).toBeInstanceOf(Function)
+  expect(direction).toHaveProperty('x')
+  expect(direction).toHaveProperty('y')
 })
