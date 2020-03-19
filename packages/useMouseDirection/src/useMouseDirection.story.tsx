@@ -24,9 +24,8 @@ const HookComponent = (props: Props) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: '5px',
+    borderWidth: '3px',
     borderStyle: 'solid',
-    borderRadius: '5px',
     borderColor: `
       ${yMovement === 'up' ? 'green' : '#ccc'}
       ${xMovement === 'right' ? 'green' : '#ccc'}

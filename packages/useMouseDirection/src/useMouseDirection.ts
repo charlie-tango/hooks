@@ -31,7 +31,7 @@ function useMouseDirection(): [
   }
 
   const debouncedHandleMouseMove = useRef(
-    debounce(handleMouseMove, 50, { maxWait: 250 }),
+    debounce(handleMouseMove, 30, { leading: true, maxWait: 250 }),
   )
 
   useEffect(() => {
