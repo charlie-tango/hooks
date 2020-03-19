@@ -11,7 +11,7 @@ const style: React.CSSProperties = {
   position: 'relative',
   height: 200,
   width: 200,
-  marginBottom: 15,
+  margin: '15px 0',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -22,25 +22,23 @@ const HookComponent = (props:Props) => {
   const [ref, position] = useMouseClosestEdge()
   const { x, y } = position
 
-  const centered = x === 0 && y === 0
-  const yMovement = y === 0 ? '' : (y < 0 ? 'bottom' : 'top')
-  const xMovement = x === 0 ? '' : (x < 0 ? 'right' : 'left')
+  const yPosition = y === 0 ? '' : (y === 1 ? 'top' : 'bottom')
+  const xPosition = x === 0 ? '' : (x === 1 ? 'right' : 'left')
 
-  useEffect(() => {
-    action('position', { limit: 10 })(x, y)
-  }, [x, y])
+  useEffect(() => action('position', { limit: 10 })(x, y), [x, y])
 
   return (
     <>
-   <div
-    ref={ref}
-    style={style}>
-      {centered ? '' : yMovement + ' ' + xMovement}
-    </div>
-    <code>
-      position:
-      <pre>{JSON.stringify(position, null, 2)}</pre>
-    </code>
+    Hover for position:
+    <div
+      ref={ref}
+      style={style}>
+        {yPosition + ' ' + xPosition}
+      </div>
+      <code>
+        position:
+        <pre>{JSON.stringify(position, null, 2)}</pre>
+      </code>
     </>
   )
 }

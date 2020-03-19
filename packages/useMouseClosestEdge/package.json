@@ -1,6 +1,6 @@
 {
   "name": "@charlietango/use-mouse-closest-edge",
-  "description": "Get the closest edge in a given element relative to the current mouse position.",
+  "description": "Get the closest edge within an element relative to the mouse position..",
   "version": "1.8.6",
   "private": false,
   "sideEffects": false,

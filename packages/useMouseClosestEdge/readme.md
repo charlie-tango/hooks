@@ -1,6 +1,6 @@
 # useMouseClosestEdge
 
-Get the closest edge in a given element relative to the current mouse cursor position.
+Get the closest edge within an element relative to the mouse position.
 
 > Checkout the [Storybook](https://ct-hooks.netlify.com/?path=/story/usemouseclosestedge--readme) demo.
 
@@ -18,7 +18,7 @@ const [ref, position] = useMouseClosestEdge()
 
 ### `position`
 
-|       | X   | Y        |
+|       | X     | Y      |
 | ----- |:-----:|:------:|
 | 1     | left  | top    |
 | 0     | -     | -      |
@@ -33,8 +33,8 @@ import useMouseClosestEdge from '@charlietango/use-mouse-closest-edge'
 const Component = () => {
   const [ref, position] = useMouseClosestEdge()
   const { x, y } = position
-  const yMovement = y === 0 ? '' : (y > 0 ? 'up' : 'down')
-  const yPosition = x === 0 ? '' : (x > 0 ? 'left' : 'right')
+  const yPosition = y === 0 ? '' : (y === 1 ? 'top' : 'bottom')
+  const xPosition = x === 0 ? '' : (x === 1 ? 'right' : 'left')
   return <div ref={ref}>{xPosition} {yPosition}</div>
 }
 
