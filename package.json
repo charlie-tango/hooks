@@ -15,7 +15,6 @@
     "dev": "lerna run dev --scope @charlietango/storybook",
     "lint": "lerna run lint --stream --parallel",
     "new-hook": "node tools/new-hook",
-    "now-build": "lerna run build:storybook --scope @charlietango/storybook",
     "update-readme": "node tools/update-readme",
     "release": "cross-env HUSKY_BYPASS=true lerna publish",
     "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
