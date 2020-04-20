@@ -17,8 +17,8 @@ yarn add @charlietango/use-focus-trap
 const ref = useFocusTrap(active, options)
 ```
 
-The `useFocusTrap` hook returns a `ref` that you should assign the the DOM element that should be root of the trap.
-Anything outside that element, will not be able to receive focus.
+The `useFocusTrap` hook returns a `ref` that you should assign to the DOM element that needs to trap focus.
+Anything outside that element, will no longer be able to receive focus.
 
 You can toggle the trap by setting the `active` boolean. By default it's activated once the `ref` is assigned.
 
