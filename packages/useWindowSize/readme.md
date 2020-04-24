@@ -16,7 +16,7 @@ yarn add @charlietango/use-window-size
 const { width, height } = useWindowSize()
 ```
 
-By default the value is lazy to support SSR, so the `width` and `height` will always be `0` on the initial render.
+By default, the value is lazy to support SSR, so the `width` and `height` will always be `0` on the initial render.
 Subsequent users of the hook will return the size during the first render.
 
 ## Example
