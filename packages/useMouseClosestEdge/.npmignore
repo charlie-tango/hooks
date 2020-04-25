@@ -1,0 +1,31 @@
+# Mac OSX Files
+.DS_Store
+.Trashes
+.LSOverride
+
+# Node Modules
+node_modules
+npm-debug.log
+
+# General Files
+.sass-cache
+.hg
+.idea
+.svn
+.cache
+.project
+.tmp
+.eslintignore
+.flowconfig
+.travis.yml
+.babelrc
+.editorconfig
+.storybook
+yarn.lock
+
+# Project files
+coverage
+src/stories
+tests
+__tests__
+*.test.*
