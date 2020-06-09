@@ -46,8 +46,7 @@
     "@charlietango/use-script": "^2.1.0",
     "@charlietango/use-toggle": "^1.2.4",
     "@charlietango/use-window-size": "^1.5.1",
-    "react-intersection-observer": "^8.24.2",
-    "react-scroll-percentage": "^4.0.3"
+    "react-intersection-observer": "^8.24.2"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

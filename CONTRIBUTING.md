@@ -16,7 +16,7 @@ adding it to the `./packages` dir. This will create a new NPM package called
 
 ### Publishing
 
-Currently publishing a new release is a manually `lerna publish` task. Make sure
+Currently, publishing a new release is a manual `lerna publish` task. Make sure
 you have access rights to publish to our NPM before creating a new release.
 
 ```
