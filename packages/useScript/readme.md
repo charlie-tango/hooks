@@ -23,6 +23,7 @@ The second value is the current loading status, that will be one of the `ScriptS
 
 ```ts
 enum ScriptStatus {
+  IDLE = 'idle',
   LOADING = 'loading',
   READY = 'loaded',
   ERROR = 'error',

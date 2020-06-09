@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import useClientHydrated from '@charlietango/use-client-hydrated'
 
 export enum ScriptStatus {
   IDLE = 'idle',
@@ -13,16 +14,25 @@ export enum ScriptStatus {
  * @param url {string} url The external script to load
  * */
 export default function useScript(url?: string): [boolean, ScriptStatus] {
-  const [status, setStatus] = useState<ScriptStatus>(
-    url ? ScriptStatus.LOADING : ScriptStatus.IDLE,
-  )
+  const clientHydrated = useClientHydrated()
+  const [status, setStatus] = useState<ScriptStatus>(() => {
+    if (clientHydrated) {
+      const script: HTMLScriptElement | null = document.querySelector(
+        `script[src="${url}"]`,
+      )
+      if (script && script.hasAttribute('data-status')) {
+        return script.getAttribute('data-status') as ScriptStatus
+      }
+    }
+    return url ? ScriptStatus.LOADING : ScriptStatus.IDLE
+  })
 
   useEffect(() => {
     if (!url) {
       setStatus(ScriptStatus.IDLE)
       return
     }
-    setStatus(ScriptStatus.LOADING)
+
     let script: HTMLScriptElement | null = document.querySelector(
       `script[src="${url}"]`,
     )
@@ -31,7 +41,11 @@ export default function useScript(url?: string): [boolean, ScriptStatus] {
       script = document.createElement('script')
       script.src = url
       script.async = true
+      script.setAttribute('data-status', ScriptStatus.LOADING)
       document.head.appendChild(script)
+
+      // Ensure the status is loading
+      setStatus(ScriptStatus.LOADING)
 
       script.onerror = () => {
         if (script) script.setAttribute('data-status', ScriptStatus.ERROR)
