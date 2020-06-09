@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-window-size",
   "description": "Get the width and height of the viewport",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "private": false,
   "sideEffects": false,
   "main": "lib/useWindowSize.cjs.js",
@@ -35,7 +35,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@charlietango/use-client-hydrated": "^1.8.1"
+    "@charlietango/use-client-hydrated": "^1.8.2"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

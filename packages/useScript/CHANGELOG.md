@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-script@2.1.0...@charlietango/use-script@2.1.1) (2020-06-09)
+
+### Bug Fixes
+
+- use existing script status if when rerendering hook. ([a2530cf](https://github.com/charlie-tango/hooks/commit/a2530cfc4dfbdd3c9ad54e727726c3b41383271b))
+
 # [2.1.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-script@2.0.2...@charlietango/use-script@2.1.0) (2019-11-25)
 
 ### Features

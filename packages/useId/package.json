@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-id",
   "description": "Generate a deterministic id using a Context Provider",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "private": false,
   "sideEffects": false,
   "main": "lib/useId.cjs.js",
@@ -35,7 +35,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@charlietango/use-client-hydrated": "^1.8.1"
+    "@charlietango/use-client-hydrated": "^1.8.2"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

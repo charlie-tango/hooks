@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.3](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.7.2...@charlietango/use-id@1.7.3) (2020-06-09)
+
+**Note:** Version bump only for package @charlietango/use-id
+
 ## [1.7.2](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.7.1...@charlietango/use-id@1.7.2) (2020-01-17)
 
 ### Bug Fixes

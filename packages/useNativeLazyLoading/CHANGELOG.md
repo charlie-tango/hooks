@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-native-lazy-loading@1.7.0...@charlietango/use-native-lazy-loading@1.7.1) (2020-06-09)
+
+**Note:** Version bump only for package @charlietango/use-native-lazy-loading
+
 # [1.7.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-native-lazy-loading@1.6.5...@charlietango/use-native-lazy-loading@1.7.0) (2019-12-18)
 
 ### Features

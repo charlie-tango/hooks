@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/charlie-tango/hooks/compare/@charlietango/use-client-hydrated@1.8.1...@charlietango/use-client-hydrated@1.8.2) (2020-06-09)
+
+**Note:** Version bump only for package @charlietango/use-client-hydrated
+
 ## [1.8.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-client-hydrated@1.8.0...@charlietango/use-client-hydrated@1.8.1) (2020-01-14)
 
 ### Bug Fixes
