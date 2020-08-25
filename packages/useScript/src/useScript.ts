@@ -12,8 +12,9 @@ export enum ScriptStatus {
  * Hook to load an external script. Returns true once the script has finished loading.
  *
  * @param url {string} url The external script to load
+ * @param attributes {} attributes Script tag attributes
  * */
-export default function useScript(url?: string): [boolean, ScriptStatus] {
+export default function useScript(url?: string, attributes?: { [k: string]: string }): [boolean, ScriptStatus] {
   const clientHydrated = useClientHydrated()
   const [status, setStatus] = useState<ScriptStatus>(() => {
     if (clientHydrated) {
@@ -43,6 +44,11 @@ export default function useScript(url?: string): [boolean, ScriptStatus] {
       script.async = true
       script.setAttribute('data-status', ScriptStatus.LOADING)
       document.head.appendChild(script)
+      if (attributes) {
+        Object.keys(attributes).forEach(key => {
+          script?.setAttribute(key, attributes[key])
+        })
+      }
 
       // Ensure the status is loading
       setStatus(ScriptStatus.LOADING)
@@ -71,7 +77,7 @@ export default function useScript(url?: string): [boolean, ScriptStatus] {
         script.removeEventListener('error', eventHandler)
       }
     }
-  }, [url])
+  }, [url, attributes])
 
   return [status === ScriptStatus.READY, status]
 }
