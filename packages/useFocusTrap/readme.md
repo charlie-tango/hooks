@@ -33,7 +33,7 @@ The focus trap accepts an object with these optional options, that give you a bi
 
 ## Example
 
-```jsx
+```js
 import React from 'react'
 import useFocusTrap from '@charlietango/use-focus-trap'
 

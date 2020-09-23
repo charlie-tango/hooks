@@ -26,7 +26,7 @@ The hook will revert to generating the `id` as a side effect if the `IdProvider`
 
 ## Example
 
-```jsx
+```js
 import React from 'react'
 import useId, { IdProvider } from '@charlietango/use-id'
 

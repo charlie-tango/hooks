@@ -19,7 +19,7 @@ const [isToggled, toggle] = useToggle(toggledInitially)
 
 ## Example
 
-```jsx
+```js
 import React from 'react'
 import useToggle from '@charlietango/use-toggle'
 
