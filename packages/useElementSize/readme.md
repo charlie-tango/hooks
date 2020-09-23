@@ -21,7 +21,7 @@ Assign the `ref` to the element you want to measure.
 
 ## Example
 
-```js
+```jsx
 import React from 'react'
 import useElementSize from '@charlietango/use-element-size'
 
