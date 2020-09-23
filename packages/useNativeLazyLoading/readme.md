@@ -22,7 +22,7 @@ const supported = useNativeLazyLoading((initialSupported: boolean))
 
 Example of how to combine this with `react-intersction-observer`, to create a lazy loaded image.
 
-```jsx
+```js
 import React from 'react'
 import useNativeLazyLoading from '@charlietango/use-native-lazy-loading'
 import { useInView } from 'react-intersection-observer'

@@ -34,7 +34,7 @@ The status is an object containing a `boolean` for each of the following propert
 
 ## Example
 
-```jsx
+```js
 import React from 'react'
 import useInteraction from '@charlietango/use-interaction'
 

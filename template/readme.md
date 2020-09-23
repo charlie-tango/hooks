@@ -18,7 +18,7 @@ const output = %name%()
 
 ## Example
 
-```jsx
+```js
 import React from 'react'
 import %name% from '%packageName%'
 

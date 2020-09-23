@@ -62,6 +62,17 @@ you actually use.
 import { useMedia } from "@charlietango/hooks";
 ```
 
+### Third Party Hooks
+
+The [@charlietango/hooks](https://www.npmjs.com/package/@charlietango/hooks) collection also includes the Hook from these libraries:
+
+- **[react-intersection-observer](https://github.com/charlie-tango/hooks/)**
+  _([useInView](https://github.com/charlie-tango/hooks/))_ -
+  Monitor when an element enters or leaves the viewport.
+- **[react-scroll-percentage](https://github.com/charlie-tango/hooks/)**
+  _([useScrollPercentage](https://github.com/charlie-tango/hooks/))_ -
+  Monitor the the amount an element is scrolled inside the viewport.
+
 ## Contributing
 
 This hooks library is built at as a monorepo using Lerna and Yarn Workspaces.
