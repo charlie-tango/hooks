@@ -12,10 +12,16 @@ export enum ScriptStatus {
  * Hook to load an external script. Returns true once the script has finished loading.
  *
  * @param url {string} url The external script to load
- * @param attributes {} attributes Script tag attributes
+ * @param options {} options for hook
+ * @param options.attributes {} attributes object for Script tag attributes
  * */
-export default function useScript(url?: string, attributes?: { [k: string]: string }): [boolean, ScriptStatus] {
+export default function useScript(url?: string, options?: {
+  attributes?: {
+    [k: string]: string
+  }
+}): [boolean, ScriptStatus] {
   const clientHydrated = useClientHydrated()
+  const attributes = options?.attributes
   const [status, setStatus] = useState<ScriptStatus>(() => {
     if (clientHydrated) {
       const script: HTMLScriptElement | null = document.querySelector(
