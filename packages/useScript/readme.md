@@ -32,7 +32,7 @@ enum ScriptStatus {
 
 ## Example
 
-```js
+```jsx
 import React from 'react'
 import useScript, { ScriptStatus } from '@charlietango/use-script'
 

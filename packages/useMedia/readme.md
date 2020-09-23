@@ -21,7 +21,7 @@ properties.
 
 ## Example
 
-```js
+```jsx
 import React from 'react'
 import useMedia from '@charlietango/use-media'
 

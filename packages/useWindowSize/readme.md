@@ -21,7 +21,7 @@ Subsequent users of the hook will return the size during the first render.
 
 ## Example
 
-```js
+```jsx
 import React from 'react'
 import useWindowSize from '@charlietango/use-window-size'
 
