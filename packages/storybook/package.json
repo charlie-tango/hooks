@@ -14,7 +14,7 @@
     "@storybook/addons": "^5.2.1",
     "@storybook/react": "^5.2.1",
     "@storybook/theming": "^5.2.1",
-    "@types/jest": "^25.1.2",
+    "@types/jest": "^26.0.14",
     "@types/react": "^16.8.22",
     "@types/storybook-readme": "^5.0.2",
     "github-markdown-css": "^3.0.1",
