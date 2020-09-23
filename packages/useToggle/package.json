@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-toggle",
   "description": "Simple boolean state toggler",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "private": false,
   "sideEffects": false,
   "main": "lib/useToggle.cjs.js",

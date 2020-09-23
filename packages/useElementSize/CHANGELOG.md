@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.5...@charlietango/use-element-size@2.0.6) (2020-09-23)
+
+### Reverts
+
+- Revert "ci: add semantic release" (#96) ([c2e703b](https://github.com/charlie-tango/hooks/commit/c2e703be2b83847fef7c6dfa50b912e26e0b9676)), closes [#96](https://github.com/charlie-tango/hooks/issues/96)
+
+# 1.0.0 (2020-09-23)
+
 ## [2.0.5](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.4...@charlietango/use-element-size@2.0.5) (2020-06-09)
 
 **Note:** Version bump only for package @charlietango/use-element-size

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.12](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.11...@charlietango/use-focus-trap@1.2.12) (2020-09-23)
+
+### Reverts
+
+- Revert "ci: add semantic release" (#96) ([c2e703b](https://github.com/charlie-tango/hooks/commit/c2e703be2b83847fef7c6dfa50b912e26e0b9676)), closes [#96](https://github.com/charlie-tango/hooks/issues/96)
+
+# 1.0.0 (2020-09-23)
+
 ## [1.2.11](https://github.com/charlie-tango/hooks/compare/@charlietango/use-focus-trap@1.2.10...@charlietango/use-focus-trap@1.2.11) (2020-06-09)
 
 **Note:** Version bump only for package @charlietango/use-focus-trap

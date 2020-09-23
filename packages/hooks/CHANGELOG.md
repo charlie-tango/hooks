@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.8.7...@charlietango/hooks@1.9.0) (2020-09-23)
+
+### Features
+
+- remove react-intersection-observer ([f58a7df](https://github.com/charlie-tango/hooks/commit/f58a7dfa3678af6740c972267c64e1da91678121))
+
+### Reverts
+
+- Revert "ci: add semantic release" (#96) ([c2e703b](https://github.com/charlie-tango/hooks/commit/c2e703be2b83847fef7c6dfa50b912e26e0b9676)), closes [#96](https://github.com/charlie-tango/hooks/issues/96)
+
+# 1.0.0 (2020-09-23)
+
 ## [1.8.7](https://github.com/charlie-tango/hooks/compare/@charlietango/hooks@1.8.6...@charlietango/hooks@1.8.7) (2020-06-09)
 
 **Note:** Version bump only for package @charlietango/hooks
