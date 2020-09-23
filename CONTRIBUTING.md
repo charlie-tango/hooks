@@ -16,12 +16,4 @@ adding it to the `./packages` dir. This will create a new NPM package called
 
 ### Publishing
 
-Currently, publishing a new release is a manual `lerna publish` task. Make sure
-you have access rights to publish to our NPM before creating a new release.
-
-```
-yarn release
-```
-
-**Lerna** should bump the version automatically based on the conventional commit
-history.
+The project uses [semantic release](https://semantic-release.gitbook.io/) to publish packages when they are merged into `master`.
