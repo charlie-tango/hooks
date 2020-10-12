@@ -45,7 +45,8 @@
     "@charlietango/use-native-lazy-loading": "^1.8.0",
     "@charlietango/use-script": "^2.1.2",
     "@charlietango/use-toggle": "^1.2.6",
-    "@charlietango/use-window-size": "^1.5.3"
+    "@charlietango/use-window-size": "^1.5.3",
+    "@charlietango/use-lazy-ref": "1.9.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

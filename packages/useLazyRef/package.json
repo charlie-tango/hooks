@@ -1,0 +1,43 @@
+{
+  "name": "@charlietango/use-lazy-ref",
+  "description": "Create a new ref with lazy instantiated value",
+  "version": "1.9.0",
+  "private": false,
+  "sideEffects": false,
+  "main": "lib/useLazyRef.cjs.js",
+  "module": "lib/useLazyRef.esm.js",
+  "typings": "lib/useLazyRef.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "hooks"
+  ],
+  "files": [
+    "lib/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlie-tango/hooks.git"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js,ts,tsx",
+    "prebuild": "rm -rf lib",
+    "build": "rollup -c ../../tools/rollup.config.js",
+    "postbuild": "tsc --noEmit false",
+    "prepublish": "yarn build",
+    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "../../jest.config.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
