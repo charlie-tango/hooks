@@ -37,6 +37,7 @@ All of our Hooks are published into their own NPM module, so you can pick and ch
 - **[@charlietango/use-focus-trap](https://www.npmjs.com/package/@charlietango/use-focus-trap)** _([useFocusTrap](packages/useFocusTrap/src))_ - Trap keyboard focus inside a DOM element, to prevent the user navigating outside a modal
 - **[@charlietango/use-id](https://www.npmjs.com/package/@charlietango/use-id)** _([useId](packages/useId/src))_ - Generate a deterministic id using a Context Provider
 - **[@charlietango/use-interaction](https://www.npmjs.com/package/@charlietango/use-interaction)** _([useInteraction](packages/useInteraction/src))_ - Monitor the user interactions on an element
+- **[@charlietango/use-lazy-ref](https://www.npmjs.com/package/@charlietango/use-lazy-ref)** _([useLazyRef](packages/useLazyRef/src))_ - Create a new ref with lazy instantiated value
 - **[@charlietango/use-media](https://www.npmjs.com/package/@charlietango/use-media)** _([useMedia](packages/useMedia/src))_ - Detect if the browser matches a media query
 - **[@charlietango/use-native-lazy-loading](https://www.npmjs.com/package/@charlietango/use-native-lazy-loading)** _([useNativeLazyLoading](packages/useNativeLazyLoading/src))_ - Detect if the browser supports the new 'loading' attribute on Image elements.
 - **[@charlietango/use-script](https://www.npmjs.com/package/@charlietango/use-script)** _([useScript](packages/useScript/src))_ - Load an external third party script
@@ -61,17 +62,6 @@ you actually use.
 ```js
 import { useMedia } from "@charlietango/hooks";
 ```
-
-### Third Party Hooks
-
-The [@charlietango/hooks](https://www.npmjs.com/package/@charlietango/hooks) collection also includes the Hook from these libraries:
-
-- **[react-intersection-observer](https://github.com/charlie-tango/hooks/)**
-  _([useInView](https://github.com/charlie-tango/hooks/))_ -
-  Monitor when an element enters or leaves the viewport.
-- **[react-scroll-percentage](https://github.com/charlie-tango/hooks/)**
-  _([useScrollPercentage](https://github.com/charlie-tango/hooks/))_ -
-  Monitor the the amount an element is scrolled inside the viewport.
 
 ## Contributing
 
