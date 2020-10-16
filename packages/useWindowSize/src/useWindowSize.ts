@@ -16,12 +16,17 @@ function useWindowSize() {
         }
       : { width: 0, height: 0 },
   )
-
   useEffect(() => {
     function handleSize() {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
+      setWindowSize((prevState) => {
+        // Don't create a new state object if the size didn't change (e.g. after initial render)
+        return prevState.height !== window.innerHeight ||
+          prevState.width !== window.innerWidth
+          ? {
+              width: window.innerWidth,
+              height: window.innerHeight,
+            }
+          : prevState
       })
     }
 

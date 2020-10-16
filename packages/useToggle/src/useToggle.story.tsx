@@ -1,15 +1,32 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import useToggle from './useToggle'
 
-const HookComponent = () => {
-  const [isToggled, toggle] = useToggle(true)
+type Props = {
+  initialValue: boolean
+}
+
+const Template: Story<Props> = (args) => {
+  const [isToggled, toggle] = useToggle(args.initialValue)
   return (
     <>
       <button onClick={toggle}>Toggle</button>
-      {isToggled ? 'true' : 'false'}
+      <p>
+        <code>
+          isToggled:
+          <strong>{isToggled ? 'true' : 'false'}</strong>
+        </code>
+      </p>
     </>
   )
 }
 
-storiesOf('useToggle', module).add('Example', () => <HookComponent />)
+export const Off = Template.bind({})
+Off.args = {
+  initialValue: false,
+}
+
+export const On = Template.bind({})
+On.args = {
+  initialValue: true,
+}

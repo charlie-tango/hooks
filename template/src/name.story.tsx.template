@@ -4,21 +4,27 @@ import { action } from '@storybook/addon-actions'
 import %name% from './%name%'
 
 type Props = {
+  src: string
+  options?: {
+    attributes?: {
+      [k: string]: string
+    }
+  }
 }
 
-const HookComponent = (props:Props) => {
-  const result = %name%()
+/**
+* Stories are exported from the `*.story.jsx` file, and presented in the `*.story.mdx` file.
+**/
+const Template: Story<Props> = (args) => {
+    const result = %name%()
 
-  useEffect(() => {
-    action('hook result')(result)
-  }, [result])
+    useEffect(() => {
+      action('hook result')(result)
+    }, [result])
 
-  return <code>Hook result: {result.toString()}</code>
+    return <code>Hook result: {result.toString()}</code>
 }
 
-storiesOf('%name%', module).add('Example', () => (
-  <>
-    <h1>Render the hook</h1>
-    <HookComponent />
-  </>
-))
+export const Basic = Template.bind({})
+    Basic.args = {
+}

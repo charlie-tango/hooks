@@ -1,11 +1,13 @@
 import React from 'react'
 import useInteraction from './useInteraction'
+import { Story } from '@storybook/react/types-6-0'
 
-export default {
-  title: 'useInteraction',
+type Props = {
+  withButton?: boolean
+  label: string
 }
 
-export const Example = () => {
+const Template: Story<Props> = (args) => {
   const [ref, state] = useInteraction()
   return (
     <>
@@ -13,7 +15,7 @@ export const Example = () => {
         ref={ref}
         style={{
           width: 200,
-          height: 100,
+          height: 50,
           padding: 20,
           fontWeight: 600,
           borderRadius: 4,
@@ -22,40 +24,23 @@ export const Example = () => {
         tabIndex={0}
         role="button"
       >
-        Interactive element!
+        {args.withButton ? <button>{args.label}</button> : args.label}
       </div>
       <code style={{ whiteSpace: 'pre' }}>
-        Status:
-        <br />
         <pre data-testid="output">{JSON.stringify(state, null, 2)}</pre>
       </code>
     </>
   )
 }
 
-export const FocusWithin = () => {
-  const [ref, state] = useInteraction()
+export const Example = Template.bind({})
+Example.args = {
+  withButton: false,
+  label: 'Interactive element',
+}
 
-  return (
-    <>
-      <div
-        ref={ref}
-        style={{
-          width: 200,
-          height: 100,
-          padding: 20,
-          fontWeight: 600,
-          borderRadius: 4,
-          background: 'aquamarine',
-        }}
-      >
-        <button>Button within</button>
-      </div>
-      <code style={{ whiteSpace: 'pre' }}>
-        Status:
-        <br />
-        <pre data-testid="output">{JSON.stringify(state, null, 2)}</pre>
-      </code>
-    </>
-  )
+export const FocusWithin = Template.bind({})
+FocusWithin.args = {
+  withButton: true,
+  label: 'Button within',
 }

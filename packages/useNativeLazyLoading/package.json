@@ -39,6 +39,6 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "react-intersection-observer": "^8.28.5"
+    "react-intersection-observer": "^8.29.0"
   }
 }

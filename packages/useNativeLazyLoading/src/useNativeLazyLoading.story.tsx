@@ -1,5 +1,4 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import useNativeLazyLoading from './useNativeLazyLoading'
 import { useInView } from 'react-intersection-observer'
 
@@ -11,13 +10,15 @@ type Props = {
 
 const LazyImage = ({ width, height, src, ...rest }: Props) => {
   const supportsLazyLoading = useNativeLazyLoading()
+
   const [ref, inView] = useInView({
     triggerOnce: true,
+    skip: supportsLazyLoading !== false,
   })
 
   return (
     <div
-      ref={supportsLazyLoading === false ? ref : undefined}
+      ref={ref}
       style={{
         position: 'relative',
         paddingBottom: `${(height / width) * 100}%`,
@@ -25,13 +26,11 @@ const LazyImage = ({ width, height, src, ...rest }: Props) => {
       }}
     >
       {inView || supportsLazyLoading ? (
-        // @ts-ignore "loading" is not added to TypeScript yet
         <img
           {...rest}
           src={src}
           width={width}
           height={height}
-          // @ts-ignore
           loading="lazy"
           style={{ position: 'absolute', width: '100%', height: '100%' }}
           alt="Lazy loaded"
@@ -44,12 +43,12 @@ const LazyImage = ({ width, height, src, ...rest }: Props) => {
 function Header() {
   const supportsLazyLoading = useNativeLazyLoading()
   return (
-    <h1>
+    <h2>
       Supports native loading:{' '}
       {supportsLazyLoading !== undefined
         ? supportsLazyLoading.toString()
         : '...'}
-    </h1>
+    </h2>
   )
 }
 
@@ -64,7 +63,7 @@ const images = [
   { width: 800, height: 650 },
 ]
 
-storiesOf('useNativeLazyLoading', module).add('Example', () => (
+export const Example = () => (
   <>
     <Header />
     <div style={{ maxWidth: 800 }}>
@@ -78,4 +77,4 @@ storiesOf('useNativeLazyLoading', module).add('Example', () => (
       ))}
     </div>
   </>
-))
+)

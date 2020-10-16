@@ -1,28 +1,22 @@
-import React, { useEffect } from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
+import React, { useEffect, useState } from 'react'
 import useClientHydrated from './useClientHydrated'
 
-type Props = {}
-
-const HookComponent = (props: Props) => {
-  const result = useClientHydrated()
-
-  useEffect(() => {
-    action('hook result')(result)
-  }, [result])
-
-  return <code>Hook result: {result.toString()}</code>
+export const SSRHydratedState = () => {
+  return (
+    <code>
+      {useClientHydrated() ? 'Client already hydrated' : 'Initial render'}
+    </code>
+  )
 }
 
-storiesOf('useClientHydrated', module).add('Example', () => (
-  <>
-    <h1>Client hydrated</h1>
-    <HookComponent />
-    <p>
-      This is false the first a component with the hook is rendered. On the
-      second render it will be true. Try to navigate to another page, and come
-      back.
-    </p>
-  </>
-))
+export const RehydrateOnClient = () => {
+  const hydrated = useClientHydrated()
+  // Set the initial ready state based on hydrated. Will be `false` first time the component is rendered, but true after hydration.
+  const [ready, setReady] = useState(hydrated)
+  useEffect(() => {
+    // We have been hydrated correctly now
+    setReady(true)
+  }, [])
+
+  return <code>{ready ? 'Hydrated' : 'Hydrating'}</code>
+}

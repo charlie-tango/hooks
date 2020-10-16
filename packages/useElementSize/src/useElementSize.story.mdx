@@ -1,0 +1,33 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks'
+import * as stories from './useElementSize.story'
+
+<Meta title="Hooks/useElementSize" />
+
+# useElementSize
+
+Measure the size of a DOM element using ResizeObserver
+
+## API
+
+```js
+const [ref, size] = useElementSize()
+```
+
+The hook returns an Array with a `ref` function, and the measured `size`.
+Assign the `ref` to the element you want to measure.
+
+## Examples
+
+<Canvas>
+  <Story story={stories.Basic} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.MaxWidth} />
+</Canvas>
+
+When monitoring the element size, `padding` has no effect on the size. This is why this element appears much larger.
+
+<Canvas>
+  <Story story={stories.PaddingBottom} />
+</Canvas>

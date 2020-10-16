@@ -7,19 +7,16 @@
     "build:storybook": "build-storybook -c . -s public -o ../../dist"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^5.2.1",
-    "@storybook/addon-links": "^5.2.1",
-    "@storybook/addon-options": "^5.2.1",
-    "@storybook/addon-viewport": "^5.2.1",
-    "@storybook/addons": "^5.2.1",
-    "@storybook/react": "^5.2.1",
-    "@storybook/theming": "^5.2.1",
+    "@storybook/addon-essentials": "^6.0.26",
+    "@storybook/addons": "^6.0.26",
+    "@storybook/react": "^6.0.26",
+    "@storybook/theming": "^6.0.26",
     "@types/jest": "^26.0.14",
     "@types/react": "^16.8.22",
-    "@types/storybook-readme": "^5.0.2",
-    "github-markdown-css": "^3.0.1",
-    "storybook-readme": "^5.0.5",
     "styled-components": "^5.0.1",
-    "webpack": "^4.40.2"
+    "webpack": "^4.44.2"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "2.22.1"
   }
 }

@@ -1,0 +1,43 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks'
+import * as stories from './useFocusTrap.story'
+
+<Meta title="Hooks/useFocusTrap" />
+
+# useFocusTrap
+
+Trap keyboard focus inside a DOM element, to prevent the user navigating outside a modal.
+When using this, make sure to combine it with a fixed position `<Backdrop>` that prevents the mouse from clicking input elements.
+
+## API
+
+```js
+const ref = useFocusTrap(active, options)
+```
+
+The `useFocusTrap` hook returns a `ref` that you should assign to the DOM element that needs to trap focus.
+Anything outside that element, will no longer be able to receive focus.
+
+You can toggle the trap by setting the `active` boolean. By default it's activated once the `ref` is assigned.
+
+### Options
+
+The focus trap accepts an object with these optional options, that give you a bit more control.
+
+| Name                 | Type                     | Default     | Required | Description                                                                                                                                                       |
+| -------------------- | ------------------------ | ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **focusSelector**    | `string` / `HTMLElement` | `undefined` | false    | Assign focus when activated to the element matching this selector - or a specific element you supply. By default focus will be set to the first valid tab target. |
+| **disableAriaHider** | `boolean`                | `false`     | false    | Disables setting `aria-hidden` on other elements inside the `document.body` while the trap is active.                                                             |
+
+## Example
+
+### Trapped focus
+
+<Canvas>
+  <Story story={stories.Example} />
+</Canvas>
+
+### With Root Focus
+
+<Canvas>
+  <Story story={stories.WithRootFocus} />
+</Canvas>

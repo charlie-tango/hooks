@@ -1,23 +1,18 @@
-import React, { useEffect } from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
+import React from 'react'
 import useLazyRef from './useLazyRef'
+import { Story } from '@storybook/react/types-6-0'
 
-type Props = {}
-
-const HookComponent = (props: Props) => {
-  const result = useLazyRef(() => ({ message: 'Lazy ref value' }))
-
-  useEffect(() => {
-    action('hook result')(result)
-  }, [result])
-
-  return <code>{JSON.stringify(result)}</code>
+type Props = {
+  value: string
 }
 
-storiesOf('useLazyRef', module).add('Example', () => (
-  <>
-    <h1>Create a lazy ref value</h1>
-    <HookComponent />
-  </>
-))
+const Template: Story<Props> = (args) => {
+  const result = useLazyRef(() => args.value)
+
+  return <code>{result}</code>
+}
+
+export const Example = Template.bind({})
+Example.args = {
+  value: 'Lazy ref value',
+}

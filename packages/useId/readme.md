@@ -1,7 +1,7 @@
 # useId
 
 Generate a deterministic id using a `ContextProvider`.
-Use this as a way of generating unique id's for input fields, or linking aria fields.
+Use this as a way of generating unique ids for input fields, or linking aria fields.
 
 > Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/useid--readme) demo.
 
@@ -17,8 +17,8 @@ yarn add @charlietango/use-id
 const id = useId(prefix?: string)
 ```
 
-The `useId` hook should ideally wrapped with the `IdProvider`.
-This ensures that the generated id's are deterministic, since the provider is created once for each instance of the application.
+The `useId` hook should ideally be wrapped with the `IdProvider`.
+This ensures that the generated ids are deterministic, since the provider gets created once for each instance of the application.
 
 The hook will revert to generating the `id` as a side effect if the `IdProvider` is not included. This means you will get back `undefined` during the initial render.
 

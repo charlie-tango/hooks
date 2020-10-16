@@ -1,0 +1,31 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks'
+import * as stories from './useMedia.story'
+
+<Meta title="Hooks/useMedia" />
+
+# useMedia
+
+Detect if the browser matches a media query.
+
+## API
+
+```js
+const matches = useMedia(query)
+```
+
+The `query` can either be a CSS media query, or an object with he media query
+properties.
+
+## Example
+
+<Canvas>
+  <Story story={stories.Example} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.Example2} />
+</Canvas>
+
+<Canvas>
+  <Story story={stories.Example3} />
+</Canvas>

@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react'
-import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import useWindowSize from './useWindowSize'
 
-type Props = {}
-
-const HookComponent = (props: Props) => {
+export const WindowSize = () => {
   const { width, height } = useWindowSize()
 
   useEffect(() => {
@@ -13,17 +10,9 @@ const HookComponent = (props: Props) => {
   }, [width, height])
 
   return (
-    <strong>
-      <code>
-        {width}x{height}px
-      </code>
-    </strong>
+    <code>
+      Viewport size:
+      <strong> {width}</strong>x<strong>{height}</strong>
+    </code>
   )
 }
-
-storiesOf('useWindowSize', module).add('Example', () => (
-  <>
-    <h1>Window Size</h1>
-    <HookComponent />
-  </>
-))

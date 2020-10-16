@@ -1,5 +1,4 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import useId, { IdProvider } from './useId'
 
 type Props = { prefix?: string }
@@ -35,34 +34,36 @@ const LoginForm = () => {
   )
 }
 
-storiesOf('useId', module)
-  .add('Example with provider', () => (
-    <IdProvider>
-      <h1>Render the ids</h1>
-      <Id />
-      <Id />
-      <Id />
-      <Id />
-      <h2>With prefix</h2>
-      <Id prefix="prefix" />
-      <Id prefix="prefix" />
-      <Id prefix="prefix" />
-      <h2>Login</h2>
-      <LoginForm />
-    </IdProvider>
-  ))
-  .add('Example without provider', () => (
-    <>
-      <h1>Render the ids</h1>
-      <Id />
-      <Id />
-      <Id />
-      <Id />
-      <h2>With prefix</h2>
-      <Id prefix="prefix" />
-      <Id prefix="prefix" />
-      <Id prefix="prefix" />
-      <h2>Login</h2>
-      <LoginForm />
-    </>
-  ))
+export const ExampleWithProvider = () => (
+  <IdProvider>
+    <h3>
+      With <code>IdProvider</code>
+    </h3>
+    <Id />
+    <Id />
+    <Id />
+    <Id />
+    <h4>With prefix</h4>
+    <Id prefix="prefix" />
+    <Id prefix="prefix" />
+    <Id prefix="prefix" />
+    <h4>Login</h4>
+    <LoginForm />
+  </IdProvider>
+)
+
+export const ExampleWithoutProvider = () => (
+  <>
+    <h3>Without provider</h3>
+    <Id />
+    <Id />
+    <Id />
+    <Id />
+    <h4>With prefix</h4>
+    <Id prefix="prefix" />
+    <Id prefix="prefix" />
+    <Id prefix="prefix" />
+    <h4>Login</h4>
+    <LoginForm />
+  </>
+)

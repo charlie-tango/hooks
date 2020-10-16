@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react'
-import { storiesOf } from '@storybook/react'
+import { Story } from '@storybook/react/types-6-0'
 import useElementSize from './useElementSize'
 import styled from 'styled-components'
 
@@ -14,11 +14,11 @@ const Content = styled.div`
   margin-bottom: 2rem;
 `
 
-const HookComponent = ({ style }: Props) => {
+const Template: Story<Props> = (args) => {
   const [ref, size] = useElementSize()
 
   return (
-    <Content ref={ref} style={style}>
+    <Content ref={ref} style={args.style}>
       <pre style={{ padding: '1rem', margin: 0 }}>
         <code>{JSON.stringify(size, null, 2)}</code>
       </pre>
@@ -26,12 +26,25 @@ const HookComponent = ({ style }: Props) => {
   )
 }
 
-storiesOf('useElementSize', module).add('Example', () => (
-  <>
-    <h1>Element sizes</h1>
-    <HookComponent style={{ height: 200, width: 200 }} />
-    <HookComponent style={{ maxWidth: 500 }} />
-    <HookComponent style={{ width: 200, paddingBottom: 300 }} />
-    <HookComponent />
-  </>
-))
+export const Basic = Template.bind({})
+Basic.args = {
+  style: {
+    height: 200,
+    width: 200,
+  },
+}
+
+export const MaxWidth = Template.bind({})
+MaxWidth.args = {
+  style: {
+    maxWidth: 500,
+  },
+}
+
+export const PaddingBottom = Template.bind({})
+PaddingBottom.args = {
+  style: {
+    width: 200,
+    paddingBottom: 300,
+  },
+}

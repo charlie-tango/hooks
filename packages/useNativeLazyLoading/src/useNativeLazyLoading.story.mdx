@@ -1,16 +1,13 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks'
+import * as stories from './useNativeLazyLoading.story'
+
+<Meta title="Hooks/useNativeLazyLoading" />
+
 # useNativeLazyLoading
 
 Detect if the browser supports the new `loading` attribute on Image elements.
 Combine this with [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 to lazy load images with a fallback method.
-
-> Checkout the [Storybook](https://ct-hooks.now.sh/?path=/story/usenativelazyloading--readme) demo.
-
-## Installation
-
-```sh
-yarn add @charlietango/use-native-lazy-loading
-```
 
 ## API
 
@@ -58,3 +55,7 @@ const LazyImage = ({ width, height, src, ...rest }) => {
 
 export default LazyImage
 ```
+
+<Canvas>
+  <Story story={stories.Example} />
+</Canvas>

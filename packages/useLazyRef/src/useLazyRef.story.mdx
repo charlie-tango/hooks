@@ -1,0 +1,29 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks'
+import * as stories from './useLazyRef.story'
+
+<Meta title="Hooks/useLazyRef" />
+
+# useLazyRef
+
+Create a new `ref` with lazy instantiated value.
+
+This is just a clean reusable helper hook for the common boilerplate:
+
+```js
+const value = useRef()
+if (!value.current) value.current = init()
+```
+
+## API
+
+```js
+const result = useLazyRef(() => Result)
+```
+
+Once the value has been instantiated, you cannot reset it without recreating the component.
+
+## Example
+
+<Canvas>
+  <Story story={stories.Example} />
+</Canvas>
