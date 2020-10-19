@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-lazy-ref",
   "description": "Create a new ref with lazy instantiated value",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "private": false,
   "sideEffects": false,
   "main": "lib/useLazyRef.cjs.js",

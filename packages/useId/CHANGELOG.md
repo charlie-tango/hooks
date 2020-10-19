@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.7.4...@charlietango/use-id@1.8.0) (2020-10-19)
+
+### Features
+
+- update storybook examples ([4cdc69e](https://github.com/charlie-tango/hooks/commit/4cdc69ea91feb9f48af06b32d88508100b41f54f))
+
 ## [1.7.4](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.7.3...@charlietango/use-id@1.7.4) (2020-09-23)
 
 ### Reverts

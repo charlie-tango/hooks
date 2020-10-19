@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.6...@charlietango/use-element-size@2.1.0) (2020-10-19)
+
+### Features
+
+- update storybook examples ([4cdc69e](https://github.com/charlie-tango/hooks/commit/4cdc69ea91feb9f48af06b32d88508100b41f54f))
+
 ## [2.0.6](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.5...@charlietango/use-element-size@2.0.6) (2020-09-23)
 
 ### Reverts

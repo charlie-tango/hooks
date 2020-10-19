@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-script",
   "description": "Load an external third party script",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "private": false,
   "sideEffects": false,
   "main": "lib/useScript.cjs.js",
@@ -35,7 +35,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@charlietango/use-client-hydrated": "^1.8.2"
+    "@charlietango/use-client-hydrated": "^1.9.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
