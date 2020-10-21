@@ -16,7 +16,7 @@ yarn add @charlietango/use-interaction
 ## API
 
 ```js
-const [ref, status] = useInteraction()
+const [ref, status] = useInteraction(options)
 ```
 
 The hook returns an Array with a `ref` function, and the current interaction `status`.
@@ -31,6 +31,16 @@ The status is an object containing a `boolean` for each of the following propert
 - `focusVisible` - The focus outline shouldn't be shown - Enabled if using `focus-visible` polyfill
 - `focusWithin` - An element inside this element currently has focus. This will also affect the `focusVisible`
 - `hover` - The user is hovering over the element with the mouse, or it was touched and still has focus
+
+### Options
+
+The `useInteraction` hook accepts an object with these optional options, that give you a bit more control.
+
+| Name              | Type                      | Default     | Required | Description                                                                                           |
+| ----------------- | ------------------------- | ----------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| **events**        | `InteractionEventType[]`  | `undefined` | false    | A custom list of events to monitor for. You can use this to limit updates to only a subset of events. |
+| **onInteraction** | `(event, status) => void` | `undefined` | false    | Callback function that's triggered whenever an interaction event occurs. Receives the new `status`.   |
+| **skip**          | `boolean`                 | `false`     | false    | Skip adding any event listeners.                                                                      |
 
 ## Example
 

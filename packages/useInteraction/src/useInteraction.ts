@@ -1,6 +1,6 @@
-import { useCallback, useReducer, useRef } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
-type InteractionState = {
+export type InteractionState = {
   /** The user is currently pressing the element, either with the mouse or touch */
   active: boolean
   /** The element has focus */
@@ -13,7 +13,25 @@ type InteractionState = {
   hover: boolean
 }
 
-const events = [
+export type InteractionOptions = {
+  skip?: boolean
+  events?: InteractionEventType[]
+  onInteraction?: (event: Event, state: InteractionState) => void
+}
+
+export type InteractionEventType =
+  | 'focus'
+  | 'blur'
+  | 'focusin'
+  | 'focusout'
+  | 'mouseenter'
+  | 'mouseleave'
+  | 'mousedown'
+  | 'mouseup'
+  | 'touchstart'
+  | 'touchend'
+
+const defaultEvents: InteractionEventType[] = [
   'focus',
   'blur',
   'focusin',
@@ -22,12 +40,13 @@ const events = [
   'mouseleave',
   'mousedown',
   'mouseup',
+  'touchstart',
+  'touchend',
 ]
 
-const passiveEvents = ['touchstart', 'touchend']
+const passiveEvents = { touchstart: true, touchend: true }
 
 function eventReducer(state: InteractionState, event: Event) {
-  const target = event.target as HTMLElement
   switch (event.type) {
     case 'mouseenter':
       return { ...state, hover: true }
@@ -37,7 +56,9 @@ function eventReducer(state: InteractionState, event: Event) {
       return {
         ...state,
         focus: true,
-        focusVisible: target.hasAttribute('data-focus-visible-added'),
+        focusVisible: (event.target as HTMLElement).hasAttribute(
+          'data-focus-visible-added',
+        ),
       }
     case 'blur':
       return { ...state, focus: false, focusVisible: false }
@@ -51,7 +72,9 @@ function eventReducer(state: InteractionState, event: Event) {
       return {
         ...state,
         focusWithin: true,
-        focusVisible: target.hasAttribute('data-focus-visible-added'),
+        focusVisible: (event.target as HTMLElement).hasAttribute(
+          'data-focus-visible-added',
+        ),
       }
     case 'focusout':
       return {
@@ -72,35 +95,49 @@ const initial: InteractionState = {
   hover: false,
 }
 
-function useInteraction(): [
+function useInteraction({
+  events = defaultEvents,
+  skip,
+  onInteraction,
+}: InteractionOptions = {}): [
   (element: HTMLElement | null) => void,
   InteractionState,
 ] {
-  const ref = useRef<HTMLElement | null>()
-  const [state, dispatch] = useReducer(eventReducer, initial)
+  const cleanup = useRef<Function | null>()
+  const [state, setState] = useState(initial)
 
-  const setRef = useCallback(node => {
-    if (ref.current) {
-      const previous = ref.current
-      events.forEach(event => {
-        previous.removeEventListener(event, dispatch)
-      })
-      passiveEvents.forEach(event => {
-        previous.removeEventListener(event, dispatch)
-      })
-    }
-    if (node) {
-      ref.current = node
-      events.forEach(event => {
-        node.addEventListener(event, dispatch)
-      })
-      passiveEvents.forEach(event => {
-        node.addEventListener(event, dispatch, { passive: true })
-      })
-    } else {
-      ref.current = null
-    }
-  }, [])
+  const setRef = useCallback(
+    (node) => {
+      if (cleanup.current) {
+        // Cleanup the last events a new `node` is passed in
+        cleanup.current()
+        cleanup.current = null
+      }
+
+      if (node && !skip) {
+        const eventHandler = (event: Event) => {
+          setState((currentState) => {
+            const nextState = eventReducer(currentState, event)
+            if (onInteraction) onInteraction(event, nextState)
+            return nextState
+          })
+        }
+
+        events.forEach((event) => {
+          node.addEventListener(event, eventHandler, {
+            passive: passiveEvents[event],
+          })
+        })
+        cleanup.current = () => {
+          events.forEach((event) => {
+            node.removeEventListener(event, eventHandler)
+          })
+        }
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [events.toString(), skip],
+  )
 
   return [setRef, state]
 }
