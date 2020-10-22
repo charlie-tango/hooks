@@ -1,8 +1,5 @@
 import React from 'react'
-import useInteraction, {
-  InteractionEventType,
-  InteractionState,
-} from './useInteraction'
+import useInteraction, { InteractionState } from './useInteraction'
 import { action } from '@storybook/addon-actions'
 import { Story } from '@storybook/react/types-6-0'
 
@@ -10,14 +7,12 @@ type Props = {
   withButton?: boolean
   label: string
   skip?: boolean
-  events?: InteractionEventType[]
   onInteraction?: (event: Event, state: InteractionState) => {} | null
 }
 
 const Template: Story<Props> = (args) => {
   const [ref, state] = useInteraction({
     skip: args.skip,
-    events: args.events,
     onInteraction:
       args.onInteraction !== undefined
         ? args.onInteraction
@@ -65,11 +60,4 @@ Skip.args = {
   withButton: false,
   label: 'Disabled',
   skip: true,
-}
-
-export const CustomEvents = Template.bind({})
-CustomEvents.args = {
-  withButton: false,
-  label: 'Only hover events',
-  events: ['mouseenter', 'mouseleave'],
 }

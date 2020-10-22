@@ -30,11 +30,10 @@ The status is an object containing a `boolean` for each of the following propert
 
 The `useInteraction` hook accepts an object with these optional options, that give you a bit more control.
 
-| Name              | Type                      | Default     | Required | Description                                                                                           |
-| ----------------- | ------------------------- | ----------- | -------- | ----------------------------------------------------------------------------------------------------- |
-| **events**        | `InteractionEventType[]`  | `undefined` | false    | A custom list of events to monitor for. You can use this to limit updates to only a subset of events. |
-| **onInteraction** | `(event, status) => void` | `undefined` | false    | Callback function that's triggered whenever an interaction event occurs. Receives the new `status`.   |
-| **skip**          | `boolean`                 | `false`     | false    | Skip adding any event listeners.                                                                      |
+| Name              | Type                      | Default     | Required | Description                                                                                                                                                  |
+| ----------------- | ------------------------- | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **onInteraction** | `(event, status) => void` | `undefined` | false    | Callback function that's triggered whenever an interaction event occurs. Receives the new `status`. Make sure this function is memorized with `useCallback`. |
+| **skip**          | `boolean`                 | `false`     | false    | Skip adding any event listeners.                                                                                                                             |
 
 ## Example
 
@@ -44,10 +43,6 @@ The `useInteraction` hook accepts an object with these optional options, that gi
 
 <Canvas>
   <Story story={stories.FocusWithin} />
-</Canvas>
-
-<Canvas>
-  <Story story={stories.CustomEvents} />
 </Canvas>
 
 <Canvas>

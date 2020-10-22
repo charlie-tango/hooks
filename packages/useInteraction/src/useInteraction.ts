@@ -15,23 +15,10 @@ export type InteractionState = {
 
 export type InteractionOptions = {
   skip?: boolean
-  events?: InteractionEventType[]
   onInteraction?: (event: Event, state: InteractionState) => void
 }
 
-export type InteractionEventType =
-  | 'focus'
-  | 'blur'
-  | 'focusin'
-  | 'focusout'
-  | 'mouseenter'
-  | 'mouseleave'
-  | 'mousedown'
-  | 'mouseup'
-  | 'touchstart'
-  | 'touchend'
-
-const defaultEvents: InteractionEventType[] = [
+const events = [
   'focus',
   'blur',
   'focusin',
@@ -95,11 +82,7 @@ const initial: InteractionState = {
   hover: false,
 }
 
-function useInteraction({
-  events = defaultEvents,
-  skip,
-  onInteraction,
-}: InteractionOptions = {}): [
+function useInteraction({ skip, onInteraction }: InteractionOptions = {}): [
   (element: HTMLElement | null) => void,
   InteractionState,
 ] {
@@ -135,8 +118,7 @@ function useInteraction({
         }
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [events.toString(), skip],
+    [onInteraction, skip],
   )
 
   return [setRef, state]

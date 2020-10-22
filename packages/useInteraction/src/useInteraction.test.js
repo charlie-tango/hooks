@@ -107,3 +107,12 @@ it('should handle active', () => {
     }),
   )
 })
+
+it('should skip events', () => {
+  const cb = jest.fn()
+  render(<Example label="Interaction box" onInteraction={cb} skip />)
+  const button = screen.getByRole('button')
+
+  userEvent.hover(button)
+  expect(cb).not.toHaveBeenCalled()
+})
