@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.8.0...@charlietango/use-id@1.9.0) (2020-10-22)
+
+### Features
+
+- **useInteraction:** upgrade and improve useInteraction ([#98](https://github.com/charlie-tango/hooks/issues/98)) ([13052f1](https://github.com/charlie-tango/hooks/commit/13052f1b5aa8f26769399fc0a8b764683a262c9d))
+
 # [1.8.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-id@1.7.4...@charlietango/use-id@1.8.0) (2020-10-19)
 
 ### Features
