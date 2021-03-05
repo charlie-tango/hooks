@@ -26,13 +26,24 @@ export default function useElementSize(): [
     }
     if (node) {
       if (!ro.current) {
+        let observerStarted = false
         // @ts-ignore
-        ro.current = new (window.ResizeObserver || ResizeObserver)(
-          ([entry]: Array<ResizeObserverEntry>) => {
-            const { x, y, width, height } = entry.contentRect
-            setElementSize({ x, y, width, height })
-          },
-        )
+        ro.current = new ResizeObserver(([entry]) => {
+          if (observerStarted) {
+            observerStarted = false
+            return
+          }
+
+          ro.current?.disconnect()
+          // [Operation that would cause resize here]
+          const { x, y, width, height } = entry.contentRect
+          setElementSize({ x, y, width, height })
+
+          observerStarted = true
+          requestAnimationFrame(() => {
+            ro.current?.observe(node)
+          })
+        })
       }
       if (ro.current) ro.current.observe(node)
     } else {

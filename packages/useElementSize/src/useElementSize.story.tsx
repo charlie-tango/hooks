@@ -12,6 +12,8 @@ const Content = styled.div`
   background: azure;
   padding: 0;
   margin-bottom: 2rem;
+  overflow: auto;
+  resize: both;
 `
 
 const Template: Story<Props> = (args) => {
