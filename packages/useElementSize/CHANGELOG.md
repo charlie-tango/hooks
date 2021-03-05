@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.1.0...@charlietango/use-element-size@2.1.1) (2021-03-05)
+
+### Bug Fixes
+
+- avoid ResizeLoop error ([8bf02a8](https://github.com/charlie-tango/hooks/commit/8bf02a824ffd60f78ae69e4c915623515178ed12))
+
 # [2.1.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.0.6...@charlietango/use-element-size@2.1.0) (2020-10-19)
 
 ### Features
