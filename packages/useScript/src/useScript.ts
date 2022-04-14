@@ -49,12 +49,12 @@ export default function useScript(url?: string, options?: {
       script.src = url
       script.async = true
       script.setAttribute('data-status', ScriptStatus.LOADING)
-      document.head.appendChild(script)
       if (attributes) {
         Object.keys(attributes).forEach(key => {
           script?.setAttribute(key, attributes[key])
         })
       }
+      document.head.appendChild(script)
 
       // Ensure the status is loading
       setStatus(ScriptStatus.LOADING)
