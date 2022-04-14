@@ -38,8 +38,8 @@
     "@charlietango/use-client-hydrated": "^1.9.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "gitHead": "9fabdd1c8d4d373df00340e9f0524ca18f34817e"
 }
