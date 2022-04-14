@@ -90,7 +90,7 @@ function useInteraction({ skip, onInteraction }: InteractionOptions = {}): [
   const [state, setState] = useState(initial)
 
   const setRef = useCallback(
-    (node) => {
+    (node: Element | null) => {
       if (cleanup.current) {
         // Cleanup the last events a new `node` is passed in
         cleanup.current()
