@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-script@2.2.0...@charlietango/use-script@2.3.0) (2022-04-14)
+
+### Bug Fixes
+
+- **useScript:** apply attributes before appending script to DOM ([#100](https://github.com/charlie-tango/hooks/issues/100)) ([1d86d5d](https://github.com/charlie-tango/hooks/commit/1d86d5d489bde8afe9db63795edbfbc0480089fc))
+
+### Features
+
+- upgrade to react 18 ([#101](https://github.com/charlie-tango/hooks/issues/101)) ([71b10ef](https://github.com/charlie-tango/hooks/commit/71b10ef862cbf139b9990b3172d8ddbd3a321332))
+
 # [2.2.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-script@2.1.2...@charlietango/use-script@2.2.0) (2020-10-19)
 
 ### Features

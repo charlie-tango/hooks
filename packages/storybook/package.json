@@ -1,6 +1,6 @@
 {
   "name": "@charlietango/storybook",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "scripts": {
     "dev": "start-storybook -c . -s public -p 9000",

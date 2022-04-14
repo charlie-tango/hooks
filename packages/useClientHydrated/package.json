@@ -1,7 +1,7 @@
 {
   "name": "@charlietango/use-client-hydrated",
   "description": "Check if the client has been hydrated",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "private": false,
   "sideEffects": false,
   "main": "lib/useClientHydrated.cjs.js",

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.1.1...@charlietango/use-element-size@2.2.0) (2022-04-14)
+
+### Features
+
+- upgrade to react 18 ([#101](https://github.com/charlie-tango/hooks/issues/101)) ([71b10ef](https://github.com/charlie-tango/hooks/commit/71b10ef862cbf139b9990b3172d8ddbd3a321332))
+
 ## [2.1.1](https://github.com/charlie-tango/hooks/compare/@charlietango/use-element-size@2.1.0...@charlietango/use-element-size@2.1.1) (2021-03-05)
 
 ### Bug Fixes

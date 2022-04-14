@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-window-size@1.6.0...@charlietango/use-window-size@1.7.0) (2022-04-14)
+
+### Features
+
+- upgrade to react 18 ([#101](https://github.com/charlie-tango/hooks/issues/101)) ([71b10ef](https://github.com/charlie-tango/hooks/commit/71b10ef862cbf139b9990b3172d8ddbd3a321332))
+
 # [1.6.0](https://github.com/charlie-tango/hooks/compare/@charlietango/use-window-size@1.5.3...@charlietango/use-window-size@1.6.0) (2020-10-19)
 
 ### Features
