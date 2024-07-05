@@ -1,10 +1,6 @@
 # Charlie Tango Hooks
 
 [![Version Badge][npm-version-svg]][package-url]
-[![dependency status][deps-svg]][deps-url]
-[![dev dependency status][dev-deps-svg]][dev-deps-url]
-[![License][license-image]][license-url]
-[![styled with prettier][prettier-svg]][prettier-url]
 
 Collection of React Hooks used by Charlie Tango.
 
@@ -12,13 +8,7 @@ Collection of React Hooks used by Charlie Tango.
 
 ## Installation
 
-Install using [Yarn](https://yarnpkg.com):
-
-```sh
-yarn add @charlietango/hooks
-```
-
-or NPM:
+Install using npm:
 
 ```sh
 npm install @charlietango/hooks --save
@@ -68,16 +58,8 @@ This hooks library is built at as a monorepo using Lerna and Yarn Workspaces.
 To start working on a new hook, you should run the `new-hook` script to generate the new package.
 
 ```
-yarn new-hook
+pnpm new-hook
 ```
 
 [package-url]: https://npmjs.org/package/@charlietango/hooks
 [npm-version-svg]: https://img.shields.io/npm/v/@charlietango/hooks.svg
-[deps-svg]: https://david-dm.org/charlie-tango/hooks.svg
-[deps-url]: https://david-dm.org/charlie-tango/hooks
-[dev-deps-svg]: https://david-dm.org/charlie-tango/hooks/dev-status.svg
-[dev-deps-url]: https://david-dm.org/charlie-tango/hooks#info=devDependencies
-[license-image]: http://img.shields.io/npm/l/@charlietango/hooks.svg
-[license-url]: LICENSE
-[prettier-svg]: https://img.shields.io/badge/styled_with-prettier-ff69b4.svg
-[prettier-url]: https://github.com/prettier/prettier
