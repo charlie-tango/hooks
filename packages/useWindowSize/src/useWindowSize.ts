@@ -1,43 +1,20 @@
-import { useState, useEffect } from 'react'
-import useClientHydrated from '@charlietango/use-client-hydrated'
+import { useSyncExternalStore } from "react";
 
-type ViewportSize = {
-  height: number
-  width: number
+const subscribe = (callback: () => void) => {
+  window.addEventListener("resize", callback);
+  return () => window.removeEventListener("resize", callback);
+};
+
+const getSnapshot = () =>
+  JSON.stringify({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+const getServerSnapshot = () => JSON.stringify({ width: 0, height: 0 });
+
+export default function useWindowSize() {
+  return JSON.parse(
+    useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot),
+  ) as { width: number; height: number };
 }
-
-function useWindowSize() {
-  const clientHydrated = useClientHydrated()
-  const [windowSize, setWindowSize] = useState<ViewportSize>(
-    clientHydrated
-      ? {
-          width: window.innerWidth,
-          height: window.innerHeight,
-        }
-      : { width: 0, height: 0 },
-  )
-  useEffect(() => {
-    function handleSize() {
-      setWindowSize((prevState) => {
-        // Don't create a new state object if the size didn't change (e.g. after initial render)
-        return prevState.height !== window.innerHeight ||
-          prevState.width !== window.innerWidth
-          ? {
-              width: window.innerWidth,
-              height: window.innerHeight,
-            }
-          : prevState
-      })
-    }
-
-    handleSize()
-    window.addEventListener('resize', handleSize)
-    return () => {
-      window.removeEventListener('resize', handleSize)
-    }
-  }, [])
-
-  return windowSize
-}
-
-export default useWindowSize

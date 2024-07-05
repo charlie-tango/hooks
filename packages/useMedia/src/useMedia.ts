@@ -1,34 +1,44 @@
-import { useState, useEffect } from 'react'
-import useClientHydrated from '@charlietango/use-client-hydrated'
-import json2mq, { QueryObject } from 'json2mq'
+import { useCallback, useSyncExternalStore } from "react";
+import { objectToQuery, QueryObject } from "./object-to-query";
 
-function getMediaQuery(query: string | QueryObject) {
-  return window.matchMedia(typeof query === 'string' ? query : json2mq(query))
+function getSnapshot(query: string) {
+  return window.matchMedia(query).matches;
 }
 
-export default function useMedia(
-  query: string | QueryObject,
-  defaultMatches = true,
-) {
-  const clientHydrated = useClientHydrated()
-  const [matches, setMatches] = useState(() => {
-    const initialQuery = clientHydrated ? getMediaQuery(query) : undefined
-    return initialQuery ? initialQuery.matches : defaultMatches
-  })
+function getServerSnapshot() {
+  return undefined;
+}
 
-  useEffect(() => {
-    const mediaQuery = getMediaQuery(query)
-    if (!mediaQuery) return undefined
+function subscribe(onChange: () => void, query: string) {
+  const mediaQuery = window.matchMedia(query);
+  mediaQuery.addEventListener("change", onChange);
 
-    setMatches(mediaQuery.matches)
+  return () => {
+    mediaQuery.removeEventListener("change", onChange);
+  };
+}
 
-    const listener = () => setMatches(mediaQuery.matches)
-    mediaQuery.addListener(listener)
+/**
+ * Compare a media query against the browser viewport.
+ * Use the breakpoint values from the `screens` export in `src/styles`
+ *
+ * ```ts
+ * const isTablet = useMedia({ minWidth: screens.md })
+ * ```
+ **/
+export default function useMedia(query: QueryObject | string) {
+  const queryString = typeof query === "string" ? query : objectToQuery(query);
 
-    return () => {
-      mediaQuery.removeListener(listener)
-    }
-  }, [query])
+  const subscribeMediaQuery = useCallback(
+    (onChange: () => void) => {
+      return subscribe(onChange, queryString);
+    },
+    [queryString],
+  );
 
-  return matches
+  return useSyncExternalStore(
+    subscribeMediaQuery,
+    () => getSnapshot(queryString),
+    getServerSnapshot,
+  );
 }

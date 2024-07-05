@@ -1,5 +1,13 @@
-import { useEffect } from 'react'
-let clientHydrated = false
+import { useSyncExternalStore } from 'react'
+
+// Void subscription function. You can't go back after hydrating.
+const subscribe = () => {
+  return () => {}
+};
+
+const getSnapshot = () => true
+
+const getServerSnapshot = () => false;
 
 /**
  * Returns false when serverside rendering and during the first render pass (hydration) in the client.
@@ -7,11 +15,7 @@ let clientHydrated = false
  * Like check a media query during the initial render.
  * */
 function useClientHydrated() {
-  useEffect(() => {
-    if (!clientHydrated) clientHydrated = true
-  }, [])
-
-  return clientHydrated
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }
 
 export default useClientHydrated

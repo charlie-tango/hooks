@@ -35,15 +35,12 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "@charlietango/use-client-hydrated": "^1.10.0",
-    "json2mq": "^0.2.0"
   },
   "devDependencies": {
-    "@types/json2mq": "^0.2.0"
   },
   "gitHead": "9fabdd1c8d4d373df00340e9f0524ca18f34817e"
 }
