@@ -13,7 +13,7 @@ const getSnapshot = () =>
 
 const getServerSnapshot = () => JSON.stringify({ width: 0, height: 0 });
 
-export default function useWindowSize() {
+export function useWindowSize() {
   return JSON.parse(
     useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot),
   ) as { width: number; height: number };

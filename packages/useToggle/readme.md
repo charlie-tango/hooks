@@ -7,7 +7,7 @@ Simple boolean state toggler
 ## Installation
 
 ```sh
-yarn add @charlietango/use-toggle
+pnpm add @charlietango/use-toggle
 ```
 
 ## API
@@ -21,12 +21,10 @@ const [isToggled, toggle] = useToggle(toggledInitially)
 
 ```jsx
 import React from 'react'
-import useToggle from '@charlietango/use-toggle'
+import { useToggle } from '@charlietango/use-toggle'
 
 const Component = () => {
   const [isToggled, toggle] = useToggle(true)
   return <button onClick={toggle}>{isToggled}</button>
 }
-
-export default Component
 ```

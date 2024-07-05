@@ -1,12 +1,7 @@
-import useClientHydrated from "@charlietango/use-client-hydrated";
+import { useClientHydrated } from "@charlietango/use-client-hydrated";
 import { useEffect, useState } from "react";
 
-export enum ScriptStatus {
-  IDLE = "idle",
-  LOADING = "loading",
-  READY = "ready",
-  ERROR = "error",
-}
+type ScriptStatus = "idle" | "loading" | "ready" | "error";
 
 /**
  * Hook to load an external script. Returns true once the script has finished loading.
@@ -15,7 +10,7 @@ export enum ScriptStatus {
  * @param options {} options for hook
  * @param options.attributes {} attributes object for Script tag attributes
  * */
-export default function useScript(
+export function useScript(
   url?: string,
   options?: {
     attributes?: {
@@ -34,12 +29,12 @@ export default function useScript(
         return script.getAttribute("data-status") as ScriptStatus;
       }
     }
-    return url ? ScriptStatus.LOADING : ScriptStatus.IDLE;
+    return url ? "loading" : "idle";
   });
 
   useEffect(() => {
     if (!url) {
-      setStatus(ScriptStatus.IDLE);
+      setStatus("idle");
       return;
     }
 
@@ -51,7 +46,7 @@ export default function useScript(
       script = document.createElement("script");
       script.src = url;
       script.async = true;
-      script.setAttribute("data-status", ScriptStatus.LOADING);
+      script.setAttribute("data-status", "loading");
       if (attributes) {
         Object.keys(attributes).forEach((key) => {
           script?.setAttribute(key, attributes[key]);
@@ -60,20 +55,20 @@ export default function useScript(
       document.head.appendChild(script);
 
       // Ensure the status is loading
-      setStatus(ScriptStatus.LOADING);
+      setStatus("loading");
 
       script.onerror = () => {
-        if (script) script.setAttribute("data-status", ScriptStatus.ERROR);
+        if (script) script.setAttribute("data-status", "error");
       };
       script.onload = () => {
-        if (script) script.setAttribute("data-status", ScriptStatus.READY);
+        if (script) script.setAttribute("data-status", "ready");
       };
     } else if (script.hasAttribute("data-status")) {
       setStatus(script.getAttribute("data-status") as ScriptStatus);
     }
 
     const eventHandler = (e: Event) => {
-      setStatus(e.type === "load" ? ScriptStatus.READY : ScriptStatus.ERROR);
+      setStatus(e.type === "load" ? "ready" : "error");
     };
 
     // Add load event listener
@@ -88,5 +83,5 @@ export default function useScript(
     };
   }, [url, attributes]);
 
-  return [status === ScriptStatus.READY, status];
+  return [status === "ready", status];
 }

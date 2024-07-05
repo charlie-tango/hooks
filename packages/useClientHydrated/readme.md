@@ -9,7 +9,7 @@ a `useEffect` to trigger a new render.
 ## Installation
 
 ```sh
-yarn add @charlietango/use-client-hydrated
+pnpm add @charlietango/use-client-hydrated
 ```
 
 ## API
@@ -22,7 +22,7 @@ const output = useClientHydrated()
 
 ```jsx
 import React, { useEffect, useState } from 'react'
-import useClientHydrated from '@charlietango/use-client-hydrated'
+import { useClientHydrated } from '@charlietango/use-client-hydrated'
 
 const Component = () => {
   const hydrated = useClientHydrated()
@@ -37,6 +37,4 @@ const Component = () => {
 
   return <div>{ready ? 'Hydrated' : 'Hydrating'}</div>
 }
-
-export default Component
 ```

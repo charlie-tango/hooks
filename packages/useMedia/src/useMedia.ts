@@ -26,7 +26,7 @@ function subscribe(onChange: () => void, query: string) {
  * const isTablet = useMedia({ minWidth: screens.md })
  * ```
  **/
-export default function useMedia(query: QueryObject | string) {
+export function useMedia(query: QueryObject | string) {
   const queryString = typeof query === "string" ? query : objectToQuery(query);
 
   const subscribeMediaQuery = useCallback(

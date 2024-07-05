@@ -7,7 +7,7 @@ Detect if the browser matches a media query.
 ## Installation
 
 ```sh
-yarn add @charlietango/use-media
+pnpm add @charlietango/use-media
 ```
 
 ## API
@@ -23,12 +23,10 @@ properties.
 
 ```jsx
 import React from 'react'
-import useMedia from '@charlietango/use-media'
+import { useMedia } from '@charlietango/use-media'
 
 const Component = () => {
   const matches = useMedia({ minWidth: 768 })
   return <div>{matches}</div>
 }
-
-export default Component
 ```

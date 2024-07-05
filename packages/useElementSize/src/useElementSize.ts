@@ -8,7 +8,7 @@ interface SizeRectReadonly {
   readonly height: number;
 }
 
-export default function useElementSize(): [
+export function useElementSize(): [
   (node: HTMLElement | null) => void,
   SizeRectReadonly,
 ] {

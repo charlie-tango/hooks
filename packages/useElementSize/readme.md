@@ -7,7 +7,7 @@ Measure the size of a DOM element using ResizeObserver
 ## Installation
 
 ```sh
-yarn add @charlietango/use-element-size
+pnpm add @charlietango/use-element-size
 ```
 
 ## API
@@ -23,7 +23,7 @@ Assign the `ref` to the element you want to measure.
 
 ```jsx
 import React from 'react'
-import useElementSize from '@charlietango/use-element-size'
+import { useElementSize } from '@charlietango/use-element-size'
 
 const Component = () => {
   const [ref, size] = useElementSize()
@@ -35,6 +35,4 @@ const Component = () => {
     </div>
   )
 }
-
-export default Component
 ```

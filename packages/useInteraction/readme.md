@@ -7,7 +7,7 @@ Monitor the user interactions on an element
 ## Installation
 
 ```sh
-yarn add @charlietango/use-interaction
+pnpm add @charlietango/use-interaction
 ```
 
 > If the application is using the [focus-visible](https://github.com/WICG/focus-visible/) polyfill,
@@ -45,21 +45,19 @@ The `useInteraction` hook accepts an object with these optional options, that gi
 
 ```jsx
 import React from 'react'
-import useInteraction from '@charlietango/use-interaction'
+import { useInteraction } from '@charlietango/use-interaction'
 
 const Component = () => {
   const [ref, status] = useInteraction()
   return <div ref={ref}>Hovering: {status.hover}</div>
 }
-
-export default Component
 ```
 
 ### With callback
 
 ```jsx
 import React from 'react'
-import useInteraction from '@charlietango/use-interaction'
+import { useInteraction } from '@charlietango/use-interaction'
 
 const Component = () => {
   const onInteraction = React.useCallback((event, status) => {
@@ -71,6 +69,4 @@ const Component = () => {
 
   return <div ref={ref}>Hovering: {status.hover}</div>
 }
-
-export default Component
 ```

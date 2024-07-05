@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-yarn add %packageName%
+pnpm add %packageName%
 ```
 
 ## API
@@ -20,7 +20,7 @@ const output = %name%()
 
 ```jsx
 import React from 'react'
-import %name% from '%packageName%'
+import { %name% } from '%packageName%'
 
 const Component = () => {
   const output = %name%()

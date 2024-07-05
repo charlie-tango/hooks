@@ -1,9 +1,9 @@
-export { default as useElementSize } from "@charlietango/use-element-size";
-export { default as useFocusTrap } from "@charlietango/use-focus-trap";
-export { default as useMedia } from "@charlietango/use-media";
-export { default as useScript } from "@charlietango/use-script";
-export { default as useToggle } from "@charlietango/use-toggle";
-export { default as useWindowSize } from "@charlietango/use-window-size";
-export { default as useInteraction } from "@charlietango/use-interaction";
-export { default as useClientHydrated } from "@charlietango/use-client-hydrated";
-export { default as useLazyRef } from "@charlietango/use-lazy-ref";
+export { useElementSize } from "@charlietango/use-element-size";
+export { useFocusTrap } from "@charlietango/use-focus-trap";
+export { useMedia } from "@charlietango/use-media";
+export { useScript } from "@charlietango/use-script";
+export { useToggle } from "@charlietango/use-toggle";
+export { useWindowSize } from "@charlietango/use-window-size";
+export { useInteraction } from "@charlietango/use-interaction";
+export { useClientHydrated } from "@charlietango/use-client-hydrated";
+export { useLazyRef } from "@charlietango/use-lazy-ref";

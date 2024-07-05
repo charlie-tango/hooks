@@ -1,5 +1,5 @@
 import { act, fireEvent, renderHook } from "@testing-library/react";
-import useScript, { ScriptStatus } from "./useScript";
+import { useScript } from "./useScript";
 
 const url = "/api.js";
 
@@ -17,16 +17,16 @@ it("should load the external script", () => {
   if (!script) return;
 
   expect(result.current[0]).toBe(false);
-  expect(result.current[1]).toBe(ScriptStatus.LOADING);
+  expect(result.current[1]).toBe("loading");
 
   // Fire the load event
   act(() => {
     fireEvent(script, new Event("load"));
   });
   rerender();
-  expect(script.getAttribute("data-status")).toBe(ScriptStatus.READY);
+  expect(script.getAttribute("data-status")).toBe("ready");
   expect(result.current[0]).toBe(true);
-  expect(result.current[1]).toBe(ScriptStatus.READY);
+  expect(result.current[1]).toBe("ready");
 });
 
 it("should handle errors when loading", () => {
@@ -41,9 +41,9 @@ it("should handle errors when loading", () => {
   });
 
   rerender();
-  expect(script.getAttribute("data-status")).toBe(ScriptStatus.ERROR);
+  expect(script.getAttribute("data-status")).toBe("error");
   expect(result.current[0]).toBe(false);
-  expect(result.current[1]).toBe(ScriptStatus.ERROR);
+  expect(result.current[1]).toBe("error");
 });
 
 it("should not create more then one script entry", () => {

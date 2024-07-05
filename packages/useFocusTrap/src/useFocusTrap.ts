@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef } from "react";
+import { createAriaHider } from "./helpers/ariaHider";
 import {
   markForFocusLater,
   returnFocus,
   setupScopedFocus,
   teardownScopedFocus,
 } from "./helpers/focusManager";
-import { focusSelector, focusable, tabbable } from "./helpers/tabbable";
 import scopeTab from "./helpers/scopeTab";
-import { createAriaHider } from "./helpers/ariaHider";
+import { focusSelector, focusable, tabbable } from "./helpers/tabbable";
 
 export type FocusTrapOptions = {
   focusSelector?: string | HTMLElement;
@@ -17,12 +17,12 @@ export type FocusTrapOptions = {
 /**
  *  Traps focus to DOM node. Use this with a modal to ensure the user focus doesn't leave.
  * */
-function useFocusTrap(
+export function useFocusTrap(
   active = true,
   options: FocusTrapOptions = {},
 ): (instance: HTMLElement | null) => void {
   const ref = useRef<HTMLElement | null>();
-  const restoreAria = useRef<Function | null>(null);
+  const restoreAria = useRef<(() => void) | null>(null);
 
   const setRef = useCallback(
     (node: HTMLElement | null) => {
@@ -119,5 +119,3 @@ function useFocusTrap(
 
   return setRef;
 }
-
-export default useFocusTrap;

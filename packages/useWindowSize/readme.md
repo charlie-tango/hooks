@@ -7,7 +7,7 @@ Get the width and height of the viewport.
 ## Installation
 
 ```sh
-yarn add @charlietango/use-window-size
+pnpm add @charlietango/use-window-size
 ```
 
 ## API
@@ -23,7 +23,7 @@ Subsequent users of the hook will return the size during the first render.
 
 ```jsx
 import React from 'react'
-import useWindowSize from '@charlietango/use-window-size'
+import { useWindowSize } from '@charlietango/use-window-size'
 
 const Component = () => {
   const { width, height } = useWindowSize()
@@ -34,6 +34,4 @@ const Component = () => {
     </div>
   )
 }
-
-export default Component
 ```

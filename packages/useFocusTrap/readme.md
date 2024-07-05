@@ -8,7 +8,7 @@ When using this, make sure to combine it with a fixed position `<Backdrop>` that
 ## Installation
 
 ```sh
-yarn add @charlietango/use-focus-trap
+pnpm add @charlietango/use-focus-trap
 ```
 
 ## API
@@ -35,7 +35,7 @@ The focus trap accepts an object with these optional options, that give you a bi
 
 ```jsx
 import React from 'react'
-import useFocusTrap from '@charlietango/use-focus-trap'
+import { useFocusTrap } from '@charlietango/use-focus-trap'
 
 const Component = () => {
   const ref = useFocusTrap()
@@ -45,8 +45,6 @@ const Component = () => {
     </div>
   )
 }
-
-export default Component
 ```
 
 ### Creating a Modal
@@ -67,7 +65,7 @@ when clicked triggers the `onRequestClose` method.
 ```typescript jsx
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import useFocusTrap from '@charlietango/use-focus-trap'
+import { useFocusTrap } from '@charlietango/use-focus-trap'
 import styled from 'styled-components'
 
 type Props = {

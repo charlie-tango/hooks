@@ -8,7 +8,7 @@ components might depend on. It checks if the requested `url` already exists and 
 ## Installation
 
 ```sh
-yarn add @charlietango/use-script
+pnpm add @charlietango/use-script
 ```
 
 ## API
@@ -18,27 +18,22 @@ const [ready, status] = useScript(url)
 ```
 
 The hook returns an array, where the first value is a boolean indicating if the script is ready.
-The second value is the current loading status, that will be one of the `ScriptStatus` enum values:
+The second value is the current loading status, that will be one of the `ScriptStatus` values:
 
 ```ts
-enum ScriptStatus {
-  IDLE = 'idle',
-  LOADING = 'loading',
-  READY = 'loaded',
-  ERROR = 'error',
-}
+type ScriptStatus = 'idle' | 'loading' | 'ready' | 'error'
 ```
 
 ## Example
 
 ```jsx
 import React from 'react'
-import useScript, { ScriptStatus } from '@charlietango/use-script'
+import { useScript } from '@charlietango/use-script'
 
 const Component = () => {
   const [ready, status] = useScript('https://api.google.com/api.js')
 
-  if (status === ScriptStatus.ERROR) {
+  if (status === 'error') {
     return <div>Failed to load Google API</div>
   }
 

@@ -1,6 +1,4 @@
 
-function %name%() {
+export function %name%() {
     return '👋'
 }
-
-export default %name%

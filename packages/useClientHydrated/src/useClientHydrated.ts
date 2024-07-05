@@ -14,8 +14,6 @@ const getServerSnapshot = () => false;
  * Use this to modify behavior of components when they can be certain they are running client side.
  * Like check a media query during the initial render.
  * */
-function useClientHydrated() {
+export function useClientHydrated() {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
-
-export default useClientHydrated;

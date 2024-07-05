@@ -82,7 +82,7 @@ const initial: InteractionState = {
   hover: false,
 };
 
-function useInteraction({
+export function useInteraction({
   skip,
   onInteraction,
 }: InteractionOptions = {}): [
@@ -127,5 +127,3 @@ function useInteraction({
 
   return [setRef, state];
 }
-
-export default useInteraction;

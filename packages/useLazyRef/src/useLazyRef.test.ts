@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import useLazyRef from "./useLazyRef";
+import { useLazyRef } from "./useLazyRef";
 
 it("should execute the useLazyRef hook", () => {
   let renders = 0;

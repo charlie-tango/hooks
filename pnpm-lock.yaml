@@ -85,32 +85,32 @@ importers:
   packages/hooks:
     dependencies:
       '@charlietango/use-client-hydrated':
-        specifier: ^1.10.0
-        version: 1.10.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../useClientHydrated
       '@charlietango/use-element-size':
-        specifier: ^2.2.0
-        version: 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../useElementSize
       '@charlietango/use-focus-trap':
-        specifier: ^1.4.0
-        version: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../useFocusTrap
       '@charlietango/use-interaction':
-        specifier: ^1.10.0
-        version: 1.10.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../useInteraction
       '@charlietango/use-lazy-ref':
-        specifier: ^1.12.0
-        version: 1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../useLazyRef
       '@charlietango/use-media':
-        specifier: ^1.6.0
-        version: 1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../useMedia
       '@charlietango/use-script':
-        specifier: ^2.3.0
-        version: 2.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../useScript
       '@charlietango/use-toggle':
-        specifier: ^1.4.0
-        version: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*
+        version: link:../useToggle
       '@charlietango/use-window-size':
-        specifier: ^1.7.0
-        version: 1.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: workspace:*0
+        version: link:../useWindowSize
       react:
         specifier: ^18.0.0 || ^19.0.0
         version: 18.3.1
@@ -1085,60 +1085,6 @@ packages:
 
   '@changesets/write@0.3.1':
     resolution: {integrity: sha512-SyGtMXzH3qFqlHKcvFY2eX+6b0NGiFcNav8AFsYwy5l8hejOeoeTDemu5Yjmke2V5jpzY+pBvM0vCCQ3gdZpfw==}
-
-  '@charlietango/use-client-hydrated@1.10.0':
-    resolution: {integrity: sha512-aqN7NQeQRIzUMfOWtvIX0NFqsx8aHNjl5/a1f3cKBsUFRz5UpFyq6zJLeX4W6Ra7HHpwQxbCh1MsOKQ8dgAsOA==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-
-  '@charlietango/use-element-size@2.2.0':
-    resolution: {integrity: sha512-FdZJPq5vPkRNwPICdj0tPFt8f+1W6EnKW9n0pAlnGwANIRGHDVeR2UI/l4Oq41ZeGeEY6XqmZBq1LCmI3KDL/g==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-
-  '@charlietango/use-focus-trap@1.4.0':
-    resolution: {integrity: sha512-M/t4N7UxJ8tRBP+u8xB77m49vugcaZ241x9Q92PTJaJUS3lAWTKC2itSebKMlIUyN1Xz7C1zz7cnOynPDeBdLA==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-
-  '@charlietango/use-interaction@1.10.0':
-    resolution: {integrity: sha512-e984PKB6pkwTZqQg64cX4cBHtsbHzTx1fwRGrXk/qUFV8gsi9baeDEb+iRe4F5Fp/MNkLrgT7IU/Oa7aD70Y1Q==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-
-  '@charlietango/use-lazy-ref@1.12.0':
-    resolution: {integrity: sha512-Mo4UkFwasHkIa2aUX9kYNs9YYVM9WhmgiAEZgfxlehTmRr2i/Q7kFRZrI+gOVAXdUqax7IeylVlccQEhZBvdVw==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-
-  '@charlietango/use-media@1.6.0':
-    resolution: {integrity: sha512-1N25byDalOL4x8kTsDPUln1M2wf7SDWbeEMsZ2l8PQe9AyBVnFKbOj/528OGMzvgKg9iucwsJljswDjhHnZksw==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-
-  '@charlietango/use-script@2.3.0':
-    resolution: {integrity: sha512-nqjPmaK8SmMYoDewlQmP10xzy0IGuPHdrhj0wOU2k8ynvLkRdPKVbFhpcCEWMqgOF9BznsEvY1TtRElx+fG7sQ==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-
-  '@charlietango/use-toggle@1.4.0':
-    resolution: {integrity: sha512-WpevPOo3orPAGlOHp4wVQ0vFgjR6xwkop3l8QJNVJxWeQUL67TLmfSQS4pyzQCR/BsMxj+mshWi4kbFb31YYfQ==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-
-  '@charlietango/use-window-size@1.7.0':
-    resolution: {integrity: sha512-ZDvG+BJhqTvyvddK/nN+vCzaX75JdEIyKXaQHWaiaCAQ3fzwwvTWY4kCfx2Cksx54xexo/e2V9TT3vMh6Xu5tg==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -3526,9 +3472,6 @@ packages:
   json-schema-traverse@0.4.1:
     resolution: {integrity: sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==}
 
-  json2mq@0.2.0:
-    resolution: {integrity: sha512-SzoRg7ux5DWTII9J2qkrZrqV1gt+rTaoufMxEzXbS26Uid0NwaJd123HcoB80TgubEppxxIGdNxCx50fEoEWQA==}
-
   json5@2.2.3:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
@@ -4574,9 +4517,6 @@ packages:
   string-argv@0.3.2:
     resolution: {integrity: sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==}
     engines: {node: '>=0.6.19'}
-
-  string-convert@0.2.1:
-    resolution: {integrity: sha512-u/1tdPl4yQnPBjnVrmdLo9gtuLvELKsAoRapekWggdiQNvvvum+jYF329d84NAa660KQw7pB2n36KrIKVoXa3A==}
 
   string-width@4.2.3:
     resolution: {integrity: sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==}
@@ -6236,56 +6176,6 @@ snapshots:
       fs-extra: 7.0.1
       human-id: 1.0.2
       prettier: 2.8.8
-
-  '@charlietango/use-client-hydrated@1.10.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@charlietango/use-element-size@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      resize-observer-polyfill: 1.5.1
-
-  '@charlietango/use-focus-trap@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@charlietango/use-interaction@1.10.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@charlietango/use-lazy-ref@1.12.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@charlietango/use-media@1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@charlietango/use-client-hydrated': 1.10.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      json2mq: 0.2.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@charlietango/use-script@2.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@charlietango/use-client-hydrated': 1.10.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@charlietango/use-toggle@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  '@charlietango/use-window-size@1.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@charlietango/use-client-hydrated': 1.10.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   '@colors/colors@1.5.0':
     optional: true
@@ -9074,10 +8964,6 @@ snapshots:
 
   json-schema-traverse@0.4.1: {}
 
-  json2mq@0.2.0:
-    dependencies:
-      string-convert: 0.2.1
-
   json5@2.2.3: {}
 
   jsonfile@4.0.0:
@@ -10154,8 +10040,6 @@ snapshots:
   stream-shift@1.0.3: {}
 
   string-argv@0.3.2: {}
-
-  string-convert@0.2.1: {}
 
   string-width@4.2.3:
     dependencies:

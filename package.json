@@ -7,7 +7,7 @@
     "url": "https://github.com/charlie-tango/hooks.git"
   },
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "pnpm --filter @charlietango/use-* build && pnpm --filter @charlietango/hooks build",
     "build:storybook": "pnpm --filter @charlietango/storybook build",
     "dev": "pnpm --filter @charlietango/storybook dev",
     "lint": "biome check . --fix",

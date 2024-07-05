@@ -14,7 +14,7 @@ if (!value.current) value.current = init()
 ## Installation
 
 ```sh
-yarn add @charlietango/use-lazy-ref
+pnpm add @charlietango/use-lazy-ref
 ```
 
 ## API
@@ -32,7 +32,7 @@ This ensures the client gets created during the first render, and reused in all 
 
 ```jsx
 import React from 'react'
-import useLazyRef from '@charlietango/use-lazy-ref'
+import { useLazyRef } from '@charlietango/use-lazy-ref'
 import { ApolloClient } from 'apollo-client'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { createHttpLink } from 'apollo-link-http'
@@ -44,6 +44,4 @@ const Apollo = () => {
 
   return <ApolloProvider client={client.current}>{children}</ApolloProvider>
 }
-
-export default Apollo
 ```
