@@ -8,13 +8,8 @@
   "module": "lib/%name%.esm.js",
   "typings": "lib/%name%.d.ts",
   "license": "MIT",
-  "keywords": [
-    "react",
-    "hooks"
-  ],
-  "files": [
-    "lib/*"
-  ],
+  "keywords": ["react", "hooks"],
+  "files": ["lib/*"],
   "repository": {
     "type": "git",
     "url": "https://github.com/charlie-tango/hooks.git"
@@ -34,8 +29,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

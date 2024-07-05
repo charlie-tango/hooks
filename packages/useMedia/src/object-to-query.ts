@@ -18,11 +18,11 @@ const objToQueryPart = ([feature, value]: [string, QueryValue]): string => {
   }
   if (value === true) {
     return feature;
-  } else if (value === false) {
-    return `not ${feature}`;
-  } else {
-    return `(${feature}: ${value})`;
   }
+  if (value === false) {
+    return `not ${feature}`;
+  }
+  return `(${feature}: ${value})`;
 };
 
 export const objectToQuery = (obj: QueryObject): string => {

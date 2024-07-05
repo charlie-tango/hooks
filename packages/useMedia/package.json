@@ -4,32 +4,30 @@
   "version": "1.6.0",
   "private": false,
   "sideEffects": false,
-  "main": "lib/useMedia.cjs.js",
-  "module": "lib/useMedia.esm.js",
-  "typings": "lib/useMedia.d.ts",
+  "type": "commonjs",
+  "main": "./lib/useMedia.js",
+  "module": "./lib/useMedia.mjs",
+  "types": "./lib/useMedia.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/useMedia.d.mts",
+      "require": "./lib/useMedia.js",
+      "default": "./lib/useMedia.mjs"
+    }
+  },
   "license": "MIT",
-  "keywords": [
-    "react",
-    "hooks"
-  ],
-  "files": [
-    "lib/*"
-  ],
+  "keywords": ["react", "hooks"],
+  "files": ["lib/*"],
   "repository": {
     "type": "git",
     "url": "https://github.com/charlie-tango/hooks.git"
   },
   "scripts": {
-    "lint": "eslint . --ext js,ts,tsx",
+    "lint": "biome check . --fix",
     "prebuild": "rm -rf lib",
-    "build": "rollup -c ../../tools/rollup.config.js",
-    "postbuild": "tsc --noEmit false",
-    "prepublish": "yarn build",
-    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
-    "test": "jest"
-  },
-  "jest": {
-    "preset": "../../jest.config.js"
+    "build": "tsup src/useMedia.ts",
+    "prepublish": "pnpm build",
+    "test": "vitest"
   },
   "publishConfig": {
     "access": "public"
@@ -38,9 +36,9 @@
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
-  "dependencies": {
-  },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "tsup": "^8.1.0"
   },
   "gitHead": "9fabdd1c8d4d373df00340e9f0524ca18f34817e"
 }

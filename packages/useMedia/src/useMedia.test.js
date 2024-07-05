@@ -1,1 +1,1 @@
-test('should create query', () => {})
+test("should create query", () => {});

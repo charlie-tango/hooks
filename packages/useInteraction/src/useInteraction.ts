@@ -1,77 +1,77 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from "react";
 
 export type InteractionState = {
   /** The user is currently pressing the element, either with the mouse or touch */
-  active: boolean
+  active: boolean;
   /** The element has focus */
-  focus: boolean
+  focus: boolean;
   /** The focus outline shouldn't be shown - Enabled if using 'focus-visible' polyfill */
-  focusVisible: boolean
+  focusVisible: boolean;
   /** An element inside this element currently has focus */
-  focusWithin: boolean
+  focusWithin: boolean;
   /** The user is hovering over the element with the mouse */
-  hover: boolean
-}
+  hover: boolean;
+};
 
 export type InteractionOptions = {
-  skip?: boolean
-  onInteraction?: (event: Event, state: InteractionState) => void
-}
+  skip?: boolean;
+  onInteraction?: (event: Event, state: InteractionState) => void;
+};
 
 const events = [
-  'focus',
-  'blur',
-  'focusin',
-  'focusout',
-  'mouseenter',
-  'mouseleave',
-  'mousedown',
-  'mouseup',
-  'touchstart',
-  'touchend',
-]
+  "focus",
+  "blur",
+  "focusin",
+  "focusout",
+  "mouseenter",
+  "mouseleave",
+  "mousedown",
+  "mouseup",
+  "touchstart",
+  "touchend",
+];
 
-const passiveEvents = { touchstart: true, touchend: true }
+const passiveEvents = { touchstart: true, touchend: true } as const;
 
 function eventReducer(state: InteractionState, event: Event) {
   switch (event.type) {
-    case 'mouseenter':
-      return { ...state, hover: true }
-    case 'mouseleave':
-      return { ...state, hover: false }
-    case 'focus':
+    case "mouseenter":
+      return { ...state, hover: true };
+    case "mouseleave":
+      return { ...state, hover: false };
+    case "focus":
       return {
         ...state,
         focus: true,
         focusVisible: (event.target as HTMLElement).hasAttribute(
-          'data-focus-visible-added',
+          "data-focus-visible-added",
         ),
-      }
-    case 'blur':
-      return { ...state, focus: false, focusVisible: false }
-    case 'mousedown':
-    case 'touchstart':
-      return { ...state, active: true }
-    case 'mouseup':
-    case 'touchend':
-      return { ...state, active: false }
-    case 'focusin':
+      };
+    case "blur":
+      return { ...state, focus: false, focusVisible: false };
+    case "mousedown":
+    case "touchstart":
+      return { ...state, active: true };
+    case "mouseup":
+    case "touchend":
+      return { ...state, active: false };
+    case "focusin":
       return {
         ...state,
         focusWithin: true,
         focusVisible: (event.target as HTMLElement).hasAttribute(
-          'data-focus-visible-added',
+          "data-focus-visible-added",
         ),
-      }
-    case 'focusout':
+      };
+    case "focusout":
       return {
         ...state,
         focusWithin: false,
         focusVisible: false,
-      }
+      };
   }
 
-  return state
+  return state;
 }
 
 const initial: InteractionState = {
@@ -80,48 +80,52 @@ const initial: InteractionState = {
   focusVisible: false,
   focusWithin: false,
   hover: false,
-}
+};
 
-function useInteraction({ skip, onInteraction }: InteractionOptions = {}): [
+function useInteraction({
+  skip,
+  onInteraction,
+}: InteractionOptions = {}): [
   (element: HTMLElement | null) => void,
   InteractionState,
 ] {
-  const cleanup = useRef<Function | null>()
-  const [state, setState] = useState(initial)
+  const cleanup = useRef<(() => void) | null>();
+  const [state, setState] = useState(initial);
 
   const setRef = useCallback(
     (node: Element | null) => {
       if (cleanup.current) {
         // Cleanup the last events a new `node` is passed in
-        cleanup.current()
-        cleanup.current = null
+        cleanup.current();
+        cleanup.current = null;
       }
 
       if (node && !skip) {
         const eventHandler = (event: Event) => {
           setState((currentState) => {
-            const nextState = eventReducer(currentState, event)
-            if (onInteraction) onInteraction(event, nextState)
-            return nextState
-          })
-        }
+            const nextState = eventReducer(currentState, event);
+            if (onInteraction) onInteraction(event, nextState);
+            return nextState;
+          });
+        };
 
         events.forEach((event) => {
           node.addEventListener(event, eventHandler, {
+            // @ts-ignore
             passive: passiveEvents[event],
-          })
-        })
+          });
+        });
         cleanup.current = () => {
           events.forEach((event) => {
-            node.removeEventListener(event, eventHandler)
-          })
-        }
+            node.removeEventListener(event, eventHandler);
+          });
+        };
       }
     },
     [onInteraction, skip],
-  )
+  );
 
-  return [setRef, state]
+  return [setRef, state];
 }
 
-export default useInteraction
+export default useInteraction;

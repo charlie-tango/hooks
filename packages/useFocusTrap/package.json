@@ -4,32 +4,30 @@
   "version": "1.4.0",
   "private": false,
   "sideEffects": false,
-  "main": "lib/useFocusTrap.cjs.js",
-  "module": "lib/useFocusTrap.esm.js",
-  "typings": "lib/useFocusTrap.d.ts",
+  "type": "commonjs",
+  "main": "./lib/useFocusTrap.js",
+  "module": "./lib/useFocusTrap.mjs",
+  "types": "./lib/useFocusTrap.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/useFocusTrap.d.mts",
+      "require": "./lib/useFocusTrap.js",
+      "default": "./lib/useFocusTrap.mjs"
+    }
+  },
   "license": "MIT",
-  "keywords": [
-    "react",
-    "hooks"
-  ],
-  "files": [
-    "lib/*"
-  ],
+  "keywords": ["react", "hooks"],
+  "files": ["lib/*"],
   "repository": {
     "type": "git",
     "url": "https://github.com/charlie-tango/hooks.git"
   },
   "scripts": {
-    "lint": "eslint . --ext js,ts,tsx",
+    "lint": "biome check . --fix",
     "prebuild": "rm -rf lib",
-    "build": "rollup -c ../../tools/rollup.config.js",
-    "postbuild": "tsc --noEmit false",
-    "prepublish": "yarn build",
-    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
-    "test": "jest"
-  },
-  "jest": {
-    "preset": "../../jest.config.js"
+    "build": "tsup src/useFocusTrap.ts",
+    "prepublish": "pnpm build",
+    "test": "vitest"
   },
   "publishConfig": {
     "access": "public"
@@ -37,5 +35,9 @@
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "tsup": "^8.1.0"
   }
 }

@@ -1,5 +1,5 @@
 import { useCallback, useSyncExternalStore } from "react";
-import { objectToQuery, QueryObject } from "./object-to-query";
+import { type QueryObject, objectToQuery } from "./object-to-query";
 
 function getSnapshot(query: string) {
   return window.matchMedia(query).matches;

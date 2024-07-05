@@ -1,55 +1,57 @@
-import { useState, useRef, useCallback } from 'react'
-import ResizeObserver from 'resize-observer-polyfill'
+import { useCallback, useRef, useState } from "react";
+import ResizeObserver from "resize-observer-polyfill";
 
 interface SizeRectReadonly {
-  readonly x: number
-  readonly y: number
-  readonly width: number
-  readonly height: number
+  readonly x: number;
+  readonly y: number;
+  readonly width: number;
+  readonly height: number;
 }
 
 export default function useElementSize(): [
   (node: HTMLElement | null) => void,
   SizeRectReadonly,
 ] {
-  const ro = useRef<ResizeObserver>()
+  const ro = useRef<ResizeObserver>();
   const [elementSize, setElementSize] = useState<SizeRectReadonly>({
     x: 0,
     y: 0,
     width: 0,
     height: 0,
-  })
+  });
 
   const setRef = useCallback((node: HTMLElement | null) => {
     if (ro.current) {
-      ro.current.disconnect()
+      ro.current.disconnect();
     }
     if (node) {
       if (!ro.current) {
-        let observerStarted = false
+        let observerStarted = false;
+
         // @ts-ignore
         ro.current = new ResizeObserver(([entry]) => {
           if (observerStarted) {
-            observerStarted = false
-            return
+            observerStarted = false;
+            return;
           }
 
-          ro.current?.disconnect()
+          ro.current?.disconnect();
           // [Operation that would cause resize here]
-          const { x, y, width, height } = entry.contentRect
-          setElementSize({ x, y, width, height })
+          const { x, y, width, height } = entry.contentRect;
 
-          observerStarted = true
+          setElementSize({ x, y, width, height });
+
+          observerStarted = true;
           requestAnimationFrame(() => {
-            ro.current?.observe(node)
-          })
-        })
+            ro.current?.observe(node);
+          });
+        });
       }
-      if (ro.current) ro.current.observe(node)
+      if (ro.current) ro.current.observe(node);
     } else {
-      ro.current = undefined
+      ro.current = undefined;
     }
-  }, [])
+  }, []);
 
-  return [setRef, elementSize]
+  return [setRef, elementSize];
 }

@@ -1,39 +1,39 @@
 type Value =
   | {
-      node: HTMLElement
-      ariaHidden: string | null
+      node: HTMLElement;
+      ariaHidden: string | null;
     }
-  | undefined
+  | undefined;
 
 /**
  * Sets `aria-hidden` on all elements on the body, except for the active node.
  **/
 export function createAriaHider(
   containerNode: HTMLElement,
-  selector: string = 'body > :not(script)',
+  selector = "body > :not(script)",
 ) {
   const rootNodes: Value[] = Array.from<HTMLElement>(
     document.querySelectorAll(selector),
-  ).map(node => {
+  ).map((node) => {
     if (node.contains(containerNode)) {
-      return undefined
+      return undefined;
     }
-    const ariaHidden = node.getAttribute('aria-hidden')
-    if (ariaHidden === null || ariaHidden === 'false') {
-      node.setAttribute('aria-hidden', 'true')
+    const ariaHidden = node.getAttribute("aria-hidden");
+    if (ariaHidden === null || ariaHidden === "false") {
+      node.setAttribute("aria-hidden", "true");
     }
 
-    return { node, ariaHidden }
-  })
+    return { node, ariaHidden };
+  });
 
   return () => {
-    rootNodes.forEach(item => {
-      if (!item) return
+    rootNodes.forEach((item) => {
+      if (!item) return;
       if (item.ariaHidden === null) {
-        item.node.removeAttribute('aria-hidden')
+        item.node.removeAttribute("aria-hidden");
       } else {
-        item.node.setAttribute('aria-hidden', item.ariaHidden)
+        item.node.setAttribute("aria-hidden", item.ariaHidden);
       }
-    })
-  }
+    });
+  };
 }

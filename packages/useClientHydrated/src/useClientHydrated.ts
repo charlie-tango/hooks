@@ -1,11 +1,11 @@
-import { useSyncExternalStore } from 'react'
+import { useSyncExternalStore } from "react";
 
 // Void subscription function. You can't go back after hydrating.
 const subscribe = () => {
-  return () => {}
+  return () => {};
 };
 
-const getSnapshot = () => true
+const getSnapshot = () => true;
 
 const getServerSnapshot = () => false;
 
@@ -15,7 +15,7 @@ const getServerSnapshot = () => false;
  * Like check a media query during the initial render.
  * */
 function useClientHydrated() {
-  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
 
-export default useClientHydrated
+export default useClientHydrated;

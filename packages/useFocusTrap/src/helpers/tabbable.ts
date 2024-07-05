@@ -9,51 +9,51 @@
  *
  * http://api.jqueryui.com/category/ui-core/
  */
-const tabbableNode = /input|select|textarea|button|object/
+const tabbableNode = /input|select|textarea|button|object/;
 export const focusSelector =
-  'a, input, select, textarea, button, object, [tabindex]'
+  "a, input, select, textarea, button, object, [tabindex]";
 
 function hidden(el: HTMLElement) {
-  if (process.env.NODE_ENV === 'test') return false
+  if (process.env.NODE_ENV === "test") return false;
   return (
-    (el.offsetWidth <= 0 && el.offsetHeight <= 0) || el.style.display === 'none'
-  )
+    (el.offsetWidth <= 0 && el.offsetHeight <= 0) || el.style.display === "none"
+  );
 }
 
 function visible(element: HTMLElement) {
-  let parentElement: HTMLElement = element
+  let parentElement: HTMLElement = element;
   while (parentElement) {
-    if (parentElement === document.body) break
-    if (hidden(parentElement)) return false
-    parentElement = parentElement.parentNode as HTMLElement
+    if (parentElement === document.body) break;
+    if (hidden(parentElement)) return false;
+    parentElement = parentElement.parentNode as HTMLElement;
   }
 
-  return true
+  return true;
 }
 
 function getElementTabIndex(element: HTMLElement) {
-  let tabIndex: string | null | undefined = element.getAttribute('tabindex')
-  if (tabIndex === null) tabIndex = undefined
-  return parseInt(tabIndex as string, 10)
+  let tabIndex: string | null | undefined = element.getAttribute("tabindex");
+  if (tabIndex === null) tabIndex = undefined;
+  return Number.parseInt(tabIndex as string, 10);
 }
 
 export function focusable(element: HTMLElement) {
-  const nodeName = element.nodeName.toLowerCase()
-  const isTabIndexNotNaN = !isNaN(getElementTabIndex(element))
+  const nodeName = element.nodeName.toLowerCase();
+  const isTabIndexNotNaN = !Number.isNaN(getElementTabIndex(element));
   const res =
     // @ts-ignore
     (tabbableNode.test(nodeName) && !element.disabled) ||
     (element instanceof HTMLAnchorElement
       ? element.href || isTabIndexNotNaN
-      : isTabIndexNotNaN)
+      : isTabIndexNotNaN);
 
-  return res && visible(element)
+  return res && visible(element);
 }
 
 export function tabbable(element: HTMLElement) {
-  const tabIndex = getElementTabIndex(element)
-  const isTabIndexNaN = isNaN(tabIndex)
-  return (isTabIndexNaN || tabIndex >= 0) && focusable(element)
+  const tabIndex = getElementTabIndex(element);
+  const isTabIndexNaN = Number.isNaN(tabIndex);
+  return (isTabIndexNaN || tabIndex >= 0) && focusable(element);
 }
 
 /**
@@ -64,5 +64,5 @@ export function findTabbableDescendants(
 ): Array<HTMLElement> {
   return Array.from(
     element.querySelectorAll<HTMLElement>(focusSelector),
-  ).filter(tabbable)
+  ).filter(tabbable);
 }
