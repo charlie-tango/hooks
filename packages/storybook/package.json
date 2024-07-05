@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "storybook dev -p 9000",
-    "build:storybook": "storybook build -o ../../dist",
+    "build": "storybook build -o ../../dist",
     "lint": "biome lint ."
   },
   "dependencies": {

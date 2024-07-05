@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "pnpm -r build",
+    "build:storybook": "pnpm --filter @charlietango/storybook build",
     "dev": "pnpm --filter @charlietango/storybook dev",
     "lint": "biome check . --fix",
     "new-hook": "node tools/new-hook",
