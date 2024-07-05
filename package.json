@@ -13,27 +13,23 @@
     "new-hook": "node tools/new-hook",
     "update-readme": "node tools/update-readme",
     "release": "cross-env HUSKY_BYPASS=true pnpm publish",
-    "test": "vitest"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsc && lint-staged",
-      "commit-msg": "[[ -n $HUSKY_BYPASS ]] || commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "test": "vitest",
+    "prepare": "husky"
   },
   "lint-staged": {
     "packages/*/package.json": [
-      "yarn update-readme",
+      "pnpm update-readme",
       "git add README.md",
       "git add packages/hooks/readme.md"
     ],
     "README.md": [
-      "yarn update-readme",
+      "pnpm update-readme",
       "git add README.md",
       "git add packages/hooks/readme.md"
     ],
-    "*.{js,json,css,md,mdx,ts,tsx}": ["prettier --write"],
-    "src/**/*.{ts,tsx}": ["eslint", "jest --findRelatedTests"]
+    "*.{js,json,css,md,mdx,ts,tsx}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
   },
   "dependencies": {
     "react": "^18.0.0",
@@ -52,7 +48,7 @@
     "execa": "^6.1.0",
     "globby": "^11.0.4",
     "happy-dom": "^14.12.3",
-    "husky": "^4.2.3",
+    "husky": "^9.0.11",
     "inquirer": "^8.2.2",
     "lint-staged": "^12.3.7",
     "lodash": "^4.17.11",
@@ -62,5 +58,5 @@
     "typescript": "^5.5.3",
     "vitest": "^1.6.0"
   },
-  "workspaces": ["packages/*"]
+  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74"
 }
