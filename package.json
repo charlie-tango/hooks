@@ -12,7 +12,7 @@
     "lint": "biome check . --fix",
     "new-hook": "node tools/new-hook",
     "update-readme": "node tools/update-readme",
-    "release": "cross-env HUSKY_BYPASS=true pnpm publish",
+    "ci:publish": "pnpm publish -r",
     "test": "vitest",
     "prepare": "husky"
   },
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
+    "@changesets/cli": "^2.27.7",
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@testing-library/dom": "^10.3.1",
