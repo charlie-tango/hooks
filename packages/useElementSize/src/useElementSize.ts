@@ -1,23 +1,25 @@
 import { useCallback, useRef, useState } from "react";
-import ResizeObserver from "resize-observer-polyfill";
 
-interface SizeRectReadonly {
-  readonly x: number;
-  readonly y: number;
-  readonly width: number;
-  readonly height: number;
-}
+type ElementSizeResponse = [
+  (node?: HTMLElement | null) => void,
+  DOMRectReadOnly,
+] & {
+  ref: (node?: HTMLElement | null) => void;
+  size: DOMRectReadOnly;
+};
 
-export function useElementSize(): [
-  (node: HTMLElement | null) => void,
-  SizeRectReadonly,
-] {
+export function useElementSize(): ElementSizeResponse {
   const ro = useRef<ResizeObserver>();
-  const [elementSize, setElementSize] = useState<SizeRectReadonly>({
+  const [elementSize, setElementSize] = useState<DOMRectReadOnly>({
     x: 0,
     y: 0,
     width: 0,
     height: 0,
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    toJSON() {},
   });
 
   const setRef = useCallback((node: HTMLElement | null) => {
@@ -36,10 +38,8 @@ export function useElementSize(): [
           }
 
           ro.current?.disconnect();
-          // [Operation that would cause resize here]
-          const { x, y, width, height } = entry.contentRect;
 
-          setElementSize({ x, y, width, height });
+          setElementSize(entry.contentRect);
 
           observerStarted = true;
           requestAnimationFrame(() => {
@@ -53,5 +53,11 @@ export function useElementSize(): [
     }
   }, []);
 
-  return [setRef, elementSize];
+  const result = [setRef, elementSize] as ElementSizeResponse;
+
+  // Support object destructuring, by adding the specific values.
+  result.ref = result[0];
+  result.size = result[1];
+
+  return result;
 }
