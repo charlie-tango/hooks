@@ -9,25 +9,25 @@
     "url": "https://github.com/charlie-tango/hooks.git"
   },
   "exports": {
-    "./src/useClientHydrated": {
+    "./useClientHydrated": {
       "types": "./dist/useClientHydrated.d.ts",
       "import": "./dist/useClientHydrated.mjs",
       "require": "./dist/useClientHydrated.cjs",
       "default": "./dist/useClientHydrated.cjs"
     },
-    "./src/useElementSize": {
+    "./useElementSize": {
       "types": "./dist/useElementSize.d.ts",
       "import": "./dist/useElementSize.mjs",
       "require": "./dist/useElementSize.cjs",
       "default": "./dist/useElementSize.cjs"
     },
-    "./src/useMedia": {
+    "./useMedia": {
       "types": "./dist/useMedia.d.ts",
       "import": "./dist/useMedia.mjs",
       "require": "./dist/useMedia.cjs",
       "default": "./dist/useMedia.cjs"
     },
-    "./src/useWindowSize": {
+    "./useWindowSize": {
       "types": "./dist/useWindowSize.d.ts",
       "import": "./dist/useWindowSize.mjs",
       "require": "./dist/useWindowSize.cjs",

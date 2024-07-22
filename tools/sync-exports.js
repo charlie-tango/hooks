@@ -7,7 +7,7 @@ async function syncExports() {
 
   pck.exports = {};
   hooks.forEach((hook) => {
-    const entry = hook.replace(".ts", "");
+    const entry = hook.replace("src/", "").replace(".ts", "");
     const distFile = hook.replace("src", "dist");
 
     pck.exports[entry] = {
