@@ -14,5 +14,5 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "exclude": ["dist", "__tests__"]
+  "include": ["src"]
 }

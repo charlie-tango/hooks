@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { page } from "@vitest/browser/context";
-import { useMedia } from "../useMedia";
+import { useMedia } from "../hooks/useMedia";
 
 test("useMedia with minWidth", async () => {
   const { result, rerender } = renderHook(() =>

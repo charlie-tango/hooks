@@ -8,35 +8,24 @@
     "type": "git",
     "url": "https://github.com/charlie-tango/hooks.git"
   },
+  "source": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
-    "./use-client-hydrated": {
-      "types": "./dist/useClientHydrated.d.ts",
-      "import": "./dist/useClientHydrated.mjs",
-      "require": "./dist/useClientHydrated.cjs",
-      "default": "./dist/useClientHydrated.cjs"
-    },
-    "./use-element-size": {
-      "types": "./dist/useElementSize.d.ts",
-      "import": "./dist/useElementSize.mjs",
-      "require": "./dist/useElementSize.cjs",
-      "default": "./dist/useElementSize.cjs"
-    },
-    "./use-media": {
-      "types": "./dist/useMedia.d.ts",
-      "import": "./dist/useMedia.mjs",
-      "require": "./dist/useMedia.cjs",
-      "default": "./dist/useMedia.cjs"
-    },
-    "./use-window-size": {
-      "types": "./dist/useWindowSize.d.ts",
-      "import": "./dist/useWindowSize.mjs",
-      "require": "./dist/useWindowSize.cjs",
-      "default": "./dist/useWindowSize.cjs"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "scripts": {
-    "build": "node tools/sync-exports.js && unbuild",
-    "dev": "unbuild --stub",
+    "build": "tsup",
     "lint": "biome check .",
     "prepublishOnly": "pnpm build",
     "release": "bumpp && npm publish",
@@ -49,9 +38,14 @@
       "biome check --write --no-errors-on-unmatched"
     ]
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
@@ -68,10 +62,11 @@
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
     "playwright": "^1.45.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "tsup": "^8.2.2",
     "typescript": "^5.5.3",
-    "unbuild": "^2.0.0",
     "vitest": "^2.0.4"
   },
-  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74"
+  "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35"
 }
