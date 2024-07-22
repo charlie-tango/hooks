@@ -7,7 +7,12 @@ async function syncExports() {
 
   pck.exports = {};
   hooks.forEach((hook) => {
-    const entry = hook.replace("src/", "").replace(".ts", "");
+    // Convert file to kebab-case, and remove extension and src
+    const entry = hook
+      .replace("src/", "")
+      .replace(".ts", "")
+      .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2")
+      .toLowerCase();
     const distFile = hook.replace("src", "dist");
 
     pck.exports[entry] = {
