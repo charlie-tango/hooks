@@ -1,33 +1,49 @@
 {
+  "name": "@charlietango/hooks",
   "description": "Collection of React Hooks",
-  "private": true,
-  "files": ["lib/*"],
+  "files": ["dist/*"],
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/charlie-tango/hooks.git"
   },
+  "exports": {
+    "./src/useClientHydrated": {
+      "types": "./dist/useClientHydrated.d.ts",
+      "import": "./dist/useClientHydrated.mjs",
+      "require": "./dist/useClientHydrated.cjs",
+      "default": "./dist/useClientHydrated.cjs"
+    },
+    "./src/useElementSize": {
+      "types": "./dist/useElementSize.d.ts",
+      "import": "./dist/useElementSize.mjs",
+      "require": "./dist/useElementSize.cjs",
+      "default": "./dist/useElementSize.cjs"
+    },
+    "./src/useMedia": {
+      "types": "./dist/useMedia.d.ts",
+      "import": "./dist/useMedia.mjs",
+      "require": "./dist/useMedia.cjs",
+      "default": "./dist/useMedia.cjs"
+    },
+    "./src/useWindowSize": {
+      "types": "./dist/useWindowSize.d.ts",
+      "import": "./dist/useWindowSize.mjs",
+      "require": "./dist/useWindowSize.cjs",
+      "default": "./dist/useWindowSize.cjs"
+    }
+  },
   "scripts": {
-    "build": "pnpm --filter @charlietango/use-* build && pnpm --filter @charlietango/hooks build",
-    "build:storybook": "pnpm --filter @charlietango/storybook build",
-    "dev": "pnpm --filter @charlietango/storybook dev",
-    "lint": "biome check . --fix",
-    "new-hook": "node tools/new-hook",
-    "update-readme": "node tools/update-readme",
-    "ci:publish": "pnpm publish -r",
+    "build": "node tools/sync-exports.js && unbuild",
+    "dev": "unbuild --stub",
+    "lint": "biome check .",
+    "prepublishOnly": "pnpm build",
+    "release": "bumpp && npm publish",
     "test": "vitest",
+    "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
   "lint-staged": {
-    "packages/*/package.json": [
-      "pnpm update-readme",
-      "git add README.md",
-      "git add packages/hooks/readme.md"
-    ],
-    "README.md": [
-      "pnpm update-readme",
-      "git add README.md",
-      "git add packages/hooks/readme.md"
-    ],
     "*.{js,json,css,md,mdx,ts,tsx}": [
       "biome check --write --no-errors-on-unmatched"
     ]
@@ -39,26 +55,20 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@changesets/cli": "^2.27.7",
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "@testing-library/dom": "^10.3.1",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.3.3",
-    "ansi-colors": "^4.0.1",
-    "cross-env": "^7.0.0",
-    "execa": "^6.1.0",
-    "globby": "^11.0.4",
-    "happy-dom": "^14.12.3",
-    "husky": "^9.0.11",
-    "inquirer": "^8.2.2",
-    "lint-staged": "^12.3.7",
-    "lodash": "^4.17.11",
-    "mkdirp": "^1.0.3",
-    "ora": "^6.1.0",
-    "tsup": "^8.1.0",
+    "bumpp": "^9.4.1",
+    "globby": "^14.0.2",
+    "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
+    "tsup": "^8.2.2",
     "typescript": "^5.5.3",
-    "vitest": "^1.6.0"
+    "unbuild": "^2.0.0",
+    "vitest": "^2.0.4"
   },
   "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74"
 }

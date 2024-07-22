@@ -1,22 +1,18 @@
 {
   "compilerOptions": {
-    "module": "esnext",
     "target": "ESNext",
-    "lib": ["es6", "es7", "esnext", "dom"],
-    "types": ["vitest/globals"],
-    "jsx": "react",
-    "moduleResolution": "node",
-    "noImplicitReturns": true,
+    "lib": ["ESNext", "dom"],
+    "types": ["vitest/globals", "@vitest/browser/providers/playwright"],
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
     "strict": true,
-    "strictFunctionTypes": true,
-    "noUnusedLocals": true,
-    "pretty": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "allowJs": false,
+    "strictNullChecks": true,
     "esModuleInterop": true,
-    "downlevelIteration": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
     "noEmit": true
   },
-  "exclude": ["lib", "__tests__"]
+  "exclude": ["dist", "__tests__"]
 }
