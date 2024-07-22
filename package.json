@@ -1,5 +1,6 @@
 {
   "name": "@charlietango/hooks",
+  "version": "2.0.0",
   "description": "Collection of React Hooks",
   "files": ["dist/*"],
   "type": "module",
