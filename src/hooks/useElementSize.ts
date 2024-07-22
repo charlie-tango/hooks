@@ -8,6 +8,10 @@ type ElementSizeResponse = [
   size: DOMRectReadOnly;
 };
 
+/**
+ * Monitor the size of an element, and return the size object.
+ * Uses the ResizeObserver API, so it will keep track of the size changes.
+ */
 export function useElementSize(): ElementSizeResponse {
   const ro = useRef<ResizeObserver>();
   const [elementSize, setElementSize] = useState<DOMRectReadOnly>({
