@@ -22,8 +22,8 @@ function subscribe(onChange: () => void, query: string) {
  * Compare a media query against the browser viewport.
  * Use the breakpoint values from the `screens` export in `src/styles`
  *
- * ```ts
- * const isTablet = useMedia({ minWidth: screens.md })
+ * ```tsx
+ * const isTablet = useMedia({ minWidth: '768px' })
  * ```
  **/
 export function useMedia(query: QueryObject | string) {

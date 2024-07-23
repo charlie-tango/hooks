@@ -13,6 +13,13 @@ const getSnapshot = () =>
 
 const getServerSnapshot = () => JSON.stringify({ width: 0, height: 0 });
 
+/**
+ * Get the current window size. If the window resizes, the hook will update the size.
+ *
+ * ```tsx
+ * const { width, height } = useWindowSize();
+ * ```
+ */
 export function useWindowSize() {
   return JSON.parse(
     useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot),

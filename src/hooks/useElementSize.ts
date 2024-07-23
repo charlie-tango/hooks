@@ -1,20 +1,23 @@
 import { useCallback, useRef, useState } from "react";
 
-type ElementSizeResponse = [
-  (node?: HTMLElement | null) => void,
-  DOMRectReadOnly,
-] & {
-  ref: (node?: HTMLElement | null) => void;
-  size: DOMRectReadOnly;
+type ElementSizeResponse = {
+  ref: (node: HTMLElement | null) => void;
+  size: Omit<DOMRectReadOnly, "toJSON">;
 };
 
 /**
  * Monitor the size of an element, and return the size object.
  * Uses the ResizeObserver API, so it will keep track of the size changes.
+ *
+ * ```tsx
+ * const { ref, size } = useElementSize();
+ *
+ * return <div ref={ref}>Element size: {size.width}x{size.height}</div>;
+ * ```
  */
 export function useElementSize(): ElementSizeResponse {
   const ro = useRef<ResizeObserver>();
-  const [elementSize, setElementSize] = useState<DOMRectReadOnly>({
+  const [elementSize, setElementSize] = useState<ElementSizeResponse["size"]>({
     x: 0,
     y: 0,
     width: 0,
@@ -23,7 +26,6 @@ export function useElementSize(): ElementSizeResponse {
     top: 0,
     right: 0,
     bottom: 0,
-    toJSON() {},
   });
 
   const setRef = useCallback((node: HTMLElement | null) => {
@@ -33,8 +35,6 @@ export function useElementSize(): ElementSizeResponse {
     if (node) {
       if (!ro.current) {
         let observerStarted = false;
-
-        // @ts-ignore
         ro.current = new ResizeObserver(([entry]) => {
           if (observerStarted) {
             observerStarted = false;
@@ -42,8 +42,16 @@ export function useElementSize(): ElementSizeResponse {
           }
 
           ro.current?.disconnect();
-
-          setElementSize(entry.contentRect);
+          setElementSize({
+            x: entry.contentRect.x,
+            y: entry.contentRect.y,
+            width: entry.contentRect.width,
+            height: entry.contentRect.height,
+            left: entry.contentRect.left,
+            top: entry.contentRect.top,
+            right: entry.contentRect.right,
+            bottom: entry.contentRect.bottom,
+          });
 
           observerStarted = true;
           requestAnimationFrame(() => {
@@ -57,11 +65,5 @@ export function useElementSize(): ElementSizeResponse {
     }
   }, []);
 
-  const result = [setRef, elementSize] as ElementSizeResponse;
-
-  // Support object destructuring, by adding the specific values.
-  result.ref = result[0];
-  result.size = result[1];
-
-  return result;
+  return { ref: setRef, size: elementSize };
 }
