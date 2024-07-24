@@ -1,4 +1,7 @@
-export { useElementSize } from "./hooks/useElementSize";
-export { useMedia } from "./hooks/useMedia";
-export { usePrevious } from "./hooks/usePrevious";
-export { useWindowSize } from "./hooks/useWindowSize";
+/**
+ * Void index - Use the individual imports instead. This avoids us creating one big barrel file with all the hooks.
+ *
+ * For example:
+ * ```ts
+ * import { useMedia } from '@charlietango/hooks/use-media';
+ */
