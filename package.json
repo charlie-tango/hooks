@@ -22,6 +22,16 @@
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
+    },
+    "./*": {
+      "import": {
+        "types": "./dist/hooks/*.d.ts",
+        "default": "./dist/hooks/*.js"
+      },
+      "require": {
+        "types": "./dist/hooks/*.d.ts",
+        "default": "./dist/hooks/*.cjs"
+      }
     }
   },
   "scripts": {

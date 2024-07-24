@@ -1,14 +1,15 @@
+import { globbySync } from "globby";
 import { defineConfig } from "tsup";
+
+const hooks = globbySync("src/hooks/use*.ts");
 
 export default defineConfig({
   minify: false,
-  sourcemap: true,
   dts: true,
   clean: true,
-  target: "es2018",
-  external: ["react"],
+  external: ["react", "react-dom"],
   format: ["esm", "cjs"],
-  entry: ["src/index.ts"],
+  entry: ["src/index.ts", ...hooks],
   outDir: "dist",
   treeshake: true,
 });

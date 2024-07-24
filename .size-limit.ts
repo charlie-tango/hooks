@@ -3,7 +3,7 @@ import { globbySync } from "globby";
 import type { SizeLimitConfig } from "size-limit";
 
 // Get all hooks from the `src/hooks` directory, and validate their size
-const limits = globbySync("src/hooks/*.ts").map((file) => {
+const limits = globbySync("src/hooks/use*.ts").map((file) => {
   const name = path.parse(file).name;
 
   return {
