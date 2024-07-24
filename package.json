@@ -34,9 +34,10 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,json,css,md,mdx,ts,tsx}": [
-      "biome check --write --no-errors-on-unmatched"
-    ]
+    "*.{js,ts,cjs,mjs,jsx,tsx,json}": [
+      "biome check --apply --no-errors-on-unmatched"
+    ],
+    "*.md": ["prettier --write"]
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -62,6 +63,7 @@
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
     "playwright": "^1.45.2",
+    "prettier": "^3.3.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "tsup": "^8.2.2",
