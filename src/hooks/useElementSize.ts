@@ -1,7 +1,14 @@
 import { useCallback, useRef, useState } from "react";
 
 type ElementSizeResponse = {
-  ref: (node: HTMLElement | null) => void;
+  /**
+   * Reference to the element that should be monitored.
+   * This will be `undefined` if the `skip` option is set to `true`.
+   */
+  ref?: (node: HTMLElement | null) => void;
+  /**
+   * Size of the element. The width and height will be 0 until the ResizeObserver reports the size.
+   */
   size: { width: number; height: number };
 };
 
@@ -53,7 +60,7 @@ export function useElementSize(
       if (ro.current) {
         ro.current.disconnect();
       }
-      if (node && !options.skip) {
+      if (node) {
         if (!ro.current) {
           let observerStarted = false;
           ro.current = new ResizeObserver(([entry]) => {
@@ -98,8 +105,8 @@ export function useElementSize(
         ro.current = undefined;
       }
     },
-    [options.type, options.skip],
+    [options.type],
   );
 
-  return { ref: setRef, size: elementSize };
+  return { ref: !options.skip ? setRef : undefined, size: elementSize };
 }
