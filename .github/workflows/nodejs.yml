@@ -20,6 +20,9 @@ jobs:
         run: pnpm biome ci .
       - name: Build
         run: pnpm build
+      - uses: andresz1/size-limit-action@v1
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
 
   test_matrix:
     runs-on: ubuntu-latest

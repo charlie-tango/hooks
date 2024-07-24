@@ -10,4 +10,5 @@ export default defineConfig({
   format: ["esm", "cjs"],
   entry: ["src/index.ts"],
   outDir: "dist",
+  treeshake: true,
 });
