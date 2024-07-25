@@ -7,6 +7,7 @@ Collection of React Hooks used by [Charlie Tango](https://www.charlietango.dk/).
 
 - Written in TypeScript, with full types support.
 - Small and focused, each hook does one thing well.
+- No barrel file, only import the hooks you need.
 - Optimized for modern React, uses newer APIs like `useSyncExternalStore`.
 - All hooks work in a server-side rendering environment.
 - All hooks are tested with [Vitest](https://vitest.dev/) in a real browser environment.
@@ -21,13 +22,33 @@ npm install @charlietango/hooks --save
 
 ## The Hooks
 
+All the hooks are exported on their own, so we don't have a barrel file with all the hooks.
+This guarantees that you only import the hooks you need, and don't bloat your bundle with unused code.
+
+### `useDebouncedCallback`
+
+Debounce a callback function. The callback will only be called after the delay has passed without the function being called again.
+
+```ts
+import { useDebouncedCallback } from "@charlietango/hooks/use-debounced-callback";
+
+const debouncedCallback = useDebouncedCallback((value: string) => {
+  console.log(value);
+}, 500);
+
+debouncedCallback("Hello");
+debouncedCallback("World"); // Will only log "World" after 500ms
+```
+
 ### `useElementSize`
 
 Monitor the size of an element, and return the size object.
 Uses the ResizeObserver API, so it will keep track of the size changes.
 
 ```ts
-const { ref, size } = useInView(options);
+import { useElementSize } from "@charlietango/hooks/use-element-size";
+
+const { ref, size } = useElementSize(options);
 ```
 
 ### `useMedia`
@@ -35,6 +56,8 @@ const { ref, size } = useInView(options);
 Monitor a media query, and return a boolean indicating if the media query matches. Until the media query is matched, the hook will return `undefined`.
 
 ```ts
+import { useMedia } from "@charlietango/hooks/use-media";
+
 const isDesktop = useMedia({ minWidth: 1024 });
 const prefersReducedMotion = useMedia(
   "(prefers-reduced-motion: no-preference)",
@@ -53,7 +76,9 @@ const prevValue = usePrevious(value);
 
 Get the current window size. If the window resizes, the hook will update the size.
 
-```tsx
+```ts
+import { useWindowSize } from "@charlietango/hooks/use-window-size";
+
 const { width, height } = useWindowSize();
 ```
 
