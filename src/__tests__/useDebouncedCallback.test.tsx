@@ -1,9 +1,14 @@
 import { renderHook } from "@testing-library/react";
-import { beforeEach } from "vitest";
+import { afterEach, beforeAll } from "vitest";
 import { useDebouncedCallback } from "../hooks/useDebouncedCallback";
 
-beforeEach(() => {
+beforeAll(() => {
   vi.useFakeTimers();
+});
+
+afterEach(() => {
+  // Should be no pending timers after each test
+  expect(vi.getTimerCount()).toBe(0);
 });
 
 test("should call the callback after the delay", async () => {
@@ -87,6 +92,7 @@ test("should handle leading option", async () => {
   vi.advanceTimersToNextTimer();
   result.current("c");
   expect(cb).toHaveBeenCalledWith("c");
+  vi.advanceTimersToNextTimer();
 });
 
 test("should handle both leading and trailing option", async () => {
@@ -104,6 +110,18 @@ test("should handle both leading and trailing option", async () => {
   vi.advanceTimersToNextTimer();
   // Should trigger with the trailing value
   expect(cb).toHaveBeenCalledWith("b");
+});
+
+test("should call stop pending callbacks on unmount", async () => {
+  const cb = vi.fn();
+  const { result, unmount } = renderHook(() => useDebouncedCallback(cb, 500));
+
+  result.current();
+  unmount();
+
+  // After unmounting, the callback should not be called and there should be no pending timers
+  expect(vi.getTimerCount()).toBe(0);
+  expect(cb).not.toHaveBeenCalled();
 });
 
 test("should infer the correct callback signature", async () => {

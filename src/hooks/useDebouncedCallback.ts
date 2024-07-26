@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 type DebounceOptions = {
   /**
@@ -59,6 +59,13 @@ export function useDebouncedCallback<
   // Store the latest function as a ref, so we can call it when the timeout is done.
   // This ensures that the user doesn't accidentally recreate the debounced function.
   cb.current = func;
+
+  useEffect(() => {
+    return () => {
+      // Clear any pending timeouts when the hook unmounts
+      if (timeout.current) clearTimeout(timeout.current);
+    };
+  }, []);
 
   return useMemo(() => {
     let currentArgs: Parameters<T>;
