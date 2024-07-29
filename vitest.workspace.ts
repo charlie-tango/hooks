@@ -17,6 +17,9 @@ export default defineWorkspace([
         headless: true,
       },
     },
+    optimizeDeps: {
+      include: ["react/jsx-dev-runtime"],
+    },
     publicDir: "src/__tests__/public",
   },
   {
