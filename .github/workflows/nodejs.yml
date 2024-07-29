@@ -1,25 +1,52 @@
-name: Node CI
+name: Test
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - run: corepack enable
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install, build, and test
+          node-version: 20
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Lint
+        run: pnpm biome ci .
+      - name: Build
+        run: pnpm build
+
+  test_matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        react:
+          - 18
+          - latest
+          - rc
+    steps:
+      - run: corepack enable
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install legacy React types
+        if: ${{ startsWith(matrix.react, '18')  }}
+        run: pnpm add -D @types/react@${{ matrix.react }} @types/react-dom@${{ matrix.react }}
+      - name: Install ${{ matrix.react }}
+        run: pnpm add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
+      - name: Validate types
         run: |
-          yarn
-          yarn build
-          yarn test
-        env:
-          CI: true
+          pnpm tsc
+          pnpx playwright install chromium
+          pnpm test

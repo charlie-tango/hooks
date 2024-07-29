@@ -1,7 +1,0 @@
-import { renderHook } from '@testing-library/react-hooks'
-import %name% from './%name%'
-
-it('should execute the %name% hook', () => {
-  const { result } = renderHook(() => %name%())
-  expect(result).toBe('👋')
-})

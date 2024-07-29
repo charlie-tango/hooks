@@ -1,24 +1,20 @@
 # Charlie Tango Hooks
 
-[![Version Badge][npm-version-svg]][package-url]
-[![dependency status][deps-svg]][deps-url]
-[![dev dependency status][dev-deps-svg]][dev-deps-url]
-[![License][license-image]][license-url]
-[![styled with prettier][prettier-svg]][prettier-url]
+[![npm version][npm-version-src]][npm-version-href]
+[![License][license-src]][license-href]
 
-Collection of React Hooks used by Charlie Tango.
+Collection of React Hooks used by [Charlie Tango](https://www.charlietango.dk/).
 
-**Storybook Demo:** https://ct-hooks.now.sh
+- Written in TypeScript, with full types support.
+- Small and focused, each hook does one thing well.
+- No barrel file, only import the hooks you need.
+- Optimized for modern React, uses newer APIs like `useSyncExternalStore`.
+- All hooks work in a server-side rendering environment.
+- All hooks are tested with [Vitest](https://vitest.dev/) in a real browser environment.
 
 ## Installation
 
-Install using [Yarn](https://yarnpkg.com):
-
-```sh
-yarn add @charlietango/hooks
-```
-
-or NPM:
+Install using npm:
 
 ```sh
 npm install @charlietango/hooks --save
@@ -26,60 +22,84 @@ npm install @charlietango/hooks --save
 
 ## The Hooks
 
-### Individual hooks
+All the hooks are exported on their own, so we don't have a barrel file with all the hooks.
+This guarantees that you only import the hooks you need, and don't bloat your bundle with unused code.
 
-All of our Hooks are published into their own NPM module, so you can pick and choose exactly the ones you need.
+### `useDebouncedCallback`
 
-<!-- HOOKS_START -->
+Debounce a callback function. The callback will only be called after the delay has passed without the function being called again.
 
-- **[@charlietango/use-client-hydrated](https://www.npmjs.com/package/@charlietango/use-client-hydrated)** _([useClientHydrated](packages/useClientHydrated/src))_ - Check if the client has been hydrated
-- **[@charlietango/use-element-size](https://www.npmjs.com/package/@charlietango/use-element-size)** _([useElementSize](packages/useElementSize/src))_ - Measure the size of a DOM element using ResizeObserver
-- **[@charlietango/use-focus-trap](https://www.npmjs.com/package/@charlietango/use-focus-trap)** _([useFocusTrap](packages/useFocusTrap/src))_ - Trap keyboard focus inside a DOM element, to prevent the user navigating outside a modal
-- **[@charlietango/use-id](https://www.npmjs.com/package/@charlietango/use-id)** _([useId](packages/useId/src))_ - Generate a deterministic id using a Context Provider
-- **[@charlietango/use-interaction](https://www.npmjs.com/package/@charlietango/use-interaction)** _([useInteraction](packages/useInteraction/src))_ - Monitor the user interactions on an element
-- **[@charlietango/use-lazy-ref](https://www.npmjs.com/package/@charlietango/use-lazy-ref)** _([useLazyRef](packages/useLazyRef/src))_ - Create a new ref with lazy instantiated value
-- **[@charlietango/use-media](https://www.npmjs.com/package/@charlietango/use-media)** _([useMedia](packages/useMedia/src))_ - Detect if the browser matches a media query
-- **[@charlietango/use-native-lazy-loading](https://www.npmjs.com/package/@charlietango/use-native-lazy-loading)** _([useNativeLazyLoading](packages/useNativeLazyLoading/src))_ - Detect if the browser supports the new 'loading' attribute on Image elements.
-- **[@charlietango/use-script](https://www.npmjs.com/package/@charlietango/use-script)** _([useScript](packages/useScript/src))_ - Load an external third party script
-- **[@charlietango/use-toggle](https://www.npmjs.com/package/@charlietango/use-toggle)** _([useToggle](packages/useToggle/src))_ - Simple boolean state toggler
-- **[@charlietango/use-window-size](https://www.npmjs.com/package/@charlietango/use-window-size)** _([useWindowSize](packages/useWindowSize/src))_ - Get the width and height of the viewport
+```ts
+import { useDebouncedCallback } from "@charlietango/hooks/use-debounced-callback";
 
-<!-- HOOKS_END -->
+const debouncedCallback = useDebouncedCallback((value: string) => {
+  console.log(value);
+}, 500);
 
-To use the Hook, import it from the package you installed, like:
-
-```js
-import useMedia from "@charlietango/use-media";
+debouncedCallback("Hello");
+debouncedCallback("World"); // Will only log "World" after 500ms
 ```
 
-### `@charlietango/hooks`
+### `useElementSize`
 
-The [@charlietango/hooks](https://www.npmjs.com/package/@charlietango/hooks)
-module collects all of the individual modules into a single dependency. The module
-is optimized for tree shaking, so you application should only include the dependencies
-you actually use.
+Monitor the size of an element, and return the size object.
+Uses the ResizeObserver API, so it will keep track of the size changes.
 
-```js
-import { useMedia } from "@charlietango/hooks";
+```ts
+import { useElementSize } from "@charlietango/hooks/use-element-size";
+
+const { ref, size } = useElementSize(options);
 ```
 
-## Contributing
+### `useMedia`
 
-This hooks library is built at as a monorepo using Lerna and Yarn Workspaces.
+Monitor a media query, and return a boolean indicating if the media query matches. Until the media query is matched, the hook will return `undefined`.
 
-To start working on a new hook, you should run the `new-hook` script to generate the new package.
+```ts
+import { useMedia } from "@charlietango/hooks/use-media";
 
+const isDesktop = useMedia({ minWidth: 1024 });
+const prefersReducedMotion = useMedia(
+  "(prefers-reduced-motion: no-preference)",
+);
 ```
-yarn new-hook
+
+### `usePrevious`
+
+Keep track of the previous value of a variable.
+
+```ts
+const prevValue = usePrevious(value);
 ```
 
-[package-url]: https://npmjs.org/package/@charlietango/hooks
-[npm-version-svg]: https://img.shields.io/npm/v/@charlietango/hooks.svg
-[deps-svg]: https://david-dm.org/charlie-tango/hooks.svg
-[deps-url]: https://david-dm.org/charlie-tango/hooks
-[dev-deps-svg]: https://david-dm.org/charlie-tango/hooks/dev-status.svg
-[dev-deps-url]: https://david-dm.org/charlie-tango/hooks#info=devDependencies
-[license-image]: http://img.shields.io/npm/l/@charlietango/hooks.svg
-[license-url]: LICENSE
-[prettier-svg]: https://img.shields.io/badge/styled_with-prettier-ff69b4.svg
-[prettier-url]: https://github.com/prettier/prettier
+### `useScript`
+
+When loading external scripts, you might want to know when the script has loaded, and if there was an error.
+Because it's external, it won't be able to trigger a callback when it's done - Therefor you need to monitor the `<script>` tag itself.
+The `useScript` hook will handle this for you.
+
+You can load the same script multiple times, and the hook will share the script and status between all instances.
+
+```ts
+const status = useScript("https://example.com/script.js"); // "idle" | "loading" | "ready" | "error"
+if (status === "ready") {
+  // Script is loaded
+}
+```
+
+### `useWindowSize`
+
+Get the current window size. If the window resizes, the hook will update the size.
+
+```ts
+import { useWindowSize } from "@charlietango/hooks/use-window-size";
+
+const { width, height } = useWindowSize();
+```
+
+<!-- Badges -->
+
+[npm-version-src]: https://img.shields.io/npm/v/@charlietango/hooks?style=flat&colorA=080f12&colorB=1fa669
+[npm-version-href]: https://npmjs.com/package/@charlietango/hooks
+[license-src]: https://img.shields.io/github/license/charlie-tango/hooks.svg?style=flat&colorA=080f12&colorB=1fa669
+[license-href]: https://github.com/charlie-tango/hooks/blob/main/LICENSE

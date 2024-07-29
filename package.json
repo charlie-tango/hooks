@@ -1,128 +1,74 @@
 {
+  "name": "@charlietango/hooks",
+  "version": "2.0.0",
   "description": "Collection of React Hooks",
-  "private": true,
-  "files": [
-    "lib/*"
-  ],
+  "files": ["dist/*"],
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/charlie-tango/hooks.git"
   },
-  "scripts": {
-    "clean": "lerna clean",
-    "build": "lerna run build --stream",
-    "build:storybook": "lerna run build:storybook --scope @charlietango/storybook",
-    "dev": "lerna run dev --scope @charlietango/storybook",
-    "lint": "lerna run lint --stream --parallel",
-    "new-hook": "node tools/new-hook",
-    "update-readme": "node tools/update-readme",
-    "release": "cross-env HUSKY_BYPASS=true lerna publish",
-    "pretty": "prettier '**/*.{js,ts,tsx,md,json,yml,html}' --write",
-    "test": "lerna run test --stream --parallel"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsc && lint-staged",
-      "commit-msg": "[[ -n $HUSKY_BYPASS ]] || commitlint -E HUSKY_GIT_PARAMS"
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/hooks/*.d.ts",
+      "default": "./dist/hooks/*.js"
     }
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "biome check .",
+    "prepublishOnly": "pnpm build",
+    "release": "bumpp && npm publish",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky"
   },
   "lint-staged": {
-    "packages/*/package.json": [
-      "yarn update-readme",
-      "git add README.md",
-      "git add packages/hooks/readme.md"
+    "*.{js,ts,cjs,mjs,jsx,tsx,json}": [
+      "biome check --apply --no-errors-on-unmatched"
     ],
-    "README.md": [
-      "yarn update-readme",
-      "git add README.md",
-      "git add packages/hooks/readme.md"
-    ],
-    "*.{js,json,css,md,mdx,ts,tsx}": [
-      "prettier --write"
-    ],
-    "src/**/*.{ts,tsx}": [
-      "eslint",
-      "jest --findRelatedTests"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint",
-      "react-hooks"
-    ],
-    "rules": {
-      "@typescript-eslint/no-angle-bracket-type-assertion": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "no-unused-vars": "off",
-      "no-console": "error"
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    }
-  },
-  "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "*.md": ["prettier --write"]
   },
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0 || ^17.0.0"
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.4",
-    "@babel/core": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@babel/preset-react": "^7.7.4",
-    "@babel/preset-typescript": "^7.7.4",
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "@testing-library/dom": "^8.13.0",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.0.1",
-    "@testing-library/react-hooks": "^8.0.0",
-    "@testing-library/user-event": "^14.1.0",
-    "@types/jest": "^27.4.1",
-    "@types/react": "^18.0.5",
-    "@types/styled-components": "^5.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.19.0",
-    "@typescript-eslint/parser": "^5.19.0",
-    "ansi-colors": "^4.0.1",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^27.5.1",
-    "babel-loader": "^8.0.5",
-    "cross-env": "^7.0.0",
-    "eslint": "^8.13.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "execa": "^6.1.0",
-    "globby": "^11.0.4",
-    "husky": "^4.2.3",
-    "inquirer": "^8.2.2",
-    "jest": "^27.5.1",
-    "lerna": "^4.0.0",
-    "lint-staged": "^12.3.7",
-    "lodash": "^4.17.11",
-    "mkdirp": "^1.0.3",
-    "ora": "^6.1.0",
-    "prettier": "^2.6.2",
-    "react-test-renderer": "^18.0.0",
-    "rollup": "^1.27.8",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-node-resolve": "^5.1.0",
-    "typescript": "^4.0.3"
+    "@biomejs/biome": "^1.8.3",
+    "@changesets/cli": "^2.27.7",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@size-limit/preset-small-lib": "^11.1.4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.3",
+    "@vitest/browser": "^2.0.4",
+    "bumpp": "^9.4.1",
+    "globby": "^14.0.2",
+    "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
+    "playwright": "^1.45.2",
+    "prettier": "^3.3.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "size-limit": "^11.1.4",
+    "tsup": "^8.2.2",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.4"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35"
 }
