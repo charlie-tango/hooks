@@ -72,6 +72,21 @@ Keep track of the previous value of a variable.
 const prevValue = usePrevious(value);
 ```
 
+### `useScript`
+
+When loading external scripts, you might want to know when the script has loaded, and if there was an error.
+Because it's external, it won't be able to trigger a callback when it's done - Therefor you need to monitor the `<script>` tag itself.
+The `useScript` hook will handle this for you.
+
+You can load the same script multiple times, and the hook will share the script and status between all instances.
+
+```ts
+const status = useScript("https://example.com/script.js"); // "idle" | "loading" | "ready" | "error"
+if (status === "ready") {
+  // Script is loaded
+}
+```
+
 ### `useWindowSize`
 
 Get the current window size. If the window resizes, the hook will update the size.
