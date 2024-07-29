@@ -17,6 +17,7 @@ export default defineWorkspace([
         headless: true,
       },
     },
+    publicDir: "src/__tests__/public",
   },
   {
     extends: "vitest.config.ts",

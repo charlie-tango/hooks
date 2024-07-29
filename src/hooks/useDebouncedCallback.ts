@@ -36,6 +36,7 @@ type CallbackMethods = {
  * @param func The function to be called
  * @param wait Wait period after function hasn't been called for
  * @param options {DebounceOptions} Options for the debounced callback
+ * @returns A debounced function that can be called with the same arguments as the original function
  *
  * ```tsx
  * const debounced = useDebouncedCallback((value: string) => {

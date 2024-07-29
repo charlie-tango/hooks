@@ -1,0 +1,1 @@
+window.testScriptLoaded = true;
