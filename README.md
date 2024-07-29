@@ -8,6 +8,7 @@ Collection of React Hooks used by [Charlie Tango](https://www.charlietango.dk/).
 - Written in TypeScript, with full types support.
 - Small and focused, each hook does one thing well.
 - No barrel file, only import the hooks you need.
+- Exported as ESM.
 - Optimized for modern React, uses newer APIs like `useSyncExternalStore`.
 - All hooks work in a server-side rendering environment.
 - All hooks are tested with [Vitest](https://vitest.dev/) in a real browser environment.
@@ -69,6 +70,8 @@ const prefersReducedMotion = useMedia(
 Keep track of the previous value of a variable.
 
 ```ts
+import { usePrevious } from "@charlietango/hooks/use-previous";
+
 const prevValue = usePrevious(value);
 ```
 
@@ -81,6 +84,8 @@ The `useScript` hook will handle this for you.
 You can load the same script multiple times, and the hook will share the script and status between all instances.
 
 ```ts
+import { useScript } from "@charlietango/hooks/use-script";
+
 const status = useScript("https://example.com/script.js"); // "idle" | "loading" | "ready" | "error"
 if (status === "ready") {
   // Script is loaded
