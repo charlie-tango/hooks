@@ -16,7 +16,7 @@ export default defineConfig({
   dts: true,
   clean: true,
   external: ["react", "react-dom"],
-  format: ["esm", "cjs"],
+  format: ["esm"],
   entry: entries,
   outDir: "dist",
   treeshake: true,
