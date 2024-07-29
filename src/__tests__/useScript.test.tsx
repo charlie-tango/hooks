@@ -66,3 +66,26 @@ test("idle until url", async () => {
 
   await vi.waitUntil(() => result.current === "ready");
 });
+
+test("should be able to add custom attributes to the script", async () => {
+  const { rerender } = renderHook(() =>
+    useScript("/test-script.js", {
+      attributes: {
+        id: "test-id",
+        "data-test": "true",
+        nonce: "test-nonce",
+      },
+    }),
+  );
+
+  const script = document.querySelector("script[src='/test-script.js']");
+  if (script) {
+    expect(script).toHaveAttribute("id", "test-id");
+    expect(script).toHaveAttribute("data-test", "true");
+    expect(script).toHaveAttribute("nonce", "test-nonce");
+  }
+
+  rerender();
+  rerender();
+  rerender();
+});

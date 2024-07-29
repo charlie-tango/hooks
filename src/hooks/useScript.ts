@@ -2,13 +2,22 @@ import { useEffect, useState } from "react";
 
 type ScriptStatus = "idle" | "loading" | "ready" | "error";
 
+type ScriptOptions = {
+  attributes?: Record<string, string>;
+};
+
 /**
  * Hook to load an external script. Returns true once the script has finished loading.
  *
  * @param url {string} The external script to load
+ * @param options {ScriptOptions} The options for the script
+ * @param options.attributes {HTMLScriptElement["attributes"]} Extra attributes to add to the script element
  * @returns {ScriptStatus} The status of the script
  * */
-export function useScript(url?: string): ScriptStatus {
+export function useScript(
+  url: string | undefined,
+  options?: ScriptOptions,
+): ScriptStatus {
   const [status, setStatus] = useState<ScriptStatus>(() => {
     if (!url) return "idle";
     if (typeof window === "undefined") return "loading";
@@ -20,6 +29,9 @@ export function useScript(url?: string): ScriptStatus {
     return (script?.getAttribute("data-status") as ScriptStatus) ?? "loading";
   });
 
+  const attributes = options?.attributes;
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: We convert the attributes object to a string to see if it has changed, so it can't be detected by the rule
   useEffect(() => {
     if (!url) {
       setStatus("idle");
@@ -34,12 +46,21 @@ export function useScript(url?: string): ScriptStatus {
       script.src = url;
       script.async = true;
       script.setAttribute("data-status", "loading");
+
       document.body.appendChild(script);
 
       // Ensure the status is loading
       setStatus("loading");
     } else if (script.hasAttribute("data-status")) {
       setStatus(script.getAttribute("data-status") as ScriptStatus);
+    }
+
+    if (attributes) {
+      // Add extra attributes to the script element
+      // If for some reason you have conflicting attributes, the last hook to execute will win
+      Object.entries(attributes).forEach(([key, value]) => {
+        script.setAttribute(key, value);
+      });
     }
 
     const eventHandler = (e: Event) => {
@@ -56,7 +77,7 @@ export function useScript(url?: string): ScriptStatus {
       script.removeEventListener("load", eventHandler);
       script.removeEventListener("error", eventHandler);
     };
-  }, [url]);
+  }, [url, attributes ? JSON.stringify(attributes) : undefined]);
 
   return status;
 }
