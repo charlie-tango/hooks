@@ -5,7 +5,8 @@ type ScriptStatus = "idle" | "loading" | "ready" | "error";
 /**
  * Hook to load an external script. Returns true once the script has finished loading.
  *
- * @param url {string} url The external script to load
+ * @param url {string} The external script to load
+ * @returns {ScriptStatus} The status of the script
  * */
 export function useScript(url?: string): ScriptStatus {
   const [status, setStatus] = useState<ScriptStatus>(() => {
