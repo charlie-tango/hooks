@@ -92,14 +92,16 @@ if (status === "ready") {
 }
 ```
 
-### `useWindowSize`
+### `useViewportSize`
 
-Get the current window size. If the window resizes, the hook will update the size.
+Get the current viewport size. If the viewport resizes, the hook will update the size.
+This will prefer the [visual viewport](https://developer.mozilla.org/en-US/docs/Web/API/VisualViewport)
+size if available, otherwise it will use the window size.
 
 ```ts
-import { useWindowSize } from "@charlietango/hooks/use-window-size";
+import { useViewportSize } from "@charlietango/hooks/use-viewport-size";
 
-const { width, height } = useWindowSize();
+const { width, height } = useViewportSize();
 ```
 
 <!-- Badges -->
