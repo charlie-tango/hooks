@@ -26,6 +26,23 @@ npm install @charlietango/hooks --save
 All the hooks are exported on their own, so we don't have a barrel file with all the hooks.
 This guarantees that you only import the hooks you need, and don't bloat your bundle with unused code.
 
+### `useDebouncedValue`
+
+Debounce a value. The value will only be updated after the delay has passed without the value changing.
+
+```ts
+import { useDebouncedValue } from "@charlietango/hooks/use-debounced-value";
+
+const [debouncedValue, setDebouncedValue] = useDebouncedValue(
+  initialValue,
+  500,
+);
+
+setDebouncedValue("Hello");
+setDebouncedValue("World");
+console.log(debouncedValue); // Will log "Hello" until 500ms has passed
+```
+
 ### `useDebouncedCallback`
 
 Debounce a callback function. The callback will only be called after the delay has passed without the function being called again.
