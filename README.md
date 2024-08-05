@@ -58,6 +58,26 @@ debouncedCallback("Hello");
 debouncedCallback("World"); // Will only log "World" after 500ms
 ```
 
+The `debouncedCallback` also contains a few methods, that can be useful:
+
+- `flush`: Call the callback immediately, and cancel the debounce.
+- `cancel`: Cancel the debounce, and the callback will never be called.
+- `isPending`: Check if the callback is waiting to be called.
+
+You can use them like this:
+
+```tsx
+const debouncedCallback = useDebouncedCallback((value: string) => {
+  console.log(value);
+}, 500);
+
+debouncedCallback("Hello");
+debouncedCallback.isPending(); // true
+debouncedCallback.flush(); // Logs "Hello"
+debouncedCallback("world");
+debouncedCallback.cancel(); // Will never log "world"
+```
+
 ### `useElementSize`
 
 Monitor the size of an element, and return the size object.
