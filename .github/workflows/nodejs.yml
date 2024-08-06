@@ -46,11 +46,6 @@ jobs:
       - name: Install ${{ matrix.react }}
         run: pnpm add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
       - name: Validate types
-        run: |
-          pnpm tsc
-          pnpx playwright install chromium
-          pnpm test
-      - name: Validate types
         run: pnpm tsc
       - name: Run tests
         run: |
