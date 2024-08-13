@@ -24,6 +24,18 @@ test("should update the value after the delay", async () => {
   expect(result.current[0]).toBe("world");
 });
 
+test("should handle initial value as method", async () => {
+  const initialValue = vi.fn();
+  initialValue.mockReturnValue("hello");
+  const { result, rerender } = renderHook(() =>
+    useDebouncedValue(initialValue, 500),
+  );
+
+  expect(result.current[0]).toBe("hello");
+  rerender();
+  expect(initialValue).toHaveBeenCalledTimes(1);
+});
+
 test("should skip old value", async () => {
   const initialValue = "hello";
   const { result } = renderHook(() => useDebouncedValue(initialValue, 500));
@@ -44,20 +56,14 @@ test("should skip old value", async () => {
   expect(result.current[0]).toBe("world");
 });
 
-test("should update if 'initial value' is changed", async () => {
+test("should not update if 'initial value' is changed", async () => {
   const { result, rerender } = renderHook((initialValue = "hello") =>
     useDebouncedValue(initialValue, 500),
   );
   expect(result.current[0]).toBe("hello");
   rerender("world");
-
-  act(() => {
-    // Should have triggered the update, when the value changes
-    expect(vi.getTimerCount()).toBe(1);
-    vi.runAllTimers();
-  });
-
-  expect(result.current[0]).toBe("world");
+  expect(result.current[1].isPending()).toBe(false);
+  expect(result.current[0]).toBe("hello");
 });
 
 test("should update the value immediately if leading is true", async () => {

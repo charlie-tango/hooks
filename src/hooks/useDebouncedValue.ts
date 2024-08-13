@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 
 type DebounceOptions = {
@@ -28,24 +28,17 @@ type DebounceOptions = {
  *  ```
  */
 export function useDebouncedValue<T>(
-  initialValue: T,
+  initialValue: T | (() => T),
   wait: number,
   options: DebounceOptions = { trailing: true },
 ) {
   const [debouncedValue, setDebouncedValue] = useState<T>(initialValue);
-  const previousValueRef = useRef<T | undefined>(initialValue);
 
   const updateDebouncedValue = useDebouncedCallback(
     setDebouncedValue,
     wait,
     options,
   );
-
-  // Update the debounced value if the initial value changes
-  if (previousValueRef.current !== initialValue) {
-    updateDebouncedValue(initialValue);
-    previousValueRef.current = initialValue;
-  }
 
   return [debouncedValue, updateDebouncedValue] as const;
 }
