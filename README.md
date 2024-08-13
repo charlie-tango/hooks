@@ -43,6 +43,26 @@ setDebouncedValue("World");
 console.log(debouncedValue); // Will log "Hello" until 500ms has passed
 ```
 
+The `setDebouncedValue` also contains a few control methods, that can be useful:
+
+- `flush`: Call the callback immediately, and cancel debouncing.
+- `cancel`: Cancel debouncing, and the callback will never be called.
+- `isPending`: Check if the callback is waiting to be called.
+  You can use them like this:
+
+```tsx
+const [debouncedValue, setDebouncedValue] = useDebouncedValue(
+  initialValue,
+  500,
+);
+
+setDebouncedValue("Hello");
+setDebouncedValue.isPending(); // true
+setDebouncedValue.flush(); // Logs "Hello"
+setDebouncedValue("world");
+setDebouncedValue.cancel(); // Will never log "world"
+```
+
 ### `useDebouncedCallback`
 
 Debounce a callback function. The callback will only be called after the delay has passed without the function being called again.
@@ -58,10 +78,10 @@ debouncedCallback("Hello");
 debouncedCallback("World"); // Will only log "World" after 500ms
 ```
 
-The `debouncedCallback` also contains a few methods, that can be useful:
+The `debouncedCallback` also contains a few control methods, that can be useful:
 
-- `flush`: Call the callback immediately, and cancel the debounce.
-- `cancel`: Cancel the debounce, and the callback will never be called.
+- `flush`: Call the callback immediately, and cancel debouncing.
+- `cancel`: Cancel debouncing, and the callback will never be called.
 - `isPending`: Check if the callback is waiting to be called.
 
 You can use them like this:

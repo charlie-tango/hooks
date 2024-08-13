@@ -31,7 +31,7 @@ export function useDebouncedValue<T>(
   initialValue: T,
   wait: number,
   options: DebounceOptions = { trailing: true },
-): [T, (value: T) => void] {
+) {
   const [debouncedValue, setDebouncedValue] = useState<T>(initialValue);
   const previousValueRef = useRef<T | undefined>(initialValue);
 
@@ -47,5 +47,5 @@ export function useDebouncedValue<T>(
     previousValueRef.current = initialValue;
   }
 
-  return [debouncedValue, updateDebouncedValue];
+  return [debouncedValue, updateDebouncedValue] as const;
 }

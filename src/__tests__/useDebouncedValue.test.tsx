@@ -48,7 +48,6 @@ test("should update if 'initial value' is changed", async () => {
   const { result, rerender } = renderHook((initialValue = "hello") =>
     useDebouncedValue(initialValue, 500),
   );
-
   expect(result.current[0]).toBe("hello");
   rerender("world");
 
@@ -76,4 +75,30 @@ test("should update the value immediately if leading is true", async () => {
   act(() => {
     vi.runAllTimers();
   });
+});
+
+test("should be able to flush the debounce", async () => {
+  const initialValue = "hello";
+  const { result } = renderHook(() => useDebouncedValue(initialValue, 500));
+
+  expect(result.current[0]).toBe(initialValue);
+  result.current[1]("world");
+  expect(result.current[1].isPending()).toBe(true);
+  act(() => {
+    result.current[1].flush();
+  });
+  expect(result.current[0]).toBe("world");
+});
+
+test("should be able to cancel the debounce", async () => {
+  const initialValue = "hello";
+  const { result } = renderHook(() => useDebouncedValue(initialValue, 500));
+
+  expect(result.current[0]).toBe(initialValue);
+  result.current[1]("world");
+  expect(result.current[1].isPending()).toBe(true);
+  act(() => {
+    result.current[1].cancel();
+  });
+  expect(result.current[0]).toBe("hello");
 });
