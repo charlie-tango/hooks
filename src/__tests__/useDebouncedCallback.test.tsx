@@ -133,3 +133,12 @@ test("should infer the correct callback signature", async () => {
   expectTypeOf(result.current).parameter(1).toMatchTypeOf<number>();
   expectTypeOf(result.current).parameter(2).toMatchTypeOf<{ input: string }>();
 });
+
+test("should not recreate the hook on each render", () => {
+  const cb = vi.fn();
+  const { result, rerender } = renderHook(() => useDebouncedCallback(cb, 500));
+  const firstValue = result.current;
+  rerender();
+  // Validate that we didn't recreate he debounced function. It should stay the same, until the options change
+  expect(firstValue).toBe(result.current);
+});
