@@ -113,5 +113,5 @@ export function useDebouncedCallback<
     };
 
     return debounce;
-  }, [wait, options]);
+  }, [wait, options.trailing, options.leading]);
 }
