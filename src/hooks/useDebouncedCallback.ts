@@ -107,7 +107,7 @@ export function useDebouncedCallback<
         timeout.current = null;
 
         if (options.trailing) {
-          cb.current(...currentArgs);
+          cb.current(...(currentArgs ?? []));
         }
       }
     };
