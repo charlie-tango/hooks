@@ -52,7 +52,7 @@ export function setCookie(
     sameSite: options.sameSite || "strict",
     secure: options.secure ?? document.location.protocol === "https:",
     // If expires is not set, set it to -1 (the past), so the cookie is deleted immediately
-    expires: !value ? -1 : options.expires ?? 0,
+    expires: !value ? -1 : (options.expires ?? 0),
     domain: options.domain,
   };
 

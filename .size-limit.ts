@@ -17,4 +17,4 @@ const limits = globbySync("dist/hooks/use*.js").map((file) => {
   };
 }) satisfies SizeLimitConfig;
 
-export default limits;
+module.exports = limits;
