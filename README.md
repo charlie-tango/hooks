@@ -26,6 +26,17 @@ npm install @charlietango/hooks --save
 All the hooks are exported on their own, so we don't have a barrel file with all the hooks.
 This guarantees that you only import the hooks you need, and don't bloat your bundle with unused code.
 
+### `useCookie`
+
+A hook to interact with the `document.cookie`. It works just like the `useState` hook, but it will persist the value in the cookie.
+The hook only sets and gets the `string` value - If you need to store an object, you need to serialize it yourself.
+
+```ts
+import { useCookie } from "@charlietango/hooks/use-cookie";
+
+const [value, setValue] = useCookie("mode");
+```
+
 ### `useDebouncedValue`
 
 Debounce a value. The value will only be updated after the delay has passed without the value changing.
@@ -147,6 +158,18 @@ const status = useScript("https://example.com/script.js"); // "idle" | "loading"
 if (status === "ready") {
   // Script is loaded
 }
+```
+
+### `useStorage`
+
+A hook to interact with the `localStorage` or `sessionStorage`. It works just like the `useState` hook, but it will persist the value in the storage.
+The hook only sets and gets the `string` value - If you need to store an object, you need to serialize it yourself.
+
+```ts
+import { useStorage } from "@charlietango/hooks/use-storage";
+
+const [value, setValue] = useStorage("mode", { mode: "local" });
+setValue("dark");
 ```
 
 ### `useWindowSize`
