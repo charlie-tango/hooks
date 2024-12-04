@@ -37,6 +37,14 @@ import { useCookie } from "@charlietango/hooks/use-cookie";
 const [value, setValue] = useCookie("mode");
 ```
 
+If the cookies is changed outside the `useCookie` hook, you can call the `revalidateCookies`, to get React to reevaluate the cookie values.
+
+```ts
+import { revalidateCookies } from "@charlietango/hooks/use-cookie";
+
+revalidateCookies();
+```
+
 ### `useDebouncedValue`
 
 Debounce a value. The value will only be updated after the delay has passed without the value changing.
