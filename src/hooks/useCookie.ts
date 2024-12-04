@@ -14,6 +14,13 @@ type Options = {
 };
 
 /**
+ * Revalidate the cookies. Useful to update the cookies when they are changed outside the hook, e.g. by a server response.
+ */
+export function revalidateCookies() {
+  trigger(SUBSCRIPTION_KEY);
+}
+
+/**
  * Get or set a cookie, and update the value when it changes
  * @param key {string} The name of the cookie.
  * @param options {Options} Options for the useCookie hook.
