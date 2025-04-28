@@ -3,5 +3,39 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   test: {
     globals: true,
+    workspace: [
+      {
+        extends: "vitest.config.ts",
+        test: {
+          include: ["src/**/*.{test,spec}.{ts,tsx}"],
+          exclude: [
+            "**/*.node.{test,spec}.{ts,tsx}",
+            "**/node/*.{test,spec}.{ts,tsx}",
+          ],
+          name: "browser",
+          browser: {
+            enabled: true,
+            provider: "playwright",
+            headless: true,
+            instances: [{ browser: "chromium" }],
+          },
+        },
+        optimizeDeps: {
+          include: ["react/jsx-dev-runtime"],
+        },
+        publicDir: "src/__tests__/public",
+      },
+      {
+        extends: "vitest.config.ts",
+        test: {
+          include: [
+            "src/**/*.node.{test,spec}.{ts,tsx}",
+            "src/**/node/*.{test,spec}.{ts,tsx}",
+          ],
+          name: "node",
+          environment: "node",
+        },
+      },
+    ],
   },
 });
