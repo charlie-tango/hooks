@@ -5,7 +5,6 @@ export default defineConfig({
     globals: true,
     workspace: [
       {
-        extends: "vitest.config.ts",
         test: {
           include: ["src/**/*.{test,spec}.{ts,tsx}"],
           exclude: [
@@ -30,7 +29,6 @@ export default defineConfig({
         publicDir: "src/__tests__/public",
       },
       {
-        extends: "vitest.config.ts",
         test: {
           include: [
             "src/**/*.node.{test,spec}.{ts,tsx}",
