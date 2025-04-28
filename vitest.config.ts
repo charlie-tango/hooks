@@ -2,10 +2,10 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    globals: true,
     workspace: [
       {
         test: {
+          globals: true,
           include: ["src/**/*.{test,spec}.{ts,tsx}"],
           exclude: [
             "**/*.node.{test,spec}.{ts,tsx}",
@@ -30,6 +30,7 @@ export default defineConfig({
       },
       {
         test: {
+          globals: true,
           include: [
             "src/**/*.node.{test,spec}.{ts,tsx}",
             "src/**/node/*.{test,spec}.{ts,tsx}",
