@@ -39,7 +39,7 @@ type ElementSizeOptions = {
 export function useElementSize(
   options: ElementSizeOptions = {},
 ): ElementSizeResponse {
-  const ro = useRef<ResizeObserver>();
+  const ro = useRef<ResizeObserver>(undefined);
   const [elementSize, setElementSize] = useState<ElementSizeResponse["size"]>({
     width: 0,
     height: 0,

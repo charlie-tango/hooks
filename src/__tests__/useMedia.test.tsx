@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react";
+import { act, renderHook } from "@testing-library/react";
 import { page } from "@vitest/browser/context";
 import { useMedia } from "../hooks/useMedia";
 
@@ -8,9 +8,11 @@ test("useMedia with minWidth", async () => {
   );
   expect(result.current).toBe(false);
 
-  await page.viewport(800, 600);
-  // Trigger a rerender to update the hook
-  rerender();
+  await act(async () => {
+    await page.viewport(800, 600);
+    // Trigger a rerender to update the hook
+    rerender();
+  });
 
   expect(result.current).toBe(true);
 });

@@ -7,10 +7,9 @@ test("get window size", async () => {
   const { result } = renderHook(useWindowSize);
   expect(result.current).toEqual({ width: 800, height: 600 });
 
-  // Should observe the new viewport size on `resize`
-  await page.viewport(1024, 768);
-
-  act(() => {
+  await act(async () => {
+    // Should observe the new viewport size on `resize`
+    await page.viewport(1024, 768);
     window.dispatchEvent(new Event("resize"));
   });
   expect(result.current).toEqual({ width: 1024, height: 768 });
